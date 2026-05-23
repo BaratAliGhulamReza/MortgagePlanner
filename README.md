@@ -45,3 +45,16 @@ The selected language is saved in the browser using `localStorage`.
 ## Dari inputs
 
 Dari mode translates labels, dropdown options, placeholders, visible calculation results, and key form accessibility labels. Numeric input values remain standard digits for browser compatibility and accurate calculations.
+
+
+## Additional language support
+
+This version supports:
+- English
+- Dari
+- Hindi
+- Urdu
+- Mandarin Chinese
+- Spanish
+
+Dari and Urdu use RTL layout. The house image flips in RTL mode.

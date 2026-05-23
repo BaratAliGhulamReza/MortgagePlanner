@@ -99,13 +99,8 @@ const I18N = {
     yearSingular: 'year',
     yearPlural: 'years',
     datePlaceholder: 'Loan start date',
-    zeroPlaceholder: '0',
     amountPlaceholder: 'Enter amount',
-    ratePlaceholder: 'Enter rate',
-    weeklyOption: 'Weekly',
-    fortnightlyOption: 'Fortnightly',
-    monthlyOption: 'Monthly',
-    yearlyOption: 'Yearly'
+    ratePlaceholder: 'Enter rate'
   },
   fa: {
     docTitle: 'برنامه‌ریز وام خانه',
@@ -203,29 +198,424 @@ const I18N = {
     yearSingular: 'سال',
     yearPlural: 'سال',
     datePlaceholder: 'روز / ماه / سال',
-    zeroPlaceholder: '۰',
     amountPlaceholder: 'مبلغ را وارد کنید',
-    ratePlaceholder: 'نرخ را وارد کنید',
-    weeklyOption: 'هفتگی',
-    fortnightlyOption: 'هر دو هفته',
-    monthlyOption: 'ماهانه',
-    yearlyOption: 'سالانه'
+    ratePlaceholder: 'نرخ را وارد کنید'
+  },
+  hi: {
+    docTitle: 'मॉर्गेज प्लानर',
+    brand: 'मॉर्गेज प्लानर',
+    savePlan: 'प्लान सेव करें',
+    heroTitle: 'बेहतर <span>योजना बनाएं.</span><br>अपना मॉर्गेज जल्दी चुकाएं.',
+    heroLead: 'देखें कि अतिरिक्त भुगतान और स्मार्ट रणनीतियाँ आपको समय और हजारों डॉलर ब्याज बचाने में कैसे मदद कर सकती हैं.',
+    benefit1: 'कम ब्याज<br>लागत',
+    benefit2: 'अपना लोन<br>जल्दी चुकाएं',
+    benefit3: 'वित्तीय<br>स्वतंत्रता बनाएं',
+    statLoan: 'वर्तमान लोन बैलेंस',
+    statRate: 'ब्याज दर',
+    statTerm: 'अमोर्टाइजेशन अवधि',
+    statFrequency: 'भुगतान आवृत्ति',
+    statPayment: 'भुगतान',
+    calcTitle: 'मॉर्गेज कैलकुलेटर',
+    calcSub: 'भुगतान समय का अनुमान लगाने के लिए अपने लोन विवरण दर्ज करें.',
+    loanStartDate: 'लोन शुरू होने की तारीख',
+    dateHint: 'दिन / महीना / साल',
+    currentLoanBalance: 'वर्तमान लोन बैलेंस',
+    interestRate: 'ब्याज दर',
+    amortizationPeriod: 'अमोर्टाइजेशन अवधि',
+    repaymentFrequency: 'भुगतान आवृत्ति',
+    strategiesTitle: 'रणनीति विकल्प',
+    strategiesSub: 'रणनीतियों की तुलना करने के लिए एक या अधिक विकल्प चुनें.',
+    offsetTitle: 'ऑफसेट खाता बढ़ाएं',
+    offsetDesc: 'ऑफसेट खाते से लोन पर लगने वाला ब्याज कम होता है.',
+    use: 'उपयोग करें',
+    currentOffset: 'वर्तमान ऑफसेट / रीड्रॉ',
+    growOffsetBy: 'ऑफसेट बढ़ाएं',
+    growFrequency: 'वृद्धि आवृत्ति',
+    extraTitle: 'अतिरिक्त भुगतान',
+    extraDesc: 'साप्ताहिक, पाक्षिक, मासिक या वार्षिक अतिरिक्त भुगतान जोड़ें.',
+    extraAmount: 'अतिरिक्त राशि',
+    howOften: 'कितनी बार',
+    lumpTitle: 'एकमुश्त भुगतान',
+    lumpDesc: 'होम लोन की ओर एक बार किया गया भुगतान.',
+    lumpAmount: 'एकमुश्त राशि',
+    interestComparison: 'ब्याज तुलना',
+    interestComparisonSub: 'हर रणनीति को अलग-अलग देखें, फिर चुने गए विकल्पों के संयुक्त परिणाम से तुलना करें.',
+    clearComparison: 'स्पष्ट साथ-साथ तुलना',
+    noStrategyBaseline: 'बिना रणनीति आधार',
+    baselineDesc: 'यह अनुमानित ब्याज है जो आप बिना ऑफसेट, बिना अतिरिक्त भुगतान और बिना एकमुश्त भुगतान के देंगे.',
+    offsetOnly: 'केवल ऑफसेट खाता',
+    offsetOnlyDesc: 'आपके ऑफसेट बैलेंस और वृद्धि के आधार पर.',
+    extraOnly: 'केवल अतिरिक्त भुगतान',
+    extraOnlyDesc: 'अतिरिक्त भुगतान राशि और आवृत्ति के आधार पर.',
+    lumpOnly: 'केवल एकमुश्त भुगतान',
+    lumpOnlyDesc: 'अभी किए गए एक बार के भुगतान के आधार पर.',
+    interestPay: 'आप जो ब्याज देंगे',
+    interestSave: 'आप जो ब्याज बचाएंगे',
+    offsetCardP: 'दिखाता है कि ऑफसेट में पैसा रखने से लोन ब्याज कितना कम होता है.',
+    extraCardP: 'दिखाता है कि सामान्य भुगतान के ऊपर अतिरिक्त भुगतान करने से कितनी बचत होती है.',
+    lumpCardP: 'दिखाता है कि एकमुश्त भुगतान से कितनी ब्याज बचत होती है. यदि राशि $0 है, बचत $0 होगी.',
+    liveCombined: 'लाइव संयुक्त परिणाम',
+    interestPayShort: 'ब्याज भुगतान',
+    payoffTime: 'चुकाने का समय',
+    newPayoffDate: 'नई भुगतान समाप्ति तारीख',
+    chartTitle: 'समय के साथ मॉर्गेज बैलेंस',
+    legendNoStrategy: 'कोई रणनीति नहीं',
+    legendOffsetOnly: 'केवल ऑफसेट',
+    legendAllSelected: 'सभी चुनी गई रणनीतियाँ',
+    payoffNoStrategy: 'भुगतान समय (बिना रणनीति)',
+    payoffOffsetOnly: 'भुगतान समय (केवल ऑफसेट)',
+    payoffAllSelected: 'भुगतान समय (चुने गए विकल्प)',
+    timeSaved: 'बचा हुआ समय',
+    footerLine: 'आज योजना बनाएं. कल बेहतर जिएं.',
+    product: 'प्रोडक्ट',
+    calculator: 'कैलकुलेटर',
+    savedPlans: 'सेव किए गए प्लान',
+    resources: 'संसाधन',
+    guides: 'गाइड',
+    faqs: 'FAQ',
+    glossary: 'शब्दावली',
+    company: 'कंपनी',
+    aboutUs: 'हमारे बारे में',
+    contact: 'संपर्क',
+    privacy: 'गोपनीयता',
+    monthly: 'मासिक',
+    fortnightly: 'पाक्षिक',
+    weekly: 'साप्ताहिक',
+    yearly: 'वार्षिक',
+    years: 'साल',
+    noStrategySelected: 'कोई रणनीति चुनी नहीं गई',
+    noStrategySelectedDesc: 'संयुक्त परिणाम देखने के लिए एक या अधिक रणनीति विकल्प चालू करें.',
+    allSelectedStrategies: 'सभी चुनी गई रणनीतियाँ',
+    allSelectedStrategiesDesc: 'यह आपके ऑफसेट खाते, अतिरिक्त भुगतान और एकमुश्त भुगतान को साथ जोड़ता है.',
+    selectedComboDesc: 'यह कैलकुलेटर में चालू चुने गए रणनीति विकल्पों को जोड़ता है.',
+    offset: 'ऑफसेट',
+    extraRepayment: 'अतिरिक्त भुगतान',
+    oneOffLumpSum: 'एकमुश्त भुगतान',
+    paidOffMonthsSooner: (n) => `${n} महीने जल्दी चुकाया जाएगा`,
+    monthSingular: 'महीना',
+    monthPlural: 'महीने',
+    yearSingular: 'साल',
+    yearPlural: 'साल',
+    datePlaceholder: 'दिन / महीना / साल',
+    amountPlaceholder: 'राशि दर्ज करें',
+    ratePlaceholder: 'दर दर्ज करें'
+  },
+  ur: {
+    docTitle: 'مورگیج پلانر',
+    brand: 'مورگیج پلانر',
+    savePlan: 'پلان محفوظ کریں',
+    heroTitle: 'بہتر <span>منصوبہ بنائیں.</span><br>اپنا مورگیج جلدی ادا کریں.',
+    heroLead: 'دیکھیں کہ اضافی ادائیگیاں اور smart strategies آپ کو وقت اور ہزاروں ڈالر سود بچانے میں کیسے مدد دے سکتی ہیں.',
+    benefit1: 'کم سود<br>اخراجات',
+    benefit2: 'اپنا قرض<br>جلدی ادا کریں',
+    benefit3: 'مالی<br>آزادی بنائیں',
+    statLoan: 'موجودہ قرض بیلنس',
+    statRate: 'سود کی شرح',
+    statTerm: 'ادائیگی کی مدت',
+    statFrequency: 'ادائیگی کی فریکوئنسی',
+    statPayment: 'ادائیگی',
+    calcTitle: 'مورگیج کیلکولیٹر',
+    calcSub: 'ادائیگی کا وقت اندازہ کرنے کے لیے قرض کی تفصیلات درج کریں.',
+    loanStartDate: 'قرض شروع ہونے کی تاریخ',
+    dateHint: 'دن / مہینہ / سال',
+    currentLoanBalance: 'موجودہ قرض بیلنس',
+    interestRate: 'سود کی شرح',
+    amortizationPeriod: 'ادائیگی کی مدت',
+    repaymentFrequency: 'ادائیگی کی فریکوئنسی',
+    strategiesTitle: 'حکمت عملی کے اختیارات',
+    strategiesSub: 'حکمت عملیوں کا موازنہ کرنے کے لیے ایک یا زیادہ اختیارات منتخب کریں.',
+    offsetTitle: 'آفسیٹ اکاؤنٹ بڑھائیں',
+    offsetDesc: 'آفسیٹ اکاؤنٹ قرض سے منسلک ہوتا ہے اور سود کم کرتا ہے.',
+    use: 'استعمال کریں',
+    currentOffset: 'موجودہ آفسیٹ / ری ڈرا',
+    growOffsetBy: 'آفسیٹ میں اضافہ',
+    growFrequency: 'اضافہ کی فریکوئنسی',
+    extraTitle: 'اضافی ادائیگی',
+    extraDesc: 'ہفتہ وار، پندرہ روزہ، ماہانہ یا سالانہ اضافی ادائیگی شامل کریں.',
+    extraAmount: 'اضافی رقم',
+    howOften: 'کتنی بار',
+    lumpTitle: 'ایک بار کی رقم',
+    lumpDesc: 'ہوم لون کی طرف ایک بار کی ادائیگی.',
+    lumpAmount: 'ایک بار کی رقم',
+    interestComparison: 'سود کا موازنہ',
+    interestComparisonSub: 'ہر حکمت عملی کو الگ دیکھیں، پھر منتخب اختیارات کے مشترکہ نتیجے سے موازنہ کریں.',
+    clearComparison: 'واضح ساتھ ساتھ موازنہ',
+    noStrategyBaseline: 'بغیر حکمت عملی بنیاد',
+    baselineDesc: 'یہ اندازہ شدہ سود ہے جو آپ بغیر آفسیٹ، بغیر اضافی ادائیگی اور بغیر ایک بار کی رقم کے ادا کریں گے.',
+    offsetOnly: 'صرف آفسیٹ اکاؤنٹ',
+    offsetOnlyDesc: 'آپ کے آفسیٹ بیلنس اور آفسیٹ گروتھ کی بنیاد پر.',
+    extraOnly: 'صرف اضافی ادائیگی',
+    extraOnlyDesc: 'اضافی ادائیگی کی رقم اور فریکوئنسی کی بنیاد پر.',
+    lumpOnly: 'صرف ایک بار کی رقم',
+    lumpOnlyDesc: 'ابھی کی گئی ایک بار کی ادائیگی کی بنیاد پر.',
+    interestPay: 'آپ جو سود ادا کریں گے',
+    interestSave: 'آپ جو سود بچائیں گے',
+    offsetCardP: 'دکھاتا ہے کہ آفسیٹ میں رقم رکھنے سے قرض کا سود کتنا کم ہوتا ہے.',
+    extraCardP: 'دکھاتا ہے کہ عام ادائیگی کے علاوہ اضافی ادائیگی سے کتنی بچت ہوتی ہے.',
+    lumpCardP: 'دکھاتا ہے کہ ایک بار کی ادائیگی سے کتنی سود بچت ہوتی ہے. اگر رقم $0 ہے تو بچت $0 ہوگی.',
+    liveCombined: 'لائیو مشترکہ نتیجہ',
+    interestPayShort: 'سود کی ادائیگی',
+    payoffTime: 'ادائیگی کا وقت',
+    newPayoffDate: 'نئی ادائیگی مکمل تاریخ',
+    chartTitle: 'وقت کے ساتھ مورگیج بیلنس',
+    legendNoStrategy: 'کوئی حکمت عملی نہیں',
+    legendOffsetOnly: 'صرف آفسیٹ',
+    legendAllSelected: 'تمام منتخب حکمت عملیاں',
+    payoffNoStrategy: 'ادائیگی کا وقت (بغیر حکمت عملی)',
+    payoffOffsetOnly: 'ادائیگی کا وقت (صرف آفسیٹ)',
+    payoffAllSelected: 'ادائیگی کا وقت (منتخب اختیارات)',
+    timeSaved: 'بچایا گیا وقت',
+    footerLine: 'آج منصوبہ بنائیں. کل بہتر رہیں.',
+    product: 'پروڈکٹ',
+    calculator: 'کیلکولیٹر',
+    savedPlans: 'محفوظ پلانز',
+    resources: 'وسائل',
+    guides: 'گائیڈز',
+    faqs: 'عمومی سوالات',
+    glossary: 'لغت',
+    company: 'کمپنی',
+    aboutUs: 'ہمارے بارے میں',
+    contact: 'رابطہ',
+    privacy: 'پرائیویسی',
+    monthly: 'ماہانہ',
+    fortnightly: 'پندرہ روزہ',
+    weekly: 'ہفتہ وار',
+    yearly: 'سالانہ',
+    years: 'سال',
+    noStrategySelected: 'کوئی حکمت عملی منتخب نہیں',
+    noStrategySelectedDesc: 'مشترکہ نتیجہ دیکھنے کے لیے ایک یا زیادہ حکمت عملی کے اختیارات آن کریں.',
+    allSelectedStrategies: 'تمام منتخب حکمت عملیاں',
+    allSelectedStrategiesDesc: 'یہ آپ کے آفسیٹ اکاؤنٹ، اضافی ادائیگی اور ایک بار کی رقم کو اکٹھا کرتا ہے.',
+    selectedComboDesc: 'یہ کیلکولیٹر میں آن منتخب حکمت عملیوں کو اکٹھا کرتا ہے.',
+    offset: 'آفسیٹ',
+    extraRepayment: 'اضافی ادائیگی',
+    oneOffLumpSum: 'ایک بار کی رقم',
+    paidOffMonthsSooner: (n) => `${n} ماہ پہلے ادا ہوگا`,
+    monthSingular: 'ماہ',
+    monthPlural: 'ماہ',
+    yearSingular: 'سال',
+    yearPlural: 'سال',
+    datePlaceholder: 'دن / مہینہ / سال',
+    amountPlaceholder: 'رقم درج کریں',
+    ratePlaceholder: 'شرح درج کریں'
+  },
+  zh: {
+    docTitle: '房贷规划器',
+    brand: '房贷规划器',
+    savePlan: '保存计划',
+    heroTitle: '更聪明地<span>规划。</span><br>更快还清房贷。',
+    heroLead: '了解额外还款和智能策略如何帮助你节省时间和数千澳元利息。',
+    benefit1: '降低<br>利息成本',
+    benefit2: '更快<br>还清贷款',
+    benefit3: '建立<br>财务自由',
+    statLoan: '当前贷款余额',
+    statRate: '利率',
+    statTerm: '摊还期限',
+    statFrequency: '还款频率',
+    statPayment: '还款额',
+    calcTitle: '房贷计算器',
+    calcSub: '输入贷款信息，估算还清时间。',
+    loanStartDate: '贷款开始日期',
+    dateHint: '日 / 月 / 年',
+    currentLoanBalance: '当前贷款余额',
+    interestRate: '利率',
+    amortizationPeriod: '摊还期限',
+    repaymentFrequency: '还款频率',
+    strategiesTitle: '策略选项',
+    strategiesSub: '选择一个或多个选项来比较策略。',
+    offsetTitle: '增加抵消账户',
+    offsetDesc: '抵消账户与贷款相连，可减少计息金额。',
+    use: '使用',
+    currentOffset: '当前抵消 / redraw',
+    growOffsetBy: '抵消账户增加',
+    growFrequency: '增加频率',
+    extraTitle: '额外还款',
+    extraDesc: '按每周、每两周、每月或每年增加额外还款。',
+    extraAmount: '额外金额',
+    howOften: '频率',
+    lumpTitle: '一次性还款',
+    lumpDesc: '一次性用于房贷本金的付款。',
+    lumpAmount: '一次性金额',
+    interestComparison: '利息比较',
+    interestComparisonSub: '单独查看每个策略，再与所选选项的组合结果比较。',
+    clearComparison: '清晰并排比较',
+    noStrategyBaseline: '无策略基准',
+    baselineDesc: '这是在没有抵消账户、额外还款和一次性还款时预计需要支付的利息。',
+    offsetOnly: '仅抵消账户',
+    offsetOnlyDesc: '基于你的抵消账户余额和增长。',
+    extraOnly: '仅额外还款',
+    extraOnlyDesc: '基于额外还款金额和频率。',
+    lumpOnly: '仅一次性还款',
+    lumpOnlyDesc: '基于现在进行的一次性付款。',
+    interestPay: '你支付的利息',
+    interestSave: '你节省的利息',
+    offsetCardP: '显示把资金放在抵消账户中可减少多少贷款利息。',
+    extraCardP: '显示在正常还款之外额外还款能节省多少利息。',
+    lumpCardP: '显示一次性还款能节省多少利息。如果金额为 $0，节省为 $0。',
+    liveCombined: '实时组合结果',
+    interestPayShort: '支付利息',
+    payoffTime: '还清时间',
+    newPayoffDate: '新的还清日期',
+    chartTitle: '房贷余额随时间变化',
+    legendNoStrategy: '无策略',
+    legendOffsetOnly: '仅抵消',
+    legendAllSelected: '所有已选策略',
+    payoffNoStrategy: '还清时间（无策略）',
+    payoffOffsetOnly: '还清时间（仅抵消）',
+    payoffAllSelected: '还清时间（已选选项）',
+    timeSaved: '节省时间',
+    footerLine: '今天规划，明天更轻松。',
+    product: '产品',
+    calculator: '计算器',
+    savedPlans: '已保存计划',
+    resources: '资源',
+    guides: '指南',
+    faqs: '常见问题',
+    glossary: '术语表',
+    company: '公司',
+    aboutUs: '关于我们',
+    contact: '联系',
+    privacy: '隐私',
+    monthly: '每月',
+    fortnightly: '每两周',
+    weekly: '每周',
+    yearly: '每年',
+    years: '年',
+    noStrategySelected: '未选择策略',
+    noStrategySelectedDesc: '开启一个或多个策略选项以查看组合结果。',
+    allSelectedStrategies: '所有已选策略',
+    allSelectedStrategiesDesc: '这会组合你的抵消账户、额外还款和一次性还款。',
+    selectedComboDesc: '这会组合计算器中当前开启的策略选项。',
+    offset: '抵消',
+    extraRepayment: '额外还款',
+    oneOffLumpSum: '一次性还款',
+    paidOffMonthsSooner: (n) => `提前 ${n} 个月还清`,
+    monthSingular: '个月',
+    monthPlural: '个月',
+    yearSingular: '年',
+    yearPlural: '年',
+    datePlaceholder: '日 / 月 / 年',
+    amountPlaceholder: '输入金额',
+    ratePlaceholder: '输入利率'
+  },
+  es: {
+    docTitle: 'Planificador de hipoteca',
+    brand: 'Planificador de hipoteca',
+    savePlan: 'Guardar plan',
+    heroTitle: 'Planifica <span>mejor.</span><br>Paga tu hipoteca antes.',
+    heroLead: 'Mira cómo los pagos extra y las estrategias inteligentes pueden ahorrarte tiempo y miles en intereses.',
+    benefit1: 'Menos costos<br>de interés',
+    benefit2: 'Paga tu préstamo<br>antes',
+    benefit3: 'Construye libertad<br>financiera',
+    statLoan: 'Saldo actual del préstamo',
+    statRate: 'Tasa de interés',
+    statTerm: 'Período de amortización',
+    statFrequency: 'Frecuencia de pago',
+    statPayment: 'Pago',
+    calcTitle: 'Calculadora hipotecaria',
+    calcSub: 'Ingresa los detalles de tu préstamo para estimar cuándo lo pagarás.',
+    loanStartDate: 'Fecha de inicio del préstamo',
+    dateHint: 'Día / Mes / Año',
+    currentLoanBalance: 'Saldo actual del préstamo',
+    interestRate: 'Tasa de interés',
+    amortizationPeriod: 'Período de amortización',
+    repaymentFrequency: 'Frecuencia de pago',
+    strategiesTitle: 'Opciones de estrategia',
+    strategiesSub: 'Elige una o más opciones para comparar estrategias.',
+    offsetTitle: 'Aumentar cuenta offset',
+    offsetDesc: 'La cuenta offset está vinculada al préstamo y reduce el interés cobrado.',
+    use: 'Usar',
+    currentOffset: 'Offset / redraw actual',
+    growOffsetBy: 'Aumentar offset en',
+    growFrequency: 'Frecuencia de aumento',
+    extraTitle: 'Pago extra',
+    extraDesc: 'Agrega un pago extra semanal, quincenal, mensual o anual.',
+    extraAmount: 'Monto extra',
+    howOften: 'Frecuencia',
+    lumpTitle: 'Pago único',
+    lumpDesc: 'Un pago único hacia el préstamo hipotecario.',
+    lumpAmount: 'Monto del pago único',
+    interestComparison: 'Comparación de intereses',
+    interestComparisonSub: 'Mira cada estrategia por separado y compárala con el resultado combinado de las opciones seleccionadas.',
+    clearComparison: 'Comparación clara lado a lado',
+    noStrategyBaseline: 'Base sin estrategia',
+    baselineDesc: 'Este es el interés estimado que pagarías si mantienes el préstamo igual, sin offset, sin pagos extra y sin pago único.',
+    offsetOnly: 'Solo cuenta offset',
+    offsetOnlyDesc: 'Basado en tu saldo offset y su crecimiento.',
+    extraOnly: 'Solo pago extra',
+    extraOnlyDesc: 'Basado en el monto extra y la frecuencia.',
+    lumpOnly: 'Solo pago único',
+    lumpOnlyDesc: 'Basado en un pago único realizado ahora.',
+    interestPay: 'Interés que pagas',
+    interestSave: 'Interés que ahorras',
+    offsetCardP: 'Muestra cuánto se reduce el interés al mantener dinero en la cuenta offset.',
+    extraCardP: 'Muestra el ahorro de intereses al pagar extra además del pago normal.',
+    lumpCardP: 'Muestra el ahorro de intereses de un pago único. Si el monto es $0, el ahorro será $0.',
+    liveCombined: 'Resultado combinado en vivo',
+    interestPayShort: 'Interés que pagas',
+    payoffTime: 'Tiempo para pagar',
+    newPayoffDate: 'Nueva fecha de pago final',
+    chartTitle: 'Saldo de la hipoteca en el tiempo',
+    legendNoStrategy: 'Sin estrategia',
+    legendOffsetOnly: 'Solo offset',
+    legendAllSelected: 'Todas las estrategias seleccionadas',
+    payoffNoStrategy: 'Tiempo de pago (sin estrategia)',
+    payoffOffsetOnly: 'Tiempo de pago (solo offset)',
+    payoffAllSelected: 'Tiempo de pago (seleccionadas)',
+    timeSaved: 'Tiempo ahorrado',
+    footerLine: 'Planifica hoy. Disfruta mañana.',
+    product: 'Producto',
+    calculator: 'Calculadora',
+    savedPlans: 'Planes guardados',
+    resources: 'Recursos',
+    guides: 'Guías',
+    faqs: 'Preguntas frecuentes',
+    glossary: 'Glosario',
+    company: 'Empresa',
+    aboutUs: 'Sobre nosotros',
+    contact: 'Contacto',
+    privacy: 'Privacidad',
+    monthly: 'Mensual',
+    fortnightly: 'Quincenal',
+    weekly: 'Semanal',
+    yearly: 'Anual',
+    years: 'años',
+    noStrategySelected: 'Ninguna estrategia seleccionada',
+    noStrategySelectedDesc: 'Activa una o más estrategias para ver el resultado combinado.',
+    allSelectedStrategies: 'Todas las estrategias seleccionadas',
+    allSelectedStrategiesDesc: 'Combina tu cuenta offset, pago extra y pago único.',
+    selectedComboDesc: 'Combina las estrategias actualmente activadas en la calculadora.',
+    offset: 'Offset',
+    extraRepayment: 'Pago extra',
+    oneOffLumpSum: 'Pago único',
+    paidOffMonthsSooner: (n) => `Pagado ${n} meses antes`,
+    monthSingular: 'mes',
+    monthPlural: 'meses',
+    yearSingular: 'año',
+    yearPlural: 'años',
+    datePlaceholder: 'Día / Mes / Año',
+    amountPlaceholder: 'Ingresa monto',
+    ratePlaceholder: 'Ingresa tasa'
   }
 };
 
+const RTL_LANGS = ['fa', 'ur'];
+
 function t(key) {
-  return I18N[currentLang][key] ?? I18N.en[key] ?? key;
+  return I18N[currentLang]?.[key] ?? I18N.en[key] ?? key;
+}
+
+function isRTL() {
+  return RTL_LANGS.includes(currentLang);
+}
+
+function localeCode() {
+  const map = { en:'en-AU', fa:'fa-AF', hi:'hi-IN', ur:'ur-PK', zh:'zh-CN', es:'es-ES' };
+  return map[currentLang] || 'en-AU';
 }
 
 function localNumber(value) {
-  const str = String(value);
-  if (currentLang !== 'fa') return str;
-  const map = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
-  return str.replace(/\d/g, d => map[d]);
-}
-
-function localMoney(n, d = 0) {
-  return fmt(n, d);
+  return new Intl.NumberFormat(localeCode(), { maximumFractionDigits: 0 }).format(Number(value) || 0);
 }
 
 function setPlaceholder(id, value) {
@@ -238,9 +628,20 @@ function setHTML(selector, value) {
   if (el) el.innerHTML = value;
 }
 
+const fmt = (n, d = 0) =>
+  new Intl.NumberFormat(localeCode(), {
+    style: 'currency',
+    currency: 'AUD',
+    maximumFractionDigits: d,
+    minimumFractionDigits: d
+  }).format(Number.isFinite(n) ? n : 0);
+
+const monthFmt = () => new Intl.DateTimeFormat(localeCode(), { month: 'short', year: 'numeric' });
+
 function setStaticText() {
-  document.documentElement.lang = currentLang === 'fa' ? 'fa' : 'en';
-  document.documentElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isRTL() ? 'rtl' : 'ltr';
+  document.body.classList.toggle('rtl', isRTL());
   document.title = t('docTitle');
 
   const langSelect = $('languageSelect');
@@ -252,9 +653,7 @@ function setStaticText() {
   setHTML('.lead', t('heroLead'));
 
   const benefits = document.querySelectorAll('.benefit strong');
-  if (benefits[0]) benefits[0].innerHTML = t('benefit1');
-  if (benefits[1]) benefits[1].innerHTML = t('benefit2');
-  if (benefits[2]) benefits[2].innerHTML = t('benefit3');
+  [t('benefit1'), t('benefit2'), t('benefit3')].forEach((txt, i) => { if (benefits[i]) benefits[i].innerHTML = txt; });
 
   const statLabels = document.querySelectorAll('.stats-band .stat small');
   [t('statLoan'), t('statRate'), t('statTerm'), t('statFrequency'), t('statPayment')].forEach((txt, i) => {
@@ -275,43 +674,22 @@ function setStaticText() {
   [t('loanStartDate'), t('currentLoanBalance'), t('interestRate'), t('amortizationPeriod'), t('repaymentFrequency')].forEach((txt, i) => {
     if (fields[i]) fields[i].textContent = txt;
   });
+
   const hint = document.querySelector('.field-hint');
   if (hint) hint.textContent = t('dateHint');
+
   setPlaceholder('startDate', t('datePlaceholder'));
-  setPlaceholder('loanAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
-  setPlaceholder('interestRate', currentLang === 'fa' ? t('ratePlaceholder') : '0');
-  setPlaceholder('offsetAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
-  setPlaceholder('offsetGrowth', currentLang === 'fa' ? t('amountPlaceholder') : '0');
-  setPlaceholder('extraAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
-  setPlaceholder('lumpSum', currentLang === 'fa' ? t('amountPlaceholder') : '0');
+  setPlaceholder('loanAmount', t('amountPlaceholder'));
+  setPlaceholder('interestRate', t('ratePlaceholder'));
+  setPlaceholder('offsetAmount', t('amountPlaceholder'));
+  setPlaceholder('offsetGrowth', t('amountPlaceholder'));
+  setPlaceholder('extraAmount', t('amountPlaceholder'));
+  setPlaceholder('lumpSum', t('amountPlaceholder'));
 
-  const loanTermOptions = document.querySelectorAll('#loanTerm option');
-  loanTermOptions.forEach(opt => opt.textContent = localNumber(opt.value) + ' ' + t('years'));
-
-  const repaymentOptions = document.querySelectorAll('#repaymentFrequency option');
-  repaymentOptions.forEach(opt => opt.textContent = t(opt.value));
-
-  const inputLabels = {
-    startDate: t('loanStartDate'),
-    loanAmount: t('currentLoanBalance'),
-    interestRate: t('interestRate'),
-    loanTerm: t('amortizationPeriod'),
-    repaymentFrequency: t('repaymentFrequency'),
-    offsetAmount: t('currentOffset'),
-    offsetGrowth: t('growOffsetBy'),
-    offsetFrequency: t('growFrequency'),
-    extraAmount: t('extraAmount'),
-    extraFrequency: t('howOften'),
-    lumpSum: t('lumpAmount')
-  };
-  Object.entries(inputLabels).forEach(([id, label]) => {
-    const el = $(id);
-    if (el) {
-      el.setAttribute('aria-label', label);
-      el.setAttribute('title', label);
-    }
+  document.querySelectorAll('#loanTerm option').forEach(opt => opt.textContent = localNumber(opt.value) + ' ' + t('years'));
+  document.querySelectorAll('#repaymentFrequency option, #offsetFrequency option, #extraFrequency option').forEach(opt => {
+    opt.textContent = t(opt.value);
   });
-
 
   const strategies = document.querySelectorAll('.strategy');
   if (strategies[0]) {
@@ -336,8 +714,25 @@ function setStaticText() {
     if (label) label.textContent = t('lumpAmount');
   }
 
-  document.querySelectorAll('#offsetFrequency option, #extraFrequency option').forEach(opt => {
-    opt.textContent = t(opt.value);
+  const inputLabels = {
+    startDate: t('loanStartDate'),
+    loanAmount: t('currentLoanBalance'),
+    interestRate: t('interestRate'),
+    loanTerm: t('amortizationPeriod'),
+    repaymentFrequency: t('repaymentFrequency'),
+    offsetAmount: t('currentOffset'),
+    offsetGrowth: t('growOffsetBy'),
+    offsetFrequency: t('growFrequency'),
+    extraAmount: t('extraAmount'),
+    extraFrequency: t('howOften'),
+    lumpSum: t('lumpAmount')
+  };
+  Object.entries(inputLabels).forEach(([id, label]) => {
+    const el = $(id);
+    if (el) {
+      el.setAttribute('aria-label', label);
+      el.setAttribute('title', label);
+    }
   });
 
   const sec = document.querySelector('.section-title-row');
@@ -426,28 +821,14 @@ function setStaticText() {
   }
 }
 
-const fmt = (n, d = 0) =>
-  new Intl.NumberFormat(currentLang === 'fa' ? 'fa-AF' : 'en-AU', {
-    style: 'currency',
-    currency: 'AUD',
-    maximumFractionDigits: d,
-    minimumFractionDigits: d
-  }).format(Number.isFinite(n) ? n : 0);
-
-const monthFmt = () => new Intl.DateTimeFormat(currentLang === 'fa' ? 'fa-AF' : 'en-AU', { month: 'short', year: 'numeric' });
-
-function clamp(n, min, max) {
-  return Math.max(min, Math.min(max, n));
-}
+function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
 function monthsText(months) {
   months = Math.max(0, Math.round(months || 0));
   const y = Math.floor(months / 12);
   const r = months % 12;
-
   const yearWord = y === 1 ? t('yearSingular') : t('yearPlural');
   const monthWord = r === 1 ? t('monthSingular') : t('monthPlural');
-
   if (!y) return localNumber(r) + ' ' + monthWord;
   if (!r) return localNumber(y) + ' ' + yearWord;
   return localNumber(y) + ' ' + yearWord + ' ' + localNumber(r) + ' ' + monthWord;
@@ -466,9 +847,7 @@ function periodsPerYear(frequency) {
   return 12;
 }
 
-function frequencyLabel(frequency) {
-  return t(frequency);
-}
+function frequencyLabel(frequency) { return t(frequency); }
 
 function parseStartDate(value) {
   if (!value) return new Date();
@@ -495,21 +874,17 @@ function repaymentAmount(balance, annualRate, years, frequency = 'monthly') {
   const ppy = periodsPerYear(frequency);
   const periods = Math.max(1, Math.round((years || 0) * ppy));
   const ratePerPeriod = (annualRate || 0) / 100 / ppy;
-
   if (!balance || balance <= 0) return 0;
   if (ratePerPeriod === 0) return balance / periods;
-
   return balance * ratePerPeriod / (1 - Math.pow(1 + ratePerPeriod, -periods));
 }
 
 function periodicAmount(amount, frequency, targetPeriodsPerYear) {
   if (!amount || amount <= 0) return 0;
-
   let sourcePeriodsPerYear = 12;
   if (frequency === 'weekly') sourcePeriodsPerYear = 52;
   else if (frequency === 'fortnightly') sourcePeriodsPerYear = 26;
   else if (frequency === 'yearly') sourcePeriodsPerYear = 1;
-
   return amount * sourcePeriodsPerYear / targetPeriodsPerYear;
 }
 
@@ -517,7 +892,6 @@ function getData() {
   const startDate = parseStartDate($('startDate')?.value);
   const amortizationYears = +($('loanTerm')?.value || 30);
   const remainingYears = remainingYearsFromLoanStart(startDate, amortizationYears);
-
   return {
     principal: +($('loanAmount')?.value || 0),
     rate: +($('interestRate')?.value || 0),
@@ -526,139 +900,70 @@ function getData() {
     repaymentFrequency: $('repaymentFrequency')?.value || 'monthly',
     start: startDate,
     projectionStart: new Date(),
-
     useOffset: !!$('useOffset')?.checked,
     offset: +($('offsetAmount')?.value || 0),
     offsetGrowth: +($('offsetGrowth')?.value || 0),
     offsetFrequency: $('offsetFrequency')?.value || 'monthly',
-
     useExtra: !!$('useExtra')?.checked,
     extra: +($('extraAmount')?.value || 0),
     extraFrequency: $('extraFrequency')?.value || 'monthly',
-
     useLump: !!$('useLump')?.checked,
     lump: +($('lumpSum')?.value || 0)
   };
 }
 
-function simulate({
-  principal,
-  rate,
-  years,
-  repaymentFrequency = 'monthly',
-  offset = 0,
-  offsetGrowth = 0,
-  offsetFrequency = 'monthly',
-  extra = 0,
-  extraFrequency = 'monthly',
-  lump = 0,
-  useOffset = true,
-  useExtra = true,
-  useLump = true
-}) {
+function simulate({ principal, rate, years, repaymentFrequency = 'monthly', offset = 0, offsetGrowth = 0, offsetFrequency = 'monthly', extra = 0, extraFrequency = 'monthly', lump = 0, useOffset = true, useExtra = true, useLump = true }) {
   const ppy = periodsPerYear(repaymentFrequency);
   const ratePerPeriod = (rate || 0) / 100 / ppy;
   const standardPayment = repaymentAmount(principal, rate, years, repaymentFrequency);
   const extraPayment = useExtra ? periodicAmount(extra, extraFrequency, ppy) : 0;
   const offsetGrowthPerPeriod = useOffset ? periodicAmount(offsetGrowth, offsetFrequency, ppy) : 0;
-
   let balance = Math.max(0, principal || 0);
   let offsetBalance = useOffset ? Math.max(0, offset || 0) : 0;
   let totalInterest = 0;
   let period = 0;
   let lumpApplied = false;
   const points = [{ month: 0, balance }];
-
   const safetyLimit = Math.max(600, Math.round((years || 30) * ppy) + ppy * 50);
 
   while (balance > 0.5 && period < safetyLimit) {
     period++;
-
     if (useLump && !lumpApplied && lump > 0) {
       balance = Math.max(0, balance - lump);
       lumpApplied = true;
     }
-
     const interestBase = Math.max(0, balance - offsetBalance);
     const interest = interestBase * ratePerPeriod;
     totalInterest += interest;
     balance += interest;
-
     let payment = standardPayment;
     if (useExtra) payment += extraPayment;
-
     balance = Math.max(0, balance - payment);
     offsetBalance += offsetGrowthPerPeriod;
-
     const month = period * 12 / ppy;
-    if (period % ppy === 0 || balance <= 0) {
-      points.push({ month, balance });
-    }
+    if (period % ppy === 0 || balance <= 0) points.push({ month, balance });
   }
-
-  return {
-    interest: totalInterest,
-    months: period * 12 / ppy,
-    payment: standardPayment,
-    points
-  };
+  return { interest: totalInterest, months: period * 12 / ppy, payment: standardPayment, points };
 }
 
 function calculate() {
   const d = getData();
-
-  const base = simulate({
-    ...d,
-    useOffset: false,
-    useExtra: false,
-    useLump: false,
-    offset: 0,
-    extra: 0,
-    lump: 0
-  });
-
-  const offset = simulate({
-    ...d,
-    useOffset: true,
-    useExtra: false,
-    useLump: false,
-    extra: 0,
-    lump: 0
-  });
-
-  const extraOnly = simulate({
-    ...d,
-    useOffset: false,
-    useExtra: true,
-    useLump: false,
-    offset: 0,
-    lump: 0
-  });
-
-  const lumpOnly = simulate({
-    ...d,
-    useOffset: false,
-    useExtra: false,
-    useLump: true,
-    offset: 0,
-    extra: 0
-  });
-
+  const base = simulate({ ...d, useOffset: false, useExtra: false, useLump: false, offset: 0, extra: 0, lump: 0 });
+  const offset = simulate({ ...d, useOffset: true, useExtra: false, useLump: false, extra: 0, lump: 0 });
+  const extraOnly = simulate({ ...d, useOffset: false, useExtra: true, useLump: false, offset: 0, lump: 0 });
+  const lumpOnly = simulate({ ...d, useOffset: false, useExtra: false, useLump: true, offset: 0, extra: 0 });
   const plan = simulate(d);
-
   return { d, base, offset, extraOnly, lumpOnly, plan, payment: base.payment };
 }
 
 function drawChart(base, offset, plan) {
   const canvas = $('chart');
   if (!canvas) return;
-
   const ctx = canvas.getContext('2d');
   const rect = canvas.getBoundingClientRect();
   const cssWidth = rect.width || 900;
   const cssHeight = rect.height || 330;
   const ratio = window.devicePixelRatio || 1;
-
   canvas.width = Math.round(cssWidth * ratio);
   canvas.height = Math.round(cssHeight * ratio);
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
@@ -667,11 +972,9 @@ function drawChart(base, offset, plan) {
   const pad = { l: 64, r: 24, t: 20, b: 46 };
   const chartW = cssWidth - pad.l - pad.r;
   const chartH = cssHeight - pad.t - pad.b;
-
   const allPoints = [...base.points, ...offset.points, ...plan.points];
   const maxBalance = Math.max(...allPoints.map(p => p.balance), 1);
   const maxMonths = Math.max(base.months, offset.months, plan.months, 1);
-
   const x = (month) => pad.l + chartW * (month / maxMonths);
   const y = (balance) => pad.t + chartH * (1 - balance / maxBalance);
 
@@ -679,46 +982,38 @@ function drawChart(base, offset, plan) {
   ctx.strokeStyle = '#e6edf5';
   ctx.lineWidth = 1;
   ctx.fillStyle = '#475569';
-
   for (let i = 0; i <= 4; i++) {
     const yy = pad.t + chartH * i / 4;
     ctx.beginPath();
     ctx.moveTo(pad.l, yy);
     ctx.lineTo(cssWidth - pad.r, yy);
     ctx.stroke();
-
     const value = maxBalance * (1 - i / 4);
     ctx.fillText('$' + Math.round(value / 1000) + 'k', 12, yy + 4);
   }
 
   function drawSeries(series, color, fillColor) {
     if (!series.points.length) return;
-
     ctx.beginPath();
     series.points.forEach((p, i) => {
-      const xx = x(p.month);
-      const yy = y(p.balance);
+      const xx = x(p.month), yy = y(p.balance);
       if (i === 0) ctx.moveTo(xx, yy);
       else ctx.lineTo(xx, yy);
     });
-
     if (fillColor) {
       const last = series.points[series.points.length - 1];
       ctx.lineTo(x(last.month), y(0));
       ctx.lineTo(x(0), y(0));
       ctx.closePath();
-
       const gradient = ctx.createLinearGradient(0, pad.t, 0, cssHeight - pad.b);
       gradient.addColorStop(0, fillColor);
       gradient.addColorStop(1, 'rgba(255,255,255,0)');
       ctx.fillStyle = gradient;
       ctx.fill();
     }
-
     ctx.beginPath();
     series.points.forEach((p, i) => {
-      const xx = x(p.month);
-      const yy = y(p.balance);
+      const xx = x(p.month), yy = y(p.balance);
       if (i === 0) ctx.moveTo(xx, yy);
       else ctx.lineTo(xx, yy);
     });
@@ -745,15 +1040,8 @@ function selectedStrategyText(d) {
   if (d.useOffset) parts.push(t('offset'));
   if (d.useExtra) parts.push(t('extraRepayment'));
   if (d.useLump) parts.push(t('oneOffLumpSum'));
-
-  if (parts.length === 0) {
-    return { title: t('noStrategySelected'), description: t('noStrategySelectedDesc') };
-  }
-
-  if (parts.length === 3) {
-    return { title: t('allSelectedStrategies'), description: t('allSelectedStrategiesDesc') };
-  }
-
+  if (parts.length === 0) return { title: t('noStrategySelected'), description: t('noStrategySelectedDesc') };
+  if (parts.length === 3) return { title: t('allSelectedStrategies'), description: t('allSelectedStrategiesDesc') };
   return { title: parts.join(' + '), description: t('selectedComboDesc') };
 }
 
@@ -764,9 +1052,7 @@ function setText(id, value) {
 
 function update() {
   setStaticText();
-
   const { d, base, offset, extraOnly, lumpOnly, plan, payment } = calculate();
-
   const offsetSaved = Math.max(0, base.interest - offset.interest);
   const extraSaved = Math.max(0, base.interest - extraOnly.interest);
   const lumpSaved = Math.max(0, base.interest - lumpOnly.interest);
@@ -803,7 +1089,6 @@ function update() {
   setText('comboSaved', fmt(Math.max(0, base.interest - plan.interest)));
   setText('comboPayoff', monthsText(plan.months));
   setText('comboDate', monthFmt().format(addMonths(d.projectionStart, plan.months)));
-
   drawChart(base, offset, plan);
 }
 
@@ -817,14 +1102,12 @@ document.addEventListener('DOMContentLoaded', () => {
       update();
     });
   }
-
   document.querySelectorAll('input, select').forEach(el => {
     if (el.id !== 'languageSelect') {
       el.addEventListener('input', update);
       el.addEventListener('change', update);
     }
   });
-
   window.addEventListener('resize', update);
   update();
 });
