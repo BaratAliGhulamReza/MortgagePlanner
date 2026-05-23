@@ -31,3 +31,12 @@ mortgage-planner-github-ready/
 6. Save. GitHub will give you a live website URL.
 
 Do not move files out of the `assets` folder unless you also update the paths in `index.html`.
+
+
+## English / Dari support
+
+The website includes a language selector in the header. It supports:
+- English
+- Dari / دری
+
+The selected language is saved in the browser using `localStorage`.

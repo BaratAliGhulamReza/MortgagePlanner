@@ -1,14 +1,383 @@
+
 const $ = (id) => document.getElementById(id);
+let currentLang = localStorage.getItem('mortgagePlannerLanguage') || 'en';
+
+const I18N = {
+  en: {
+    docTitle: 'Mortgage Planner',
+    brand: 'Mortgage Planner',
+    savePlan: 'Save plan',
+    heroTitle: 'Plan <span>smarter.</span><br>Pay off your mortgage sooner.',
+    heroLead: 'See how extra payments and smart strategies can save you time and thousands in interest.',
+    benefit1: 'Lower interest<br>costs',
+    benefit2: 'Pay off your loan<br>sooner',
+    benefit3: 'Build financial<br>freedom',
+    statLoan: 'Current loan balance',
+    statRate: 'Interest rate',
+    statTerm: 'Amortization period',
+    statFrequency: 'Repayment frequency',
+    statPayment: 'Repayment',
+    calcTitle: 'Mortgage calculator',
+    calcSub: 'Enter your loan details to estimate payoff timing.',
+    loanStartDate: 'Loan start date',
+    dateHint: 'Day / Month / Year',
+    currentLoanBalance: 'Current loan balance',
+    interestRate: 'Interest rate',
+    amortizationPeriod: 'Amortization period',
+    repaymentFrequency: 'Repayment frequency',
+    strategiesTitle: 'Strategy options',
+    strategiesSub: 'Choose one or more options to compare strategies.',
+    offsetTitle: 'Grow offset account',
+    offsetDesc: 'Offset is linked to the loan and reduces interest charged.',
+    use: 'Use',
+    currentOffset: 'Current offset / redraw',
+    growOffsetBy: 'Grow offset by',
+    growFrequency: 'Grow frequency',
+    extraTitle: 'Extra payment',
+    extraDesc: 'Add an extra repayment weekly, fortnightly, monthly, or yearly.',
+    extraAmount: 'Extra amount',
+    howOften: 'How often',
+    lumpTitle: 'One-off lump sum',
+    lumpDesc: 'A single payment toward the home loan.',
+    lumpAmount: 'Lump sum amount',
+    interestComparison: 'Interest comparison',
+    interestComparisonSub: 'See how each strategy performs on its own, then compare it with the live combined result from the options you select.',
+    clearComparison: 'Clear side-by-side comparison',
+    noStrategyBaseline: 'No strategy baseline',
+    baselineDesc: 'This is the estimated interest you would pay if you kept the loan as-is, with no offset, no extra repayments, and no lump sum.',
+    offsetOnly: 'Offset account only',
+    offsetOnlyDesc: 'Based on your offset balance and offset growth.',
+    extraOnly: 'Extra repayment only',
+    extraOnlyDesc: 'Based on the extra repayment amount and frequency.',
+    lumpOnly: 'One-off lump sum only',
+    lumpOnlyDesc: 'Based on a single lump sum payment made now.',
+    interestPay: 'Interest you pay',
+    interestSave: 'Interest you save',
+    offsetCardP: 'Shows how much interest is reduced by keeping money in offset against the loan.',
+    extraCardP: 'Shows the interest saving from paying extra on top of the normal repayment.',
+    lumpCardP: 'Shows the interest saving from putting one single payment into the loan. If the lump sum is $0, the saving will be $0.',
+    liveCombined: 'Live combined result',
+    interestPayShort: 'Interest you pay',
+    payoffTime: 'Payoff time',
+    newPayoffDate: 'New payoff date',
+    chartTitle: 'Mortgage balance over time',
+    legendNoStrategy: 'No strategy',
+    legendOffsetOnly: 'Offset only',
+    legendAllSelected: 'All selected strategies',
+    payoffNoStrategy: 'Payoff time (no strategy)',
+    payoffOffsetOnly: 'Payoff time (offset only)',
+    payoffAllSelected: 'Payoff time (all selected)',
+    timeSaved: 'Time saved',
+    footerLine: 'Plan today. Enjoy tomorrow.',
+    product: 'Product',
+    calculator: 'Calculator',
+    savedPlans: 'Saved plans',
+    resources: 'Resources',
+    guides: 'Guides',
+    faqs: 'FAQs',
+    glossary: 'Glossary',
+    company: 'Company',
+    aboutUs: 'About us',
+    contact: 'Contact',
+    privacy: 'Privacy',
+    monthly: 'Monthly',
+    fortnightly: 'Fortnightly',
+    weekly: 'Weekly',
+    yearly: 'Yearly',
+    years: 'years',
+    noStrategySelected: 'No strategy selected',
+    noStrategySelectedDesc: 'Turn on one or more strategy options to see the combined result.',
+    allSelectedStrategies: 'All selected strategies',
+    allSelectedStrategiesDesc: 'This combines your offset account, extra repayment, and one-off lump sum together.',
+    selectedComboDesc: 'This combines the selected strategy options currently turned on in the calculator.',
+    offset: 'Offset',
+    extraRepayment: 'Extra repayment',
+    oneOffLumpSum: 'One-off lump sum',
+    paidOffMonthsSooner: (n) => `Paid off ${n} months sooner`,
+    monthSingular: 'month',
+    monthPlural: 'months',
+    yearSingular: 'year',
+    yearPlural: 'years',
+    datePlaceholder: 'Loan start date'
+  },
+  fa: {
+    docTitle: 'برنامه‌ریز وام خانه',
+    brand: 'برنامه‌ریز وام خانه',
+    savePlan: 'ذخیره پلان',
+    heroTitle: 'هوشمندانه <span>پلان کنید.</span><br>وام خانه‌تان را زودتر پرداخت کنید.',
+    heroLead: 'ببینید پرداخت‌های اضافی و راهکارهای هوشمند چطور می‌تواند زمان و هزاران دالر سود را برای شما کم کند.',
+    benefit1: 'کاهش هزینه<br>سود',
+    benefit2: 'پرداخت زودتر<br>وام',
+    benefit3: 'ساختن آزادی<br>مالی',
+    statLoan: 'باقی‌مانده فعلی وام',
+    statRate: 'نرخ سود',
+    statTerm: 'مدت بازپرداخت',
+    statFrequency: 'تکرار پرداخت',
+    statPayment: 'مبلغ پرداخت',
+    calcTitle: 'محاسبه‌گر وام خانه',
+    calcSub: 'جزئیات وام خود را وارد کنید تا زمان پرداخت کامل تخمین زده شود.',
+    loanStartDate: 'تاریخ شروع وام',
+    dateHint: 'روز / ماه / سال',
+    currentLoanBalance: 'باقی‌مانده فعلی وام',
+    interestRate: 'نرخ سود',
+    amortizationPeriod: 'مدت بازپرداخت',
+    repaymentFrequency: 'تکرار پرداخت',
+    strategiesTitle: 'گزینه‌های راهکار',
+    strategiesSub: 'یک یا چند گزینه را انتخاب کنید تا راهکارها مقایسه شوند.',
+    offsetTitle: 'افزایش حساب آفست',
+    offsetDesc: 'حساب آفست به وام وصل است و سود محاسبه‌شده را کم می‌کند.',
+    use: 'استفاده',
+    currentOffset: 'مبلغ فعلی آفست / برداشت مجدد',
+    growOffsetBy: 'افزایش آفست به مقدار',
+    growFrequency: 'تکرار افزایش',
+    extraTitle: 'پرداخت اضافی',
+    extraDesc: 'پرداخت اضافی را به‌صورت هفتگی، هر دو هفته، ماهانه یا سالانه اضافه کنید.',
+    extraAmount: 'مبلغ اضافی',
+    howOften: 'چند وقت یک‌بار',
+    lumpTitle: 'پرداخت یک‌باره',
+    lumpDesc: 'یک پرداخت یک‌باره برای کاهش اصل وام.',
+    lumpAmount: 'مبلغ پرداخت یک‌باره',
+    interestComparison: 'مقایسه سود',
+    interestComparisonSub: 'هر راهکار را جداگانه ببینید، سپس نتیجه ترکیبی گزینه‌های انتخاب‌شده را مقایسه کنید.',
+    clearComparison: 'مقایسه واضح کنار هم',
+    noStrategyBaseline: 'حالت پایه بدون راهکار',
+    baselineDesc: 'این مقدار سودی است که اگر وام را بدون آفست، بدون پرداخت اضافی و بدون پرداخت یک‌باره ادامه دهید، پرداخت می‌کنید.',
+    offsetOnly: 'فقط حساب آفست',
+    offsetOnlyDesc: 'بر اساس موجودی آفست و رشد آفست شما.',
+    extraOnly: 'فقط پرداخت اضافی',
+    extraOnlyDesc: 'بر اساس مبلغ پرداخت اضافی و تکرار آن.',
+    lumpOnly: 'فقط پرداخت یک‌باره',
+    lumpOnlyDesc: 'بر اساس یک پرداخت یک‌باره که اکنون انجام می‌شود.',
+    interestPay: 'سودی که پرداخت می‌کنید',
+    interestSave: 'سودی که صرفه‌جویی می‌کنید',
+    offsetCardP: 'نشان می‌دهد نگهداشتن پول در آفست چقدر سود وام را کم می‌کند.',
+    extraCardP: 'نشان می‌دهد پرداخت اضافی بالای پرداخت عادی چقدر سود را کم می‌کند.',
+    lumpCardP: 'نشان می‌دهد یک پرداخت یک‌باره چقدر سود را کم می‌کند. اگر مبلغ $0 باشد، صرفه‌جویی هم $0 خواهد بود.',
+    liveCombined: 'نتیجه ترکیبی زنده',
+    interestPayShort: 'سودی که پرداخت می‌کنید',
+    payoffTime: 'مدت پرداخت کامل',
+    newPayoffDate: 'تاریخ جدید پرداخت کامل',
+    chartTitle: 'باقی‌مانده وام در طول زمان',
+    legendNoStrategy: 'بدون راهکار',
+    legendOffsetOnly: 'فقط آفست',
+    legendAllSelected: 'همه راهکارهای انتخاب‌شده',
+    payoffNoStrategy: 'مدت پرداخت کامل (بدون راهکار)',
+    payoffOffsetOnly: 'مدت پرداخت کامل (فقط آفست)',
+    payoffAllSelected: 'مدت پرداخت کامل (گزینه‌های انتخاب‌شده)',
+    timeSaved: 'زمان صرفه‌جویی‌شده',
+    footerLine: 'امروز پلان کنید. فردا راحت‌تر باشید.',
+    product: 'محصول',
+    calculator: 'محاسبه‌گر',
+    savedPlans: 'پلان‌های ذخیره‌شده',
+    resources: 'منابع',
+    guides: 'راهنماها',
+    faqs: 'پرسش‌های رایج',
+    glossary: 'واژه‌نامه',
+    company: 'شرکت',
+    aboutUs: 'درباره ما',
+    contact: 'تماس',
+    privacy: 'حریم خصوصی',
+    monthly: 'ماهانه',
+    fortnightly: 'هر دو هفته',
+    weekly: 'هفتگی',
+    yearly: 'سالانه',
+    years: 'سال',
+    noStrategySelected: 'هیچ راهکاری انتخاب نشده',
+    noStrategySelectedDesc: 'یک یا چند گزینه راهکار را روشن کنید تا نتیجه ترکیبی را ببینید.',
+    allSelectedStrategies: 'همه راهکارهای انتخاب‌شده',
+    allSelectedStrategiesDesc: 'این نتیجه حساب آفست، پرداخت اضافی و پرداخت یک‌باره را با هم ترکیب می‌کند.',
+    selectedComboDesc: 'این نتیجه گزینه‌های راهکاری را که در محاسبه‌گر روشن کرده‌اید با هم ترکیب می‌کند.',
+    offset: 'آفست',
+    extraRepayment: 'پرداخت اضافی',
+    oneOffLumpSum: 'پرداخت یک‌باره',
+    paidOffMonthsSooner: (n) => `${n} ماه زودتر پرداخت می‌شود`,
+    monthSingular: 'ماه',
+    monthPlural: 'ماه',
+    yearSingular: 'سال',
+    yearPlural: 'سال',
+    datePlaceholder: 'تاریخ شروع وام'
+  }
+};
+
+function t(key) {
+  return I18N[currentLang][key] ?? I18N.en[key] ?? key;
+}
+
+function setHTML(selector, value) {
+  const el = document.querySelector(selector);
+  if (el) el.innerHTML = value;
+}
+
+function setStaticText() {
+  document.documentElement.lang = currentLang === 'fa' ? 'fa' : 'en';
+  document.documentElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+  document.title = t('docTitle');
+
+  const langSelect = $('languageSelect');
+  if (langSelect) langSelect.value = currentLang;
+
+  setHTML('.header .logo span', t('brand'));
+  setHTML('.save-plan span', t('savePlan'));
+  setHTML('.hero h1', t('heroTitle'));
+  setHTML('.lead', t('heroLead'));
+
+  const benefits = document.querySelectorAll('.benefit strong');
+  if (benefits[0]) benefits[0].innerHTML = t('benefit1');
+  if (benefits[1]) benefits[1].innerHTML = t('benefit2');
+  if (benefits[2]) benefits[2].innerHTML = t('benefit3');
+
+  const statLabels = document.querySelectorAll('.stats-band .stat small');
+  [t('statLoan'), t('statRate'), t('statTerm'), t('statFrequency'), t('statPayment')].forEach((txt, i) => {
+    if (statLabels[i]) statLabels[i].textContent = txt;
+  });
+
+  const panels = document.querySelectorAll('.panel');
+  if (panels[0]) {
+    panels[0].querySelector('h2').textContent = t('calcTitle');
+    panels[0].querySelector('.panel-sub').textContent = t('calcSub');
+  }
+  if (panels[1]) {
+    panels[1].querySelector('h2').textContent = t('strategiesTitle');
+    panels[1].querySelector('.panel-sub').textContent = t('strategiesSub');
+  }
+
+  const fields = document.querySelectorAll('.panel:first-child .field label');
+  [t('loanStartDate'), t('currentLoanBalance'), t('interestRate'), t('amortizationPeriod'), t('repaymentFrequency')].forEach((txt, i) => {
+    if (fields[i]) fields[i].textContent = txt;
+  });
+  const hint = document.querySelector('.field-hint');
+  if (hint) hint.textContent = t('dateHint');
+  const startDate = $('startDate');
+  if (startDate) startDate.placeholder = t('datePlaceholder');
+
+  const loanTermOptions = document.querySelectorAll('#loanTerm option');
+  loanTermOptions.forEach(opt => opt.textContent = opt.value + ' ' + t('years'));
+
+  const repaymentOptions = document.querySelectorAll('#repaymentFrequency option');
+  repaymentOptions.forEach(opt => opt.textContent = t(opt.value));
+
+  const strategies = document.querySelectorAll('.strategy');
+  if (strategies[0]) {
+    strategies[0].querySelector('h3').textContent = t('offsetTitle');
+    strategies[0].querySelector('p').textContent = t('offsetDesc');
+    strategies[0].querySelector('.use-check').lastChild.textContent = t('use');
+    const labels = strategies[0].querySelectorAll('.field label');
+    [t('currentOffset'), t('growOffsetBy'), t('growFrequency')].forEach((txt, i) => { if (labels[i]) labels[i].textContent = txt; });
+  }
+  if (strategies[1]) {
+    strategies[1].querySelector('h3').textContent = t('extraTitle');
+    strategies[1].querySelector('p').textContent = t('extraDesc');
+    strategies[1].querySelector('.use-check').lastChild.textContent = t('use');
+    const labels = strategies[1].querySelectorAll('.field label');
+    [t('extraAmount'), t('howOften')].forEach((txt, i) => { if (labels[i]) labels[i].textContent = txt; });
+  }
+  if (strategies[2]) {
+    strategies[2].querySelector('h3').textContent = t('lumpTitle');
+    strategies[2].querySelector('p').textContent = t('lumpDesc');
+    strategies[2].querySelector('.use-check').lastChild.textContent = t('use');
+    const label = strategies[2].querySelector('.field label');
+    if (label) label.textContent = t('lumpAmount');
+  }
+
+  document.querySelectorAll('#offsetFrequency option, #extraFrequency option').forEach(opt => {
+    opt.textContent = t(opt.value);
+  });
+
+  const sec = document.querySelector('.section-title-row');
+  if (sec) {
+    sec.querySelector('h2').textContent = t('interestComparison');
+    sec.querySelector('p').textContent = t('interestComparisonSub');
+    sec.querySelector('.badge-soft').textContent = t('clearComparison');
+  }
+
+  const note = document.querySelector('.comparison-note');
+  if (note) {
+    note.querySelector('small').textContent = t('noStrategyBaseline');
+    note.querySelector('p').textContent = t('baselineDesc');
+  }
+
+  const cards = document.querySelectorAll('.compare-card');
+  const cardData = [
+    [t('offsetOnly'), t('offsetOnlyDesc'), t('offsetCardP')],
+    [t('extraOnly'), t('extraOnlyDesc'), t('extraCardP')],
+    [t('lumpOnly'), t('lumpOnlyDesc'), t('lumpCardP')]
+  ];
+  cards.forEach((card, i) => {
+    const titleSpan = card.querySelector('.compare-title span');
+    const em = card.querySelector('.compare-title em');
+    const p = card.querySelector(':scope > p');
+    if (titleSpan) {
+      const dot = titleSpan.querySelector('.dot');
+      titleSpan.innerHTML = '';
+      if (dot) titleSpan.appendChild(dot);
+      titleSpan.appendChild(document.createTextNode(cardData[i][0]));
+    }
+    if (em) em.textContent = cardData[i][1];
+    const rows = card.querySelectorAll('.result-row small');
+    if (rows[0]) rows[0].textContent = t('interestPay');
+    if (rows[1]) rows[1].textContent = t('interestSave');
+    if (p) p.textContent = cardData[i][2];
+  });
+
+  const comboSmall = document.querySelectorAll('.combo-result small');
+  [t('interestPayShort'), t('interestSave'), t('payoffTime'), t('newPayoffDate')].forEach((txt, i) => {
+    if (comboSmall[i]) comboSmall[i].textContent = txt;
+  });
+  const comboPill = document.querySelector('.combo-pill');
+  if (comboPill) comboPill.textContent = t('liveCombined');
+
+  const chartTitle = document.querySelector('.chart-top h3');
+  if (chartTitle) chartTitle.textContent = t('chartTitle');
+  const legends = document.querySelectorAll('.legend span');
+  [t('legendNoStrategy'), t('legendOffsetOnly'), t('legendAllSelected')].forEach((txt, i) => {
+    if (legends[i]) {
+      const dot = legends[i].querySelector('.dot');
+      legends[i].innerHTML = '';
+      if (dot) legends[i].appendChild(dot);
+      legends[i].appendChild(document.createTextNode(txt));
+    }
+  });
+
+  const payoffSmall = document.querySelectorAll('.payoff-cell small');
+  [t('payoffNoStrategy'), t('payoffOffsetOnly'), t('payoffAllSelected'), t('timeSaved')].forEach((txt, i) => {
+    if (payoffSmall[i]) payoffSmall[i].textContent = txt;
+  });
+
+  const footer = document.querySelector('.footer-brand span');
+  if (footer) footer.textContent = t('footerLine');
+  const footerGroups = document.querySelectorAll('.footer-links > div');
+  if (footerGroups[0]) {
+    footerGroups[0].querySelector('h4').textContent = t('product');
+    const a = footerGroups[0].querySelectorAll('a');
+    if (a[0]) a[0].textContent = t('calculator');
+    if (a[1]) a[1].textContent = t('strategiesTitle');
+    if (a[2]) a[2].textContent = t('savedPlans');
+  }
+  if (footerGroups[1]) {
+    footerGroups[1].querySelector('h4').textContent = t('resources');
+    const a = footerGroups[1].querySelectorAll('a');
+    if (a[0]) a[0].textContent = t('guides');
+    if (a[1]) a[1].textContent = t('faqs');
+    if (a[2]) a[2].textContent = t('glossary');
+  }
+  if (footerGroups[2]) {
+    footerGroups[2].querySelector('h4').textContent = t('company');
+    const a = footerGroups[2].querySelectorAll('a');
+    if (a[0]) a[0].textContent = t('aboutUs');
+    if (a[1]) a[1].textContent = t('contact');
+    if (a[2]) a[2].textContent = t('privacy');
+  }
+}
 
 const fmt = (n, d = 0) =>
-  new Intl.NumberFormat('en-AU', {
+  new Intl.NumberFormat(currentLang === 'fa' ? 'fa-AF' : 'en-AU', {
     style: 'currency',
     currency: 'AUD',
     maximumFractionDigits: d,
     minimumFractionDigits: d
   }).format(Number.isFinite(n) ? n : 0);
 
-const monthFmt = new Intl.DateTimeFormat('en-AU', { month: 'short', year: 'numeric' });
+const monthFmt = () => new Intl.DateTimeFormat(currentLang === 'fa' ? 'fa-AF' : 'en-AU', { month: 'short', year: 'numeric' });
 
 function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n));
@@ -18,9 +387,13 @@ function monthsText(months) {
   months = Math.max(0, Math.round(months || 0));
   const y = Math.floor(months / 12);
   const r = months % 12;
-  if (!y) return r + ' month' + (r === 1 ? '' : 's');
-  if (!r) return y + ' year' + (y === 1 ? '' : 's');
-  return y + ' years ' + r + ' month' + (r === 1 ? '' : 's');
+
+  const yearWord = y === 1 ? t('yearSingular') : t('yearPlural');
+  const monthWord = r === 1 ? t('monthSingular') : t('monthPlural');
+
+  if (!y) return r + ' ' + monthWord;
+  if (!r) return y + ' ' + yearWord;
+  return y + ' ' + yearWord + ' ' + r + ' ' + monthWord;
 }
 
 function addMonths(date, months) {
@@ -37,15 +410,13 @@ function periodsPerYear(frequency) {
 }
 
 function frequencyLabel(frequency) {
-  if (frequency === 'weekly') return 'Weekly';
-  if (frequency === 'fortnightly') return 'Fortnightly';
-  return 'Monthly';
+  return t(frequency);
 }
 
 function parseStartDate(value) {
   if (!value) return new Date();
   const date = new Date(value + 'T00:00:00');
-  return Number.isNaN(date.getTime()) ? new Date('2024-06-01T00:00:00') : date;
+  return Number.isNaN(date.getTime()) ? new Date() : date;
 }
 
 function monthsBetween(startDate, endDate) {
@@ -107,7 +478,6 @@ function getData() {
     useExtra: !!$('useExtra')?.checked,
     extra: +($('extraAmount')?.value || 0),
     extraFrequency: $('extraFrequency')?.value || 'monthly',
-    startAfterYears: 0,
 
     useLump: !!$('useLump')?.checked,
     lump: +($('lumpSum')?.value || 0)
@@ -313,31 +683,21 @@ function drawChart(base, offset, plan) {
   }
 }
 
-
 function selectedStrategyText(d) {
   const parts = [];
-  if (d.useOffset) parts.push('Offset');
-  if (d.useExtra) parts.push('Extra repayment');
-  if (d.useLump) parts.push('One-off lump sum');
+  if (d.useOffset) parts.push(t('offset'));
+  if (d.useExtra) parts.push(t('extraRepayment'));
+  if (d.useLump) parts.push(t('oneOffLumpSum'));
 
   if (parts.length === 0) {
-    return {
-      title: 'No strategy selected',
-      description: 'Turn on one or more strategy options to see the combined result.'
-    };
+    return { title: t('noStrategySelected'), description: t('noStrategySelectedDesc') };
   }
 
   if (parts.length === 3) {
-    return {
-      title: 'All selected strategies',
-      description: 'This combines your offset account, extra repayment, and one-off lump sum together.'
-    };
+    return { title: t('allSelectedStrategies'), description: t('allSelectedStrategiesDesc') };
   }
 
-  return {
-    title: parts.join(' + '),
-    description: 'This combines the selected strategy options currently turned on in the calculator.'
-  };
+  return { title: parts.join(' + '), description: t('selectedComboDesc') };
 }
 
 function setText(id, value) {
@@ -346,6 +706,8 @@ function setText(id, value) {
 }
 
 function update() {
+  setStaticText();
+
   const { d, base, offset, extraOnly, lumpOnly, plan, payment } = calculate();
 
   const offsetSaved = Math.max(0, base.interest - offset.interest);
@@ -355,7 +717,7 @@ function update() {
 
   setText('statLoan', fmt(d.principal));
   setText('statRate', d.rate.toFixed(3) + '%');
-  setText('statTerm', d.amortizationYears + ' years');
+  setText('statTerm', d.amortizationYears + ' ' + t('years'));
   setText('statFrequency', frequencyLabel(d.repaymentFrequency));
   setText('statPayment', fmt(payment));
 
@@ -371,11 +733,11 @@ function update() {
   setText('offsetPayoff', monthsText(offset.months));
   setText('planPayoff', monthsText(plan.months));
   setText('timeSaved', monthsText(timeSaved));
-  setText('monthsSaved', 'Paid off ' + Math.round(timeSaved) + ' months sooner');
+  setText('monthsSaved', t('paidOffMonthsSooner')(Math.round(timeSaved)));
 
-  setText('baseDate', monthFmt.format(addMonths(d.projectionStart, base.months)));
-  setText('offsetDate', monthFmt.format(addMonths(d.projectionStart, offset.months)));
-  setText('planDate', monthFmt.format(addMonths(d.projectionStart, plan.months)));
+  setText('baseDate', monthFmt().format(addMonths(d.projectionStart, base.months)));
+  setText('offsetDate', monthFmt().format(addMonths(d.projectionStart, offset.months)));
+  setText('planDate', monthFmt().format(addMonths(d.projectionStart, plan.months)));
 
   const combo = selectedStrategyText(d);
   setText('comboTitle', combo.title);
@@ -383,16 +745,29 @@ function update() {
   setText('comboInterest', fmt(plan.interest));
   setText('comboSaved', fmt(Math.max(0, base.interest - plan.interest)));
   setText('comboPayoff', monthsText(plan.months));
-  setText('comboDate', monthFmt.format(addMonths(d.projectionStart, plan.months)));
+  setText('comboDate', monthFmt().format(addMonths(d.projectionStart, plan.months)));
 
   drawChart(base, offset, plan);
 }
 
-document.querySelectorAll('input, select').forEach(el => {
-  el.addEventListener('input', update);
-  el.addEventListener('change', update);
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const langSelect = $('languageSelect');
+  if (langSelect) {
+    langSelect.value = currentLang;
+    langSelect.addEventListener('change', () => {
+      currentLang = langSelect.value;
+      localStorage.setItem('mortgagePlannerLanguage', currentLang);
+      update();
+    });
+  }
 
-window.addEventListener('resize', update);
-window.addEventListener('load', update);
-update();
+  document.querySelectorAll('input, select').forEach(el => {
+    if (el.id !== 'languageSelect') {
+      el.addEventListener('input', update);
+      el.addEventListener('change', update);
+    }
+  });
+
+  window.addEventListener('resize', update);
+  update();
+});

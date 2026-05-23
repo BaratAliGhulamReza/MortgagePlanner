@@ -237,3 +237,73 @@ canvas{width:100%;height:100%;display:block}
   width:26px;
   height:26px;
 }
+
+
+/* Language selector */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-left:auto;
+}
+.language-select{
+  height:40px;
+  border:1px solid #d8e0ea;
+  border-radius:12px;
+  background:#fff;
+  color:#111827;
+  font-weight:800;
+  padding:0 12px;
+  outline:none;
+}
+html[dir="rtl"] body{
+  direction:rtl;
+}
+html[dir="rtl"] .hero h1,
+html[dir="rtl"] .lead,
+html[dir="rtl"] .panel,
+html[dir="rtl"] .comparison,
+html[dir="rtl"] .site-footer{
+  text-align:right;
+}
+html[dir="rtl"] .container,
+html[dir="rtl"] .hero-grid,
+html[dir="rtl"] .input-grid,
+html[dir="rtl"] .compare-grid,
+html[dir="rtl"] .combo-results,
+html[dir="rtl"] .stats-band{
+  direction:rtl;
+}
+html[dir="rtl"] .control{
+  direction:ltr;
+}
+html[dir="rtl"] .control input,
+html[dir="rtl"] .control select{
+  text-align:left;
+}
+html[dir="rtl"] .compare-top,
+html[dir="rtl"] .selected-combo-head,
+html[dir="rtl"] .section-title-row,
+html[dir="rtl"] .footer-inner,
+html[dir="rtl"] .nav{
+  direction:rtl;
+}
+html[dir="rtl"] .header-actions{
+  margin-left:0;
+  margin-right:auto;
+}
+html[dir="rtl"] .dot{
+  margin-right:0;
+  margin-left:8px;
+}
+html[dir="rtl"] .payoff-cell{
+  border-right:0;
+  border-left:1px solid var(--line);
+}
+html[dir="rtl"] .payoff-cell:last-child{
+  border-left:0;
+}
+@media (max-width:640px){
+  .header-actions{gap:8px}
+  .language-select{max-width:110px}
+}
