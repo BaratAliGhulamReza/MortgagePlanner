@@ -98,7 +98,14 @@ const I18N = {
     monthPlural: 'months',
     yearSingular: 'year',
     yearPlural: 'years',
-    datePlaceholder: 'Loan start date'
+    datePlaceholder: 'Loan start date',
+    zeroPlaceholder: '0',
+    amountPlaceholder: 'Enter amount',
+    ratePlaceholder: 'Enter rate',
+    weeklyOption: 'Weekly',
+    fortnightlyOption: 'Fortnightly',
+    monthlyOption: 'Monthly',
+    yearlyOption: 'Yearly'
   },
   fa: {
     docTitle: 'برنامه‌ریز وام خانه',
@@ -195,12 +202,35 @@ const I18N = {
     monthPlural: 'ماه',
     yearSingular: 'سال',
     yearPlural: 'سال',
-    datePlaceholder: 'تاریخ شروع وام'
+    datePlaceholder: 'روز / ماه / سال',
+    zeroPlaceholder: '۰',
+    amountPlaceholder: 'مبلغ را وارد کنید',
+    ratePlaceholder: 'نرخ را وارد کنید',
+    weeklyOption: 'هفتگی',
+    fortnightlyOption: 'هر دو هفته',
+    monthlyOption: 'ماهانه',
+    yearlyOption: 'سالانه'
   }
 };
 
 function t(key) {
   return I18N[currentLang][key] ?? I18N.en[key] ?? key;
+}
+
+function localNumber(value) {
+  const str = String(value);
+  if (currentLang !== 'fa') return str;
+  const map = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  return str.replace(/\d/g, d => map[d]);
+}
+
+function localMoney(n, d = 0) {
+  return fmt(n, d);
+}
+
+function setPlaceholder(id, value) {
+  const el = $(id);
+  if (el) el.placeholder = value;
 }
 
 function setHTML(selector, value) {
@@ -247,14 +277,41 @@ function setStaticText() {
   });
   const hint = document.querySelector('.field-hint');
   if (hint) hint.textContent = t('dateHint');
-  const startDate = $('startDate');
-  if (startDate) startDate.placeholder = t('datePlaceholder');
+  setPlaceholder('startDate', t('datePlaceholder'));
+  setPlaceholder('loanAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
+  setPlaceholder('interestRate', currentLang === 'fa' ? t('ratePlaceholder') : '0');
+  setPlaceholder('offsetAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
+  setPlaceholder('offsetGrowth', currentLang === 'fa' ? t('amountPlaceholder') : '0');
+  setPlaceholder('extraAmount', currentLang === 'fa' ? t('amountPlaceholder') : '0');
+  setPlaceholder('lumpSum', currentLang === 'fa' ? t('amountPlaceholder') : '0');
 
   const loanTermOptions = document.querySelectorAll('#loanTerm option');
-  loanTermOptions.forEach(opt => opt.textContent = opt.value + ' ' + t('years'));
+  loanTermOptions.forEach(opt => opt.textContent = localNumber(opt.value) + ' ' + t('years'));
 
   const repaymentOptions = document.querySelectorAll('#repaymentFrequency option');
   repaymentOptions.forEach(opt => opt.textContent = t(opt.value));
+
+  const inputLabels = {
+    startDate: t('loanStartDate'),
+    loanAmount: t('currentLoanBalance'),
+    interestRate: t('interestRate'),
+    loanTerm: t('amortizationPeriod'),
+    repaymentFrequency: t('repaymentFrequency'),
+    offsetAmount: t('currentOffset'),
+    offsetGrowth: t('growOffsetBy'),
+    offsetFrequency: t('growFrequency'),
+    extraAmount: t('extraAmount'),
+    extraFrequency: t('howOften'),
+    lumpSum: t('lumpAmount')
+  };
+  Object.entries(inputLabels).forEach(([id, label]) => {
+    const el = $(id);
+    if (el) {
+      el.setAttribute('aria-label', label);
+      el.setAttribute('title', label);
+    }
+  });
+
 
   const strategies = document.querySelectorAll('.strategy');
   if (strategies[0]) {
@@ -391,9 +448,9 @@ function monthsText(months) {
   const yearWord = y === 1 ? t('yearSingular') : t('yearPlural');
   const monthWord = r === 1 ? t('monthSingular') : t('monthPlural');
 
-  if (!y) return r + ' ' + monthWord;
-  if (!r) return y + ' ' + yearWord;
-  return y + ' ' + yearWord + ' ' + r + ' ' + monthWord;
+  if (!y) return localNumber(r) + ' ' + monthWord;
+  if (!r) return localNumber(y) + ' ' + yearWord;
+  return localNumber(y) + ' ' + yearWord + ' ' + localNumber(r) + ' ' + monthWord;
 }
 
 function addMonths(date, months) {
@@ -679,7 +736,7 @@ function drawChart(base, offset, plan) {
   for (let i = 0; i <= 5; i++) {
     const month = maxMonths * i / 5;
     const date = addMonths(d.projectionStart, month);
-    ctx.fillText(String(date.getFullYear()), x(month) - 16, cssHeight - 18);
+    ctx.fillText(localNumber(date.getFullYear()), x(month) - 16, cssHeight - 18);
   }
 }
 
@@ -717,7 +774,7 @@ function update() {
 
   setText('statLoan', fmt(d.principal));
   setText('statRate', d.rate.toFixed(3) + '%');
-  setText('statTerm', d.amortizationYears + ' ' + t('years'));
+  setText('statTerm', localNumber(d.amortizationYears) + ' ' + t('years'));
   setText('statFrequency', frequencyLabel(d.repaymentFrequency));
   setText('statPayment', fmt(payment));
 
@@ -733,7 +790,7 @@ function update() {
   setText('offsetPayoff', monthsText(offset.months));
   setText('planPayoff', monthsText(plan.months));
   setText('timeSaved', monthsText(timeSaved));
-  setText('monthsSaved', t('paidOffMonthsSooner')(Math.round(timeSaved)));
+  setText('monthsSaved', t('paidOffMonthsSooner')(localNumber(Math.round(timeSaved))));
 
   setText('baseDate', monthFmt().format(addMonths(d.projectionStart, base.months)));
   setText('offsetDate', monthFmt().format(addMonths(d.projectionStart, offset.months)));

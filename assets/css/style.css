@@ -307,3 +307,32 @@ html[dir="rtl"] .payoff-cell:last-child{
   .header-actions{gap:8px}
   .language-select{max-width:110px}
 }
+
+/* Flip hero house image in Dari / RTL mode */
+html[dir="rtl"] .hero-art img{
+  transform:scaleX(-1);
+}
+
+/* Full Dari form support */
+html[dir="rtl"] input::placeholder{
+  color:#64748b;
+}
+html[dir="rtl"] select{
+  direction:rtl;
+  text-align:right;
+}
+html[dir="rtl"] .control select{
+  direction:rtl;
+  text-align:right;
+}
+html[dir="rtl"] input[type="number"]{
+  direction:ltr;
+  text-align:left;
+}
+html[dir="rtl"] input[type="date"]{
+  direction:rtl;
+  text-align:right;
+}
+html[dir="rtl"] .field-hint{
+  text-align:right;
+}

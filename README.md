@@ -40,3 +40,8 @@ The website includes a language selector in the header. It supports:
 - Dari / دری
 
 The selected language is saved in the browser using `localStorage`.
+
+
+## Dari inputs
+
+Dari mode translates labels, dropdown options, placeholders, visible calculation results, and key form accessibility labels. Numeric input values remain standard digits for browser compatibility and accurate calculations.
