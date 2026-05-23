@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mortgage Planner</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="#"><img class="icon-img" src="assets/icons/logo-house.svg" alt="logo house"><span>Mortgage Planner</span></a>
+    <button class="save-plan" type="button"><img class="icon-img" src="assets/icons/save-plan.svg" alt="save plan" width="2"><span>Save plan</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Plan <span>smarter.</span><br>Pay off your mortgage sooner.</h1>
+      <p class="lead">See how extra payments and smart strategies can save you time and thousands in interest.</p>
+      <div class="benefits">
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/hero-check.svg" alt="hero check" width="20" height="20"></div><strong>Lower interest<br>costs</strong></div>
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-loan.svg" alt="stat loan" width="20" height="20"></div><strong>Pay off your loan<br>sooner</strong></div>
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-rate.svg" alt="stat rate" width="20" height="20"></div><strong>Build financial<br>freedom</strong></div>
+      </div>
+    </div>
+    <div class="hero-art"><img alt="Modern house illustration" src="assets/images/hero-house.png"></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="stats-band">
+    <div class="stat"><div><small>Current loan balance</small><strong id="statLoan">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Interest rate</small><strong id="statRate">0.000%</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-frequency.svg" alt="stat frequency" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Amortization period</small><strong id="statTerm">30 years</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-payment.svg" alt="stat payment" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Repayment frequency</small><strong id="statFrequency">Monthly</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/footer-logo.svg" alt="footer logo" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Repayment</small><strong id="statPayment">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
+  </div>
+</section>
+
+<main class="container app-shell" id="calculator">
+  <div class="input-grid">
+    <section class="panel">
+      <h2>Mortgage calculator</h2>
+      <p class="panel-sub">Enter your loan details to estimate payoff timing.</p>
+      <div class="form-grid clean-loan-fields">
+        <div class="field"><label>Loan start date</label><div class="control"><input id="startDate" type="date" placeholder="Loan start date"></div><small class="field-hint">Day / Month / Year</small></div>
+        <div class="field"><label>Current loan balance</label><div class="control"><span>$</span><input id="loanAmount" type="number" min="0" step="1000" placeholder="0"></div></div>
+        <div class="field"><label>Interest rate</label><div class="control"><input id="interestRate" type="number" min="0" step="0.01" placeholder="0"><span>%</span></div></div>
+        <div class="field"><label>Amortization period</label><div class="control"><select id="loanTerm"><option value="30">30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div></div>
+        <div class="field full"><label>Repayment frequency</label><div class="control"><select id="repaymentFrequency"><option value="monthly">Monthly</option><option value="fortnightly">Fortnightly</option><option value="weekly">Weekly</option></select></div></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Strategy options</h2>
+      <p class="panel-sub">Choose one or more options to compare strategies.</p>
+      <div class="strategy-list">
+        <article class="strategy">
+          <div class="strategy-head"><div><h3>Grow offset account</h3><p>Offset is linked to the loan and reduces interest charged.</p></div><label class="use-check"><input id="useOffset" type="checkbox" checked>Use</label></div>
+          <div class="strategy-fields"><div class="field"><label>Current offset / redraw</label><div class="control"><span>$</span><input id="offsetAmount" type="number" min="0" step="1000" placeholder="0"></div></div><div class="field"><label>Grow offset by</label><div class="control"><span>$</span><input id="offsetGrowth" type="number" min="0" step="100" placeholder="0"></div></div><div class="field"><label>Grow frequency</label><div class="control"><select id="offsetFrequency"><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
+        </article>
+        <article class="strategy">
+          <div class="strategy-head"><div><h3>Extra payment</h3><p>Add an extra repayment weekly, fortnightly, monthly, or yearly.</p></div><label class="use-check"><input id="useExtra" type="checkbox" checked>Use</label></div>
+          <div class="strategy-fields two"><div class="field"><label>Extra amount</label><div class="control"><span>$</span><input id="extraAmount" type="number" min="0" step="50" placeholder="0"></div></div><div class="field"><label>How often</label><div class="control"><select id="extraFrequency"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
+        </article>
+        <article class="strategy">
+          <div class="strategy-head"><div><h3>One-off lump sum</h3><p>A single payment toward the home loan.</p></div><label class="use-check"><input id="useLump" type="checkbox" checked>Use</label></div>
+          <div class="strategy-fields one"><div class="field"><label>Lump sum amount</label><div class="control"><span>$</span><input id="lumpSum" type="number" min="0" step="1000" placeholder="0"></div></div></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<section class="container comparison">
+  <div class="section-title-row">
+    <div>
+      <h2>Interest comparison</h2>
+      <p>See how each strategy performs on its own, then compare it with the live combined result from the options you select.</p>
+    </div>
+    <span class="badge-soft">Clear side-by-side comparison</span>
+  </div>
+
+  <div class="comparison-note">
+    <div>
+      <small>No strategy baseline</small>
+      <strong id="baseInterest">$0</strong>
+    </div>
+    <p>This is the estimated interest you would pay if you kept the loan as-is, with no offset, no extra repayments, and no lump sum.</p>
+  </div>
+
+  <div class="compare-grid">
+    <article class="compare-card optimal">
+      <div class="compare-top">
+        <div class="compare-title">
+          <span><i class="dot green"></i>Offset account only</span>
+          <em>Based on your offset balance and offset growth.</em>
+        </div>
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><small>Interest you pay</small><strong id="offsetInterest">$0</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="offsetSaved">$0</strong></div>
+      </div>
+      <p>Shows how much interest is reduced by keeping money in offset against the loan.</p>
+    </article>
+
+    <article class="compare-card">
+      <div class="compare-top">
+        <div class="compare-title">
+          <span><i class="dot blue"></i>Extra repayment only</span>
+          <em>Based on the extra repayment amount and frequency.</em>
+        </div>
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><small>Interest you pay</small><strong id="extraInterest">$0</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="extraSaved">$0</strong></div>
+      </div>
+      <p>Shows the interest saving from paying extra on top of the normal repayment.</p>
+    </article>
+
+    <article class="compare-card">
+      <div class="compare-top">
+        <div class="compare-title">
+          <span><i class="dot gold"></i>One-off lump sum only</span>
+          <em>Based on a single lump sum payment made now.</em>
+        </div>
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><small>Interest you pay</small><strong id="lumpInterest">$0</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="lumpSaved">$0</strong></div>
+      </div>
+      <p>Shows the interest saving from putting one single payment into the loan. If the lump sum is $0, the saving will be $0.</p>
+    </article>
+  </div>
+
+  <article class="selected-combo-card">
+    <div class="selected-combo-head">
+      <div>
+        <h3 id="comboTitle">All selected strategies</h3>
+        <p id="comboDescription">This combines the strategy options currently turned on in the calculator.</p>
+      </div>
+      <span class="combo-pill">Live combined result</span>
+    </div>
+    <div class="combo-results">
+      <div class="combo-result">
+        <small>Interest you pay</small>
+        <strong id="comboInterest">$0</strong>
+      </div>
+      <div class="combo-result green">
+        <small>Interest you save</small>
+        <strong id="comboSaved">$0</strong>
+      </div>
+      <div class="combo-result">
+        <small>Payoff time</small>
+        <strong id="comboPayoff">0 months</strong>
+      </div>
+      <div class="combo-result green">
+        <small>New payoff date</small>
+        <strong id="comboDate">—</strong>
+      </div>
+    </div>
+  </article>
+
+  <div class="chart-card">
+    <div class="chart-top"><h3>Mortgage balance over time</h3><div class="legend"><span><i class="dot"></i>No strategy</span><span><i class="dot blue"></i>Offset only</span><span><i class="dot green"></i>All selected strategies</span></div></div>
+    <div class="chart-wrap"><canvas id="chart" width="1200" height="380"></canvas></div>
+  </div>
+  <div class="payoff-row">
+    <div class="payoff-cell"><small>Payoff time (no strategy)</small><strong id="basePayoff">30 years</strong><em id="baseDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (offset only)</small><strong id="offsetPayoff">22 years 4 months</strong><em id="offsetDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (all selected)</small><strong id="planPayoff">0 months</strong><em id="planDate">—</em></div>
+    <div class="payoff-cell"><small>Time saved</small><strong class="green-text" id="timeSaved">7 years 5 months</strong><em class="green-text" id="monthsSaved">Paid off 0 months sooner</em></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer"><div class="container footer-inner"><div class="footer-brand"><a class="logo" href="#"><img class="icon-img" src="assets/icons/icon-10.svg" alt="icon 10" width="26" height="26">Mortgage Planner</a><span>Plan today. Enjoy tomorrow.</span></div><div class="footer-links"><div><h4>Product</h4><a href="#calculator">Calculator</a><a href="#">Strategies</a><a href="#">Saved plans</a></div><div><h4>Resources</h4><a href="#">Guides</a><a href="#">FAQs</a><a href="#">Glossary</a></div><div><h4>Company</h4><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy</a></div></div></div></footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
