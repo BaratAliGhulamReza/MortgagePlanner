@@ -92,3 +92,8 @@ This version forces mobile browsers to render the desktop layout instead of swit
 ## Mobile zoomed-out desktop view
 
 This version keeps the desktop layout on mobile and opens zoomed out by default. Users can pinch zoom in or out.
+
+
+## Polished Dari and Urdu hero layout
+
+Dari and Urdu hero headings use controlled line breaks, balanced RTL spacing, correct black/green highlight colors, and a flipped hero image.

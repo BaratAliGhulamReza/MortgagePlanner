@@ -396,3 +396,54 @@ body{
     width:min(1280px, calc(100% - 64px)) !important;
   }
 }
+
+
+/* Polished Dari / Urdu hero layout */
+html[dir="rtl"] .hero-grid{
+  grid-template-columns:.92fr 1.08fr;
+  gap:56px;
+}
+
+html[dir="rtl"] .hero h1{
+  font-size:clamp(44px,4.9vw,66px);
+  line-height:1.22;
+  letter-spacing:-.035em;
+  max-width:680px;
+  margin-inline-start:auto;
+  margin-bottom:18px;
+  color:#111827;
+}
+
+html[dir="rtl"] .hero h1 span{
+  color:inherit;
+}
+
+html[dir="rtl"] .hero h1 .hero-highlight{
+  color:var(--green) !important;
+}
+
+html[dir="rtl"] .hero h1 .rtl-hero-line{
+  display:block;
+  white-space:nowrap;
+}
+
+html[dir="rtl"] .hero .lead{
+  max-width:640px;
+  margin-inline-start:auto;
+  font-size:18px;
+  line-height:1.75;
+}
+
+html[dir="rtl"] .benefits{
+  justify-content:flex-start;
+  gap:30px;
+}
+
+html[dir="rtl"] .benefit{
+  min-width:auto;
+}
+
+html[dir="rtl"] .hero-art img{
+  transform:scaleX(-1) !important;
+  transform-origin:center center !important;
+}
