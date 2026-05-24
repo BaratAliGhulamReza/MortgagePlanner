@@ -398,10 +398,20 @@ body{
 }
 
 
-/* Keep hero headline rows on a single line in every language */
+
+
+
+
+/* Keep original hero headline colors:
+   black text everywhere, only highlighted word stays green */
+.hero h1{
+  color:#111827;
+}
 .hero h1 .hero-line{
   display:block;
   white-space:nowrap;
+  color:#111827;
 }
-
-.hero h1 .hero-line span{color:var(--green);}
+.hero h1 .hero-highlight{
+  color:var(--green) !important;
+}
