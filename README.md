@@ -82,3 +82,8 @@ The website includes a dedicated mobile layout with:
 - app-like cards
 - better touch spacing
 - responsive strategy/result cards
+
+
+## Desktop layout on mobile
+
+This version forces mobile browsers to render the desktop layout instead of switching to a mobile stacked layout. Users can pinch/zoom or scroll horizontally if their phone screen is narrow.
