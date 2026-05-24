@@ -109,6 +109,14 @@ const I18N = {
     monthlyPrincipalHint: 'The part reducing your loan balance.',
     monthlyInterestSaved: 'Interest saved this month',
     monthlySavedHint: 'Compared with no strategy.',
+    donationKicker: 'Support this website',
+    donationTitle: 'Help keep this tool online',
+    donationText: 'Your donation helps cover domain name and maintenance costs so this mortgage planner can stay free to use.',
+    donationCardMethod: 'Credit card',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: 'Donate',
+    donationNote: 'Secure payment link needs to be connected before donations go live.',
+    donationAlert: 'Donation checkout is not connected yet. Add your Stripe, PayPal, or payment link in assets/js/main.js.',
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -219,6 +227,14 @@ const I18N = {
     monthlyPrincipalHint: 'بخشی که باقی\u200cمانده وام را کم می\u200cکند.',
     monthlyInterestSaved: 'سود صرفه\u200cجویی\u200cشده در این ماه',
     monthlySavedHint: 'در مقایسه با حالت بدون راهکار.',
+    donationKicker: 'حمایت از این وبسایت',
+    donationTitle: 'کمک کنید این ابزار آنلاین بماند',
+    donationText: 'کمک شما برای پرداخت هزینه دامنه و نگهداری استفاده می\u200cشود تا این محاسبه\u200cگر رایگان بماند.',
+    donationCardMethod: 'کارت بانکی',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: 'کمک',
+    donationNote: 'لینک پرداخت امن باید قبل از فعال\u200cشدن کمک\u200cها وصل شود.',
+    donationAlert: 'پرداخت کمک هنوز وصل نشده است. لینک Stripe، PayPal یا پرداخت را در assets/js/main.js اضافه کنید.',
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -329,6 +345,14 @@ const I18N = {
     monthlyPrincipalHint: 'वह हिस्सा जो लोन बैलेंस कम करता है.',
     monthlyInterestSaved: 'इस महीने बचा ब्याज',
     monthlySavedHint: 'बिना रणनीति की तुलना में.',
+    donationKicker: 'इस वेबसाइट का समर्थन करें',
+    donationTitle: 'इस टूल को ऑनलाइन रखने में मदद करें',
+    donationText: 'आपका दान डोमेन नाम और रखरखाव की लागत में मदद करता है ताकि यह मॉर्गेज प्लानर मुफ्त रहे.',
+    donationCardMethod: 'क्रेडिट कार्ड',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: 'दान करें',
+    donationNote: 'दान चालू करने से पहले सुरक्षित भुगतान लिंक जोड़ना होगा.',
+    donationAlert: 'डोनेशन चेकआउट अभी जुड़ा नहीं है. assets/js/main.js में Stripe, PayPal या payment link जोड़ें.',
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -439,6 +463,14 @@ const I18N = {
     monthlyPrincipalHint: 'وہ حصہ جو قرض کا بیلنس کم کرتا ہے.',
     monthlyInterestSaved: 'اس ماہ بچا ہوا سود',
     monthlySavedHint: 'بغیر حکمت عملی کے مقابلے میں.',
+    donationKicker: 'اس ویب سائٹ کی مدد کریں',
+    donationTitle: 'اس ٹول کو آن لائن رکھنے میں مدد کریں',
+    donationText: 'آپ کا عطیہ ڈومین نام اور دیکھ بھال کی لاگت میں مدد کرتا ہے تاکہ یہ مورگیج پلانر مفت رہے.',
+    donationCardMethod: 'کریڈٹ کارڈ',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: 'عطیہ کریں',
+    donationNote: 'عطیات لائیو کرنے سے پہلے محفوظ payment link جوڑنا ہوگا.',
+    donationAlert: 'ڈونیشن چیک آؤٹ ابھی منسلک نہیں ہے. assets/js/main.js میں Stripe، PayPal یا payment link شامل کریں.',
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -549,6 +581,14 @@ const I18N = {
     monthlyPrincipalHint: '用于减少贷款余额的部分。',
     monthlyInterestSaved: '本月节省利息',
     monthlySavedHint: '与无策略相比。',
+    donationKicker: '支持这个网站',
+    donationTitle: '帮助这个工具持续在线',
+    donationText: '你的捐赠将帮助支付域名和维护费用，让这个房贷规划器继续免费使用。',
+    donationCardMethod: '信用卡',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: '捐赠',
+    donationNote: '上线捐赠前需要连接安全支付链接。',
+    donationAlert: '捐赠付款尚未连接。请在 assets/js/main.js 中添加 Stripe、PayPal 或支付链接。',
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -659,6 +699,14 @@ const I18N = {
     monthlyPrincipalHint: 'La parte que reduce el saldo del préstamo.',
     monthlyInterestSaved: 'Interés ahorrado este mes',
     monthlySavedHint: 'Comparado con no usar estrategia.',
+    donationKicker: 'Apoya este sitio web',
+    donationTitle: 'Ayuda a mantener esta herramienta online',
+    donationText: 'Tu donación ayuda a cubrir el costo del dominio y mantenimiento para que este planificador hipotecario siga siendo gratuito.',
+    donationCardMethod: 'Tarjeta de crédito',
+    donationAppleMethod: 'Apple Pay',
+    donationButton: 'Donar',
+    donationNote: 'Debes conectar un enlace de pago seguro antes de recibir donaciones.',
+    donationAlert: 'El pago de donación aún no está conectado. Agrega tu enlace de Stripe, PayPal o pago en assets/js/main.js.',
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -709,6 +757,8 @@ function setStaticText() {
   document.documentElement.dir = isRTL() ? 'rtl' : 'ltr';
   document.body.classList.toggle('rtl', isRTL());
   document.title = t('docTitle');
+
+  setupDonationControls();
 
   const langSelect = $('languageSelect');
   if (langSelect) langSelect.value = currentLang;
@@ -873,6 +923,15 @@ function setStaticText() {
   setText('monthlyPrincipalHint', t('monthlyPrincipalHint'));
   setText('monthlySavedLabel', t('monthlyInterestSaved'));
   setText('monthlySavedHint', t('monthlySavedHint'));
+
+
+  setText('donationKicker', t('donationKicker'));
+  setText('donationTitle', t('donationTitle'));
+  setText('donationText', t('donationText'));
+  setText('donationCardMethod', t('donationCardMethod'));
+  setText('donationAppleMethod', t('donationAppleMethod'));
+  setText('donationNote', t('donationNote'));
+  updateDonationButton();
 
   const footer = document.querySelector('.footer-brand span');
   if (footer) footer.textContent = t('footerLine');
@@ -1200,7 +1259,56 @@ function update() {
   drawChart(base, offset, plan);
 }
 
+
+const DONATION_CHECKOUT_LINKS = {
+  card: '',
+  applepay: ''
+};
+
+let selectedDonationAmount = 5;
+let selectedDonationMethod = 'card';
+
+function updateDonationButton() {
+  const btn = $('donationSubmit');
+  if (btn) btn.textContent = `${t('donationButton')} $${selectedDonationAmount}`;
+}
+
+function setupDonationControls() {
+  document.querySelectorAll('.donation-amount').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedDonationAmount = Number(btn.dataset.amount || 5);
+      document.querySelectorAll('.donation-amount').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateDonationButton();
+    });
+  });
+
+  document.querySelectorAll('.donation-method').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedDonationMethod = btn.dataset.method || 'card';
+      document.querySelectorAll('.donation-method').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  const submit = $('donationSubmit');
+  if (submit) {
+    submit.addEventListener('click', () => {
+      const base = DONATION_CHECKOUT_LINKS[selectedDonationMethod] || '';
+      if (!base) {
+        alert(t('donationAlert'));
+        return;
+      }
+      const joiner = base.includes('?') ? '&' : '?';
+      window.open(`${base}${joiner}amount=${selectedDonationAmount}`, '_blank', 'noopener,noreferrer');
+    });
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
+  setupDonationControls();
+
   const langSelect = $('languageSelect');
   if (langSelect) {
     langSelect.value = currentLang;
