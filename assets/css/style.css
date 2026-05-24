@@ -396,3 +396,10 @@ body{
     width:min(1280px, calc(100% - 64px)) !important;
   }
 }
+
+
+/* Keep hero headline rows on a single line in every language */
+.hero h1 .hero-line{
+  display:block;
+  white-space:nowrap;
+}

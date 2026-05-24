@@ -92,3 +92,8 @@ This version forces mobile browsers to render the desktop layout instead of swit
 ## Mobile zoomed-out desktop view
 
 This version keeps the desktop layout on mobile and opens zoomed out by default. Users can pinch zoom in or out.
+
+
+## Hero headline single-line rows
+
+This version keeps each hero headline row on a single line in every supported language to avoid messy wrapping.
