@@ -87,3 +87,8 @@ The website includes a dedicated mobile layout with:
 ## Desktop layout on mobile
 
 This version forces mobile browsers to render the desktop layout instead of switching to a mobile stacked layout. Users can pinch/zoom or scroll horizontally if their phone screen is narrow.
+
+
+## Mobile zoomed-out desktop view
+
+This version keeps the desktop layout on mobile and opens zoomed out by default. Users can pinch zoom in or out.
