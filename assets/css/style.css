@@ -396,22 +396,3 @@ body{
     width:min(1280px, calc(100% - 64px)) !important;
   }
 }
-
-
-
-
-
-
-/* Keep original hero headline colors:
-   black text everywhere, only highlighted word stays green */
-.hero h1{
-  color:#111827;
-}
-.hero h1 .hero-line{
-  display:block;
-  white-space:nowrap;
-  color:#111827;
-}
-.hero h1 .hero-highlight{
-  color:var(--green) !important;
-}
