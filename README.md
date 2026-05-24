@@ -92,3 +92,8 @@ This version forces mobile browsers to render the desktop layout instead of swit
 ## Mobile zoomed-out desktop view
 
 This version keeps the desktop layout on mobile and opens zoomed out by default. Users can pinch zoom in or out.
+
+
+## Hazaragi language support
+
+This version adds a Hazaragi option (`hz`) to the language selector. It uses RTL layout and Afghan Persian/Hazaragi-style wording. Because Hazaragi has regional variations and no single universally standardized written form, a native Hazaragi reviewer should confirm preferred local wording before final publication.

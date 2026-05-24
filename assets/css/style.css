@@ -396,3 +396,10 @@ body{
     width:min(1280px, calc(100% - 64px)) !important;
   }
 }
+
+
+/* Hazaragi RTL image support */
+html[lang="hz"] .hero-art img{
+  transform:scaleX(-1) !important;
+  transform-origin:center center !important;
+}
