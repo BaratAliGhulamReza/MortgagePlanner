@@ -28,17 +28,17 @@ const I18N = {
     strategiesTitle: 'Strategy options',
     strategiesSub: 'Choose one or more options to compare strategies.',
     offsetTitle: 'Grow offset account',
-    offsetDesc: 'Offset is linked to the loan and reduces interest charged.',
+    offsetDesc: 'Reduces interest charged.',
     use: 'Use',
     currentOffset: 'Current offset / redraw',
     growOffsetBy: 'Grow offset by',
     growFrequency: 'Grow frequency',
     extraTitle: 'Extra payment',
-    extraDesc: 'Add an extra repayment weekly, fortnightly, monthly, or yearly.',
+    extraDesc: 'Pay extra anytime.',
     extraAmount: 'Extra amount',
     howOften: 'How often',
     lumpTitle: 'One-off lump sum',
-    lumpDesc: 'A single payment toward the home loan.',
+    lumpDesc: 'One payment to reduce the loan.',
     lumpAmount: 'Lump sum amount',
     interestComparison: 'Interest comparison',
     interestComparisonSub: 'See how each strategy performs on its own, then compare it with the live combined result from the options you select.',
@@ -98,6 +98,17 @@ const I18N = {
     monthPlural: 'months',
     yearSingular: 'year',
     yearPlural: 'years',
+    monthlyBreakdownTitle: 'Monthly repayment breakdown',
+    monthlyBreakdownSub: 'Based on the strategy options currently selected.',
+    monthlyBreakdownBadge: 'After selected strategy',
+    monthlyRepaymentAfter: 'Monthly repayment after strategy',
+    monthlyRepaymentHint: 'Normal repayment plus selected extra payments.',
+    monthlyInterestPart: 'This month to interest',
+    monthlyInterestHint: 'After offset and lump sum are applied.',
+    monthlyPrincipalPart: 'This month to principal',
+    monthlyPrincipalHint: 'The part reducing your loan balance.',
+    monthlyInterestSaved: 'Interest saved this month',
+    monthlySavedHint: 'Compared with no strategy.',
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -127,17 +138,17 @@ const I18N = {
     strategiesTitle: 'گزینه‌های راهکار',
     strategiesSub: 'یک یا چند گزینه را انتخاب کنید تا راهکارها مقایسه شوند.',
     offsetTitle: 'افزایش حساب آفست',
-    offsetDesc: 'حساب آفست به وام وصل است و سود محاسبه‌شده را کم می‌کند.',
+    offsetDesc: 'سود وام را کم می‌کند.',
     use: 'استفاده',
     currentOffset: 'مبلغ فعلی آفست / برداشت مجدد',
     growOffsetBy: 'افزایش آفست به مقدار',
     growFrequency: 'تکرار افزایش',
     extraTitle: 'پرداخت اضافی',
-    extraDesc: 'پرداخت اضافی را به‌صورت هفتگی، هر دو هفته، ماهانه یا سالانه اضافه کنید.',
+    extraDesc: 'پرداخت اضافی اضافه کنید.',
     extraAmount: 'مبلغ اضافی',
     howOften: 'چند وقت یک‌بار',
     lumpTitle: 'پرداخت یک‌باره',
-    lumpDesc: 'یک پرداخت یک‌باره برای کاهش اصل وام.',
+    lumpDesc: 'یک پرداخت برای کاهش وام.',
     lumpAmount: 'مبلغ پرداخت یک‌باره',
     interestComparison: 'مقایسه سود',
     interestComparisonSub: 'هر راهکار را جداگانه ببینید، سپس نتیجه ترکیبی گزینه‌های انتخاب‌شده را مقایسه کنید.',
@@ -197,6 +208,17 @@ const I18N = {
     monthPlural: 'ماه',
     yearSingular: 'سال',
     yearPlural: 'سال',
+    monthlyBreakdownTitle: 'جزئیات پرداخت ماهانه',
+    monthlyBreakdownSub: 'بر اساس گزینه\u200cهای راهکاری که اکنون انتخاب شده\u200cاند.',
+    monthlyBreakdownBadge: 'بعد از راهکار انتخاب\u200cشده',
+    monthlyRepaymentAfter: 'پرداخت ماهانه بعد از راهکار',
+    monthlyRepaymentHint: 'پرداخت عادی به اضافه پرداخت\u200cهای اضافی انتخاب\u200cشده.',
+    monthlyInterestPart: 'سهم سود در این ماه',
+    monthlyInterestHint: 'بعد از اعمال آفست و پرداخت یک\u200cباره.',
+    monthlyPrincipalPart: 'سهم اصل وام در این ماه',
+    monthlyPrincipalHint: 'بخشی که باقی\u200cمانده وام را کم می\u200cکند.',
+    monthlyInterestSaved: 'سود صرفه\u200cجویی\u200cشده در این ماه',
+    monthlySavedHint: 'در مقایسه با حالت بدون راهکار.',
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -226,17 +248,17 @@ const I18N = {
     strategiesTitle: 'रणनीति विकल्प',
     strategiesSub: 'रणनीतियों की तुलना करने के लिए एक या अधिक विकल्प चुनें.',
     offsetTitle: 'ऑफसेट खाता बढ़ाएं',
-    offsetDesc: 'ऑफसेट खाते से लोन पर लगने वाला ब्याज कम होता है.',
+    offsetDesc: 'ब्याज कम करता है.',
     use: 'उपयोग करें',
     currentOffset: 'वर्तमान ऑफसेट / रीड्रॉ',
     growOffsetBy: 'ऑफसेट बढ़ाएं',
     growFrequency: 'वृद्धि आवृत्ति',
     extraTitle: 'अतिरिक्त भुगतान',
-    extraDesc: 'साप्ताहिक, पाक्षिक, मासिक या वार्षिक अतिरिक्त भुगतान जोड़ें.',
+    extraDesc: 'अतिरिक्त भुगतान करें.',
     extraAmount: 'अतिरिक्त राशि',
     howOften: 'कितनी बार',
     lumpTitle: 'एकमुश्त भुगतान',
-    lumpDesc: 'होम लोन की ओर एक बार किया गया भुगतान.',
+    lumpDesc: 'लोन घटाने के लिए एक भुगतान.',
     lumpAmount: 'एकमुश्त राशि',
     interestComparison: 'ब्याज तुलना',
     interestComparisonSub: 'हर रणनीति को अलग-अलग देखें, फिर चुने गए विकल्पों के संयुक्त परिणाम से तुलना करें.',
@@ -296,6 +318,17 @@ const I18N = {
     monthPlural: 'महीने',
     yearSingular: 'साल',
     yearPlural: 'साल',
+    monthlyBreakdownTitle: 'मासिक भुगतान विवरण',
+    monthlyBreakdownSub: 'वर्तमान में चुनी गई रणनीति विकल्पों के आधार पर.',
+    monthlyBreakdownBadge: 'चुनी गई रणनीति के बाद',
+    monthlyRepaymentAfter: 'रणनीति के बाद मासिक भुगतान',
+    monthlyRepaymentHint: 'सामान्य भुगतान और चुने गए अतिरिक्त भुगतान.',
+    monthlyInterestPart: 'इस महीने ब्याज में',
+    monthlyInterestHint: 'ऑफसेट और एकमुश्त भुगतान लागू होने के बाद.',
+    monthlyPrincipalPart: 'इस महीने मूलधन में',
+    monthlyPrincipalHint: 'वह हिस्सा जो लोन बैलेंस कम करता है.',
+    monthlyInterestSaved: 'इस महीने बचा ब्याज',
+    monthlySavedHint: 'बिना रणनीति की तुलना में.',
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -325,17 +358,17 @@ const I18N = {
     strategiesTitle: 'حکمت عملی کے اختیارات',
     strategiesSub: 'حکمت عملیوں کا موازنہ کرنے کے لیے ایک یا زیادہ اختیارات منتخب کریں.',
     offsetTitle: 'آفسیٹ اکاؤنٹ بڑھائیں',
-    offsetDesc: 'آفسیٹ اکاؤنٹ قرض سے منسلک ہوتا ہے اور سود کم کرتا ہے.',
+    offsetDesc: 'سود کم کرتا ہے.',
     use: 'استعمال کریں',
     currentOffset: 'موجودہ آفسیٹ / ری ڈرا',
     growOffsetBy: 'آفسیٹ میں اضافہ',
     growFrequency: 'اضافہ کی فریکوئنسی',
     extraTitle: 'اضافی ادائیگی',
-    extraDesc: 'ہفتہ وار، پندرہ روزہ، ماہانہ یا سالانہ اضافی ادائیگی شامل کریں.',
+    extraDesc: 'اضافی ادائیگی کریں.',
     extraAmount: 'اضافی رقم',
     howOften: 'کتنی بار',
     lumpTitle: 'ایک بار کی رقم',
-    lumpDesc: 'ہوم لون کی طرف ایک بار کی ادائیگی.',
+    lumpDesc: 'قرض کم کرنے کی ایک ادائیگی.',
     lumpAmount: 'ایک بار کی رقم',
     interestComparison: 'سود کا موازنہ',
     interestComparisonSub: 'ہر حکمت عملی کو الگ دیکھیں، پھر منتخب اختیارات کے مشترکہ نتیجے سے موازنہ کریں.',
@@ -395,6 +428,17 @@ const I18N = {
     monthPlural: 'ماہ',
     yearSingular: 'سال',
     yearPlural: 'سال',
+    monthlyBreakdownTitle: 'ماہانہ ادائیگی کی تفصیل',
+    monthlyBreakdownSub: 'اس وقت منتخب حکمت عملی کے اختیارات کی بنیاد پر.',
+    monthlyBreakdownBadge: 'منتخب حکمت عملی کے بعد',
+    monthlyRepaymentAfter: 'حکمت عملی کے بعد ماہانہ ادائیگی',
+    monthlyRepaymentHint: 'عام ادائیگی کے ساتھ منتخب اضافی ادائیگیاں.',
+    monthlyInterestPart: 'اس ماہ سود میں',
+    monthlyInterestHint: 'آفسیٹ اور ایک بار کی رقم لاگو ہونے کے بعد.',
+    monthlyPrincipalPart: 'اس ماہ اصل رقم میں',
+    monthlyPrincipalHint: 'وہ حصہ جو قرض کا بیلنس کم کرتا ہے.',
+    monthlyInterestSaved: 'اس ماہ بچا ہوا سود',
+    monthlySavedHint: 'بغیر حکمت عملی کے مقابلے میں.',
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -424,17 +468,17 @@ const I18N = {
     strategiesTitle: '策略选项',
     strategiesSub: '选择一个或多个选项来比较策略。',
     offsetTitle: '增加抵消账户',
-    offsetDesc: '抵消账户与贷款相连，可减少计息金额。',
+    offsetDesc: '减少利息。',
     use: '使用',
     currentOffset: '当前抵消 / redraw',
     growOffsetBy: '抵消账户增加',
     growFrequency: '增加频率',
     extraTitle: '额外还款',
-    extraDesc: '按每周、每两周、每月或每年增加额外还款。',
+    extraDesc: '增加额外还款。',
     extraAmount: '额外金额',
     howOften: '频率',
     lumpTitle: '一次性还款',
-    lumpDesc: '一次性用于房贷本金的付款。',
+    lumpDesc: '一次付款减少贷款。',
     lumpAmount: '一次性金额',
     interestComparison: '利息比较',
     interestComparisonSub: '单独查看每个策略，再与所选选项的组合结果比较。',
@@ -494,6 +538,17 @@ const I18N = {
     monthPlural: '个月',
     yearSingular: '年',
     yearPlural: '年',
+    monthlyBreakdownTitle: '每月还款明细',
+    monthlyBreakdownSub: '基于当前选择的策略选项。',
+    monthlyBreakdownBadge: '应用所选策略后',
+    monthlyRepaymentAfter: '策略后的每月还款',
+    monthlyRepaymentHint: '正常还款加上所选额外还款。',
+    monthlyInterestPart: '本月支付利息',
+    monthlyInterestHint: '应用抵消账户和一次性还款后。',
+    monthlyPrincipalPart: '本月偿还本金',
+    monthlyPrincipalHint: '用于减少贷款余额的部分。',
+    monthlyInterestSaved: '本月节省利息',
+    monthlySavedHint: '与无策略相比。',
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -523,17 +578,17 @@ const I18N = {
     strategiesTitle: 'Opciones de estrategia',
     strategiesSub: 'Elige una o más opciones para comparar estrategias.',
     offsetTitle: 'Aumentar cuenta offset',
-    offsetDesc: 'La cuenta offset está vinculada al préstamo y reduce el interés cobrado.',
+    offsetDesc: 'Reduce el interés cobrado.',
     use: 'Usar',
     currentOffset: 'Offset / redraw actual',
     growOffsetBy: 'Aumentar offset en',
     growFrequency: 'Frecuencia de aumento',
     extraTitle: 'Pago extra',
-    extraDesc: 'Agrega un pago extra semanal, quincenal, mensual o anual.',
+    extraDesc: 'Agrega pagos extra.',
     extraAmount: 'Monto extra',
     howOften: 'Frecuencia',
     lumpTitle: 'Pago único',
-    lumpDesc: 'Un pago único hacia el préstamo hipotecario.',
+    lumpDesc: 'Un pago para reducir el préstamo.',
     lumpAmount: 'Monto del pago único',
     interestComparison: 'Comparación de intereses',
     interestComparisonSub: 'Mira cada estrategia por separado y compárala con el resultado combinado de las opciones seleccionadas.',
@@ -593,6 +648,17 @@ const I18N = {
     monthPlural: 'meses',
     yearSingular: 'año',
     yearPlural: 'años',
+    monthlyBreakdownTitle: 'Desglose del pago mensual',
+    monthlyBreakdownSub: 'Basado en las estrategias seleccionadas actualmente.',
+    monthlyBreakdownBadge: 'Después de la estrategia seleccionada',
+    monthlyRepaymentAfter: 'Pago mensual después de la estrategia',
+    monthlyRepaymentHint: 'Pago normal más pagos extra seleccionados.',
+    monthlyInterestPart: 'Este mes a intereses',
+    monthlyInterestHint: 'Después de aplicar offset y pago único.',
+    monthlyPrincipalPart: 'Este mes a capital',
+    monthlyPrincipalHint: 'La parte que reduce el saldo del préstamo.',
+    monthlyInterestSaved: 'Interés ahorrado este mes',
+    monthlySavedHint: 'Comparado con no usar estrategia.',
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -794,6 +860,19 @@ function setStaticText() {
   [t('payoffNoStrategy'), t('payoffOffsetOnly'), t('payoffAllSelected'), t('timeSaved')].forEach((txt, i) => {
     if (payoffSmall[i]) payoffSmall[i].textContent = txt;
   });
+
+
+  setText('monthlyTitle', t('monthlyBreakdownTitle'));
+  setText('monthlySub', t('monthlyBreakdownSub'));
+  setText('monthlyBadge', t('monthlyBreakdownBadge'));
+  setText('monthlyRepaymentLabel', t('monthlyRepaymentAfter'));
+  setText('monthlyRepaymentHint', t('monthlyRepaymentHint'));
+  setText('monthlyInterestLabel', t('monthlyInterestPart'));
+  setText('monthlyInterestHint', t('monthlyInterestHint'));
+  setText('monthlyPrincipalLabel', t('monthlyPrincipalPart'));
+  setText('monthlyPrincipalHint', t('monthlyPrincipalHint'));
+  setText('monthlySavedLabel', t('monthlyInterestSaved'));
+  setText('monthlySavedHint', t('monthlySavedHint'));
 
   const footer = document.querySelector('.footer-brand span');
   if (footer) footer.textContent = t('footerLine');
@@ -1035,6 +1114,28 @@ function drawChart(base, offset, plan) {
   }
 }
 
+
+function monthlyBreakdown(d, base) {
+  const monthlyRate = (d.rate || 0) / 100 / 12;
+  const repaymentPpy = periodsPerYear(d.repaymentFrequency);
+  const normalMonthlyRepayment = base.payment * repaymentPpy / 12;
+  const extraMonthly = d.useExtra ? periodicAmount(d.extra, d.extraFrequency, 12) : 0;
+
+  let strategyBalance = Math.max(0, d.principal || 0);
+  if (d.useLump && d.lump > 0) {
+    strategyBalance = Math.max(0, strategyBalance - d.lump);
+  }
+
+  const baselineInterest = Math.max(0, d.principal || 0) * monthlyRate;
+  const strategyInterestBase = Math.max(0, strategyBalance - (d.useOffset ? d.offset : 0));
+  const strategyInterest = strategyInterestBase * monthlyRate;
+  const monthlyRepayment = normalMonthlyRepayment + extraMonthly;
+  const principalPaid = Math.max(0, monthlyRepayment - strategyInterest);
+  const interestSaved = Math.max(0, baselineInterest - strategyInterest);
+
+  return { monthlyRepayment, strategyInterest, principalPaid, interestSaved };
+}
+
 function selectedStrategyText(d) {
   const parts = [];
   if (d.useOffset) parts.push(t('offset'));
@@ -1063,6 +1164,13 @@ function update() {
   setText('statTerm', localNumber(d.amortizationYears) + ' ' + t('years'));
   setText('statFrequency', frequencyLabel(d.repaymentFrequency));
   setText('statPayment', fmt(payment));
+
+
+  const monthView = monthlyBreakdown(d, base);
+  setText('monthlyRepayment', fmt(monthView.monthlyRepayment));
+  setText('monthlyInterest', fmt(monthView.strategyInterest));
+  setText('monthlyPrincipal', fmt(monthView.principalPaid));
+  setText('monthlySaved', fmt(monthView.interestSaved));
 
   setText('baseInterest', fmt(base.interest));
   setText('offsetInterest', fmt(offset.interest));

@@ -58,3 +58,17 @@ This version supports:
 - Spanish
 
 Dari and Urdu use RTL layout. The house image flips in RTL mode.
+
+
+## Monthly repayment breakdown
+
+The website includes a live monthly repayment breakdown showing:
+- monthly repayment after selected strategy
+- estimated interest portion for the month
+- estimated principal portion for the month
+- estimated interest saved this month
+
+
+## Short strategy descriptions
+
+The strategy option descriptions are intentionally short for a cleaner calculator layout.
