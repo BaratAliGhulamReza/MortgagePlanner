@@ -403,3 +403,5 @@ body{
   display:block;
   white-space:nowrap;
 }
+
+.hero h1 .hero-line span{color:var(--green);}
