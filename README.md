@@ -72,3 +72,13 @@ The website includes a live monthly repayment breakdown showing:
 ## Short strategy descriptions
 
 The strategy option descriptions are intentionally short for a cleaner calculator layout.
+
+
+## Premium mobile layout polish
+
+The website includes a dedicated mobile layout with:
+- compact sticky-style header
+- stacked hero and calculator sections
+- app-like cards
+- better touch spacing
+- responsive strategy/result cards
