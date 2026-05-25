@@ -1081,6 +1081,7 @@ function setStaticText() {
   localizeDonationMethodOptions();
 
   setText('copyDonationDetails', t('donateCopyButton'));
+  refreshDonationLanguage();
   setText('donateNote', t('donateNote'));
 
   const footer = document.querySelector('.footer-brand span');
@@ -1425,27 +1426,69 @@ function localizeDonationMethodOptions() {
   });
 }
 
-function setupDonationSection() {
-  const amountButtons = document.querySelectorAll('.donation-amount');
+
+function refreshDonationLanguage() {
   const methodSelect = $('donationMethod');
+  if (methodSelect) {
+    const labels = {
+      payid: t('donatePayIdTitle'),
+      applepay: t('donateApplePayTitle'),
+      creditcard: t('donateCreditCardTitle'),
+      paypal: t('donatePaypalTitle')
+    };
+    [...methodSelect.options].forEach(option => {
+      option.textContent = labels[option.value] || option.textContent;
+    });
+  }
+
+  const activeAmount = document.querySelector('.donation-amount.active');
+  const continueBtn = $('copyDonationDetails');
+  const amount = activeAmount ? Number(activeAmount.dataset.amount) : 10;
+  const formatted = new Intl.NumberFormat(localeCode(), {
+    style: 'currency',
+    currency: 'AUD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(amount);
+
+  if (continueBtn) continueBtn.textContent = t('donateCopyButton') + ' ' + formatted;
+}
+
+function setupDonationSection() {
   const amountText = $('donationAmountText');
   const totalText = $('donationTotalText');
   const continueBtn = $('copyDonationDetails');
+  const methodSelect = $('donationMethod');
+  let selectedAmount = 10;
 
-  function setAmount(amount) {
-    const formatted = new Intl.NumberFormat(localeCode(), {
+  function formatDonationAmount(amount) {
+    return new Intl.NumberFormat(localeCode(), {
       style: 'currency',
       currency: 'AUD',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
-    }).format(amount);
+    }).format(Number(amount) || 0);
+  }
+
+  function updateDonationUI(amount) {
+    selectedAmount = Number(amount) || 10;
+    const formatted = formatDonationAmount(selectedAmount);
 
     if (amountText) amountText.textContent = formatted;
     if (totalText) totalText.textContent = formatted;
-    amountButtons.forEach(btn => btn.classList.toggle('active', Number(btn.dataset.amount) === Number(amount)));
+
+    document.querySelectorAll('.donation-amount').forEach(btn => {
+      const isActive = Number(btn.dataset.amount) === selectedAmount;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    if (continueBtn) {
+      continueBtn.textContent = t('donateCopyButton') + ' ' + formatted;
+    }
   }
 
-  function localizeMethodOptions() {
+  function localizeDonationOptions() {
     if (!methodSelect) return;
     const labels = {
       payid: t('donatePayIdTitle'),
@@ -1458,26 +1501,36 @@ function setupDonationSection() {
     });
   }
 
-  amountButtons.forEach(btn => btn.addEventListener('click', () => setAmount(Number(btn.dataset.amount || 10))));
+  document.addEventListener('click', (event) => {
+    const amountButton = event.target.closest('.donation-amount');
+    if (amountButton) {
+      event.preventDefault();
+      updateDonationUI(amountButton.dataset.amount);
+      return;
+    }
+
+    if (event.target.closest('#copyDonationDetails')) {
+      event.preventDefault();
+      const method = methodSelect ? methodSelect.value : 'payid';
+      if (continueBtn) {
+        continueBtn.classList.add('copied');
+        continueBtn.textContent = t('donateCopiedButton') + ' • ' + formatDonationAmount(selectedAmount);
+        setTimeout(() => {
+          continueBtn.classList.remove('copied');
+          continueBtn.textContent = t('donateCopyButton') + ' ' + formatDonationAmount(selectedAmount);
+        }, 1600);
+      }
+    }
+  });
 
   if (methodSelect) {
     methodSelect.addEventListener('change', () => {
+      updateDonationUI(selectedAmount);
     });
   }
 
-  if (continueBtn) {
-    continueBtn.addEventListener('click', () => {
-      continueBtn.classList.add('copied');
-      continueBtn.textContent = t('donateCopiedButton');
-      setTimeout(() => {
-        continueBtn.classList.remove('copied');
-        continueBtn.textContent = t('donateCopyButton');
-      }, 1500);
-    });
-  }
-
-  localizeMethodOptions();
-  setAmount(10);
+  localizeDonationOptions();
+  updateDonationUI(selectedAmount);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -117,3 +117,13 @@ Account details have been removed. The donation section now uses a payment metho
 ## Polished donation dropdown
 
 The donation helper text has been removed. The payment method is now shown as a styled dropdown with a matching card-style icon.
+
+
+## Donation amount click fix
+
+Donation amount buttons now use robust click handling. Selecting an amount updates the summary and the Continue button immediately.
+
+
+## Donation dropdown button style
+
+The payment method dropdown is styled to match the donation amount buttons, with a matching icon, border, hover, and focus treatment.
