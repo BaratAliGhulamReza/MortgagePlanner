@@ -1,6 +1,11 @@
 
 const $ = (id) => document.getElementById(id);
-let currentLang = localStorage.getItem('mortgagePlannerLanguage') || 'en';
+const SUPPORTED_LANGS = ['en', 'fa', 'es', 'zh', 'ur', 'ar', 'vi'];
+const params = new URLSearchParams(window.location.search);
+const urlLang = params.get('lang');
+let currentLang = SUPPORTED_LANGS.includes(urlLang)
+  ? urlLang
+  : (SUPPORTED_LANGS.includes(localStorage.getItem('mortgagePlannerLanguage')) ? localStorage.getItem('mortgagePlannerLanguage') : 'en');
 
 const I18N = {
   en: {
@@ -917,7 +922,314 @@ const I18N = {
   }
 };
 
-const RTL_LANGS = ['fa', 'ur'];
+
+I18N.ar = {
+  docTitle: 'مخطط الرهن العقاري',
+  brand: 'مخطط الرهن العقاري',
+  savePlan: 'حفظ الخطة',
+  heroTitle: 'خطط <span>بذكاء.</span><br>واسدد رهنك العقاري أسرع.',
+  heroLead: 'أدوات تخطيط قوية ورؤى واضحة تساعدك على توفير المال والوصول إلى الحرية المالية.',
+  benefit1: 'اعرف تاريخ سداد القرض',
+  benefit2: 'وفّر آلاف الدولارات',
+  benefit3: 'ابقَ على المسار الصحيح',
+  statLoan: 'رصيد القرض الحالي',
+  statRate: 'معدل الفائدة',
+  statTerm: 'مدة السداد',
+  statFrequency: 'وتيرة السداد',
+  statPayment: 'القسط',
+  calcTitle: 'حاسبة الرهن العقاري',
+  calcSub: 'أدخل تفاصيل القرض لتقدير موعد السداد الكامل.',
+  loanStartDate: 'تاريخ بدء القرض',
+  dateHint: 'اليوم / الشهر / السنة',
+  currentLoanBalance: 'رصيد القرض الحالي',
+  interestRate: 'معدل الفائدة',
+  amortizationPeriod: 'مدة السداد',
+  repaymentFrequency: 'وتيرة السداد',
+  strategiesTitle: 'خيارات الاستراتيجية',
+  strategiesSub: 'اختر خياراً واحداً أو أكثر لمقارنة الاستراتيجيات.',
+  offsetTitle: 'زيادة حساب الأوفست',
+  offsetDesc: 'الأوفست مرتبط بالقرض ويقلل الفائدة المحتسبة.',
+  use: 'استخدام',
+  currentOffset: 'الرصيد الحالي في الأوفست / السحب المعاد',
+  growOffsetBy: 'زيادة الأوفست بمقدار',
+  growFrequency: 'وتيرة الزيادة',
+  extraTitle: 'دفعة إضافية',
+  extraDesc: 'أضف دفعة إضافية أسبوعية أو نصف شهرية أو شهرية أو سنوية.',
+  extraAmount: 'مبلغ الدفعة الإضافية',
+  howOften: 'كم مرة',
+  lumpTitle: 'دفعة واحدة',
+  lumpDesc: 'دفعة واحدة باتجاه قرض المنزل.',
+  lumpAmount: 'مبلغ الدفعة الواحدة',
+  interestComparison: 'مقارنة الفائدة',
+  interestComparisonSub: 'شاهد أداء كل استراتيجية بمفردها، ثم قارنها بالنتيجة المجمعة المباشرة للخيارات التي تختارها.',
+  clearComparison: 'مقارنة واضحة جنباً إلى جنب',
+  noStrategyBaseline: 'خط الأساس بدون استراتيجية',
+  baselineDesc: 'هذا هو تقدير الفائدة التي ستدفعها إذا أبقيت القرض كما هو، بدون أوفست أو دفعات إضافية أو دفعة واحدة.',
+  offsetOnly: 'حساب الأوفست فقط',
+  offsetOnlyDesc: 'بناءً على رصيد الأوفست ونموه.',
+  extraOnly: 'الدفعة الإضافية فقط',
+  extraOnlyDesc: 'بناءً على مبلغ الدفعة الإضافية ووتيرتها.',
+  lumpOnly: 'الدفعة الواحدة فقط',
+  lumpOnlyDesc: 'بناءً على دفعة واحدة تُدفع الآن.',
+  interestPay: 'الفائدة التي تدفعها',
+  interestSave: 'الفائدة التي توفرها',
+  offsetCardP: 'يوضح مقدار انخفاض الفائدة عند إبقاء المال في حساب أوفست مقابل القرض.',
+  extraCardP: 'يوضح توفير الفائدة الناتج عن دفع مبلغ إضافي فوق القسط العادي.',
+  lumpCardP: 'يوضح توفير الفائدة من دفع مبلغ واحد في القرض. إذا كانت الدفعة $0، فسيكون التوفير $0.',
+  liveCombined: 'النتيجة المجمعة المباشرة',
+  interestPayShort: 'الفائدة التي تدفعها',
+  payoffTime: 'مدة السداد',
+  newPayoffDate: 'تاريخ السداد الجديد',
+  chartTitle: 'رصيد الرهن العقاري بمرور الوقت',
+  legendNoStrategy: 'بدون استراتيجية',
+  legendOffsetOnly: 'الأوفست فقط',
+  legendAllSelected: 'كل الاستراتيجيات المختارة',
+  payoffNoStrategy: 'مدة السداد (بدون استراتيجية)',
+  payoffOffsetOnly: 'مدة السداد (الأوفست فقط)',
+  payoffAllSelected: 'مدة السداد (كل الخيارات المختارة)',
+  timeSaved: 'الوقت الموفر',
+  footerLine: 'خطط اليوم. واستمتع غداً.',
+  product: 'المنتج',
+  calculator: 'الحاسبة',
+  savedPlans: 'الخطط المحفوظة',
+  resources: 'الموارد',
+  guides: 'الأدلة',
+  faqs: 'الأسئلة الشائعة',
+  glossary: 'المصطلحات',
+  company: 'الشركة',
+  aboutUs: 'من نحن',
+  contact: 'اتصل بنا',
+  privacy: 'الخصوصية',
+  monthly: 'شهرياً',
+  fortnightly: 'كل أسبوعين',
+  weekly: 'أسبوعياً',
+  yearly: 'سنوياً',
+  years: 'سنوات',
+  noStrategySelected: 'لم يتم اختيار استراتيجية',
+  noStrategySelectedDesc: 'فعّل خياراً واحداً أو أكثر لرؤية النتيجة المجمعة.',
+  allSelectedStrategies: 'كل الاستراتيجيات المختارة',
+  allSelectedStrategiesDesc: 'تجمع هذه النتيجة حساب الأوفست والدفعة الإضافية والدفعة الواحدة معاً.',
+  selectedComboDesc: 'تجمع هذه النتيجة خيارات الاستراتيجية المفعّلة حالياً في الحاسبة.',
+  offset: 'الأوفست',
+  extraRepayment: 'دفعة إضافية',
+  oneOffLumpSum: 'دفعة واحدة',
+  paidOffMonthsSooner: (n) => `يتم السداد قبل الموعد بـ ${n} شهر`,
+  monthSingular: 'شهر',
+  monthPlural: 'أشهر',
+  yearSingular: 'سنة',
+  yearPlural: 'سنوات',
+  monthlyBreakdownTitle: 'تفصيل القسط الشهري',
+  monthlyBreakdownSub: 'بناءً على خيارات الاستراتيجية المحددة حالياً.',
+  monthlyBreakdownBadge: 'بعد الاستراتيجية المختارة',
+  monthlyRepaymentAfter: 'القسط',
+  monthlyRepaymentHint: '',
+  monthlyInterestPart: 'فائدة هذا الشهر',
+  monthlyInterestHint: 'بعد تطبيق الأوفست والدفعة الواحدة.',
+  monthlyPrincipalPart: 'أصل القرض هذا الشهر',
+  monthlyPrincipalHint: 'الجزء الذي يقلل رصيد القرض.',
+  monthlyInterestSaved: 'الفائدة الموفرة هذا الشهر',
+  monthlySavedHint: 'مقارنةً بالحالة بدون استراتيجية.',
+  donateStep1Title: 'ادعم هذا الموقع',
+  donateStep1Sub: 'تبرعك يساعد في تغطية تكاليف النطاق والصيانة.',
+  donateSecure: 'تتم معالجة المدفوعات بأمان عبر Stripe. هذا الموقع لا يخزن تفاصيل البطاقة.',
+  donateStep2Title: 'اختر المبلغ وادفع',
+  donateStep2Sub: 'اختر مبلغ التبرع في صفحة دفع Stripe الآمنة.',
+  donateBankTitle: 'تحويل بنكي',
+  donateBankSub: 'إيداع مباشر',
+  donateAccountNameLabel: 'اسم الحساب',
+  donateBsbLabel: 'BSB',
+  donateAccountNumberLabel: 'رقم الحساب',
+  donateStep3Title: 'تبرعك',
+  donateStep3Sub: 'شكراً لدعمك.',
+  donateAmountLabel: 'المبلغ',
+  donateTotalLabel: 'الإجمالي',
+  donateCopyButton: 'متابعة',
+  donateCopiedButton: 'جارٍ فتح صفحة الدفع الآمنة',
+  donateNote: 'تبرع لمرة واحدة • دفع آمن عبر Stripe',
+  donatePayIdTitle: 'Pay ID',
+  donatePayIdSub: 'دفع بنكي سريع',
+  donateApplePayTitle: 'Apple Pay',
+  donateApplePaySub: 'دفع بالمحفظة',
+  donateCreditCardTitle: 'بطاقة ائتمان',
+  donateCreditCardSub: 'دفع بالبطاقة',
+  donatePaypalTitle: 'PayPal',
+  donatePaypalSub: 'دفع إلكتروني',
+  donateApplePayInfo: 'يمكن ربط Apple Pay بعد إضافة معالج الدفع.',
+  donateCreditCardInfo: 'يمكن ربط مدفوعات بطاقة الائتمان بعد إضافة Stripe أو معالج آخر.',
+  donatePaypalInfo: 'يمكن ربط PayPal بعد إضافة رابط تبرع PayPal.',
+  donateMethodLabel: 'طريقة الدفع',
+  donateMethodSummaryLabel: 'الطريقة',
+  donateCardTitle: 'دفع آمن عبر Stripe',
+  donateCardSub: 'اختر $5 أو $10 أو $20 أو $50 أو $100 في Stripe.',
+  donateCardMethod: 'بطاقة',
+  headerDonationText: 'ادعمنا',
+  navHome: 'الرئيسية',
+  navAbout: 'من نحن',
+  navCalculator: 'الحاسبة',
+  navGuide: 'الدليل',
+  navFaq: 'الأسئلة',
+  navContact: 'اتصل بنا',
+  ctaPrimary: 'ابدأ الآن',
+  ctaSecondary: 'اعرف كيف يعمل',
+  datePlaceholder: 'تاريخ بدء القرض',
+  amountPlaceholder: 'أدخل المبلغ',
+  ratePlaceholder: 'أدخل المعدل'
+};
+
+I18N.vi = {
+  docTitle: 'Công cụ lập kế hoạch thế chấp',
+  brand: 'Công cụ lập kế hoạch thế chấp',
+  savePlan: 'Lưu kế hoạch',
+  heroTitle: 'Lập kế hoạch <span>thông minh hơn.</span><br>Trả hết khoản vay mua nhà sớm hơn.',
+  heroLead: 'Các công cụ lập kế hoạch mạnh mẽ và thông tin rõ ràng giúp bạn tiết kiệm tiền và đạt tự do tài chính.',
+  benefit1: 'Xem ngày trả hết khoản vay',
+  benefit2: 'Tiết kiệm hàng nghìn đô',
+  benefit3: 'Luôn đi đúng hướng',
+  statLoan: 'Dư nợ hiện tại',
+  statRate: 'Lãi suất',
+  statTerm: 'Thời hạn trả nợ',
+  statFrequency: 'Tần suất trả nợ',
+  statPayment: 'Khoản trả nợ',
+  calcTitle: 'Máy tính khoản vay mua nhà',
+  calcSub: 'Nhập thông tin khoản vay để ước tính thời gian trả hết.',
+  loanStartDate: 'Ngày bắt đầu khoản vay',
+  dateHint: 'Ngày / Tháng / Năm',
+  currentLoanBalance: 'Dư nợ hiện tại',
+  interestRate: 'Lãi suất',
+  amortizationPeriod: 'Thời hạn trả nợ',
+  repaymentFrequency: 'Tần suất trả nợ',
+  strategiesTitle: 'Tùy chọn chiến lược',
+  strategiesSub: 'Chọn một hoặc nhiều tùy chọn để so sánh chiến lược.',
+  offsetTitle: 'Tăng tài khoản offset',
+  offsetDesc: 'Offset liên kết với khoản vay và giảm tiền lãi bị tính.',
+  use: 'Dùng',
+  currentOffset: 'Số dư offset / redraw hiện tại',
+  growOffsetBy: 'Tăng offset thêm',
+  growFrequency: 'Tần suất tăng',
+  extraTitle: 'Trả thêm',
+  extraDesc: 'Thêm khoản trả phụ hằng tuần, hai tuần, hằng tháng hoặc hằng năm.',
+  extraAmount: 'Số tiền trả thêm',
+  howOften: 'Tần suất',
+  lumpTitle: 'Khoản trả một lần',
+  lumpDesc: 'Một khoản thanh toán vào khoản vay mua nhà.',
+  lumpAmount: 'Số tiền trả một lần',
+  interestComparison: 'So sánh tiền lãi',
+  interestComparisonSub: 'Xem từng chiến lược hoạt động riêng lẻ, rồi so sánh với kết quả kết hợp trực tiếp từ các tùy chọn bạn chọn.',
+  clearComparison: 'So sánh rõ ràng cạnh nhau',
+  noStrategyBaseline: 'Mốc cơ sở không dùng chiến lược',
+  baselineDesc: 'Đây là ước tính tiền lãi bạn sẽ trả nếu giữ khoản vay như hiện tại, không có offset, không trả thêm và không trả một lần.',
+  offsetOnly: 'Chỉ tài khoản offset',
+  offsetOnlyDesc: 'Dựa trên số dư offset và mức tăng offset của bạn.',
+  extraOnly: 'Chỉ trả thêm',
+  extraOnlyDesc: 'Dựa trên số tiền trả thêm và tần suất trả.',
+  lumpOnly: 'Chỉ trả một lần',
+  lumpOnlyDesc: 'Dựa trên một khoản trả một lần được thực hiện ngay bây giờ.',
+  interestPay: 'Tiền lãi bạn trả',
+  interestSave: 'Tiền lãi bạn tiết kiệm',
+  offsetCardP: 'Cho biết tiền trong offset giúp giảm bao nhiêu tiền lãi của khoản vay.',
+  extraCardP: 'Cho biết khoản tiết kiệm lãi từ việc trả thêm ngoài khoản trả nợ thông thường.',
+  lumpCardP: 'Cho biết khoản tiết kiệm lãi từ một khoản trả một lần vào khoản vay. Nếu số tiền là $0, khoản tiết kiệm sẽ là $0.',
+  liveCombined: 'Kết quả kết hợp trực tiếp',
+  interestPayShort: 'Tiền lãi bạn trả',
+  payoffTime: 'Thời gian trả hết',
+  newPayoffDate: 'Ngày trả hết mới',
+  chartTitle: 'Dư nợ thế chấp theo thời gian',
+  legendNoStrategy: 'Không chiến lược',
+  legendOffsetOnly: 'Chỉ offset',
+  legendAllSelected: 'Tất cả chiến lược đã chọn',
+  payoffNoStrategy: 'Thời gian trả hết (không chiến lược)',
+  payoffOffsetOnly: 'Thời gian trả hết (chỉ offset)',
+  payoffAllSelected: 'Thời gian trả hết (tất cả đã chọn)',
+  timeSaved: 'Thời gian tiết kiệm',
+  footerLine: 'Lập kế hoạch hôm nay. Tận hưởng ngày mai.',
+  product: 'Sản phẩm',
+  calculator: 'Máy tính',
+  savedPlans: 'Kế hoạch đã lưu',
+  resources: 'Tài nguyên',
+  guides: 'Hướng dẫn',
+  faqs: 'Câu hỏi thường gặp',
+  glossary: 'Thuật ngữ',
+  company: 'Công ty',
+  aboutUs: 'Về chúng tôi',
+  contact: 'Liên hệ',
+  privacy: 'Quyền riêng tư',
+  monthly: 'Hằng tháng',
+  fortnightly: 'Hai tuần một lần',
+  weekly: 'Hằng tuần',
+  yearly: 'Hằng năm',
+  years: 'năm',
+  noStrategySelected: 'Chưa chọn chiến lược',
+  noStrategySelectedDesc: 'Bật một hoặc nhiều tùy chọn chiến lược để xem kết quả kết hợp.',
+  allSelectedStrategies: 'Tất cả chiến lược đã chọn',
+  allSelectedStrategiesDesc: 'Kết quả này kết hợp tài khoản offset, khoản trả thêm và khoản trả một lần.',
+  selectedComboDesc: 'Kết quả này kết hợp các tùy chọn chiến lược hiện đang bật trong máy tính.',
+  offset: 'Offset',
+  extraRepayment: 'Trả thêm',
+  oneOffLumpSum: 'Trả một lần',
+  paidOffMonthsSooner: (n) => `Trả hết sớm hơn ${n} tháng`,
+  monthSingular: 'tháng',
+  monthPlural: 'tháng',
+  yearSingular: 'năm',
+  yearPlural: 'năm',
+  monthlyBreakdownTitle: 'Chi tiết khoản trả hằng tháng',
+  monthlyBreakdownSub: 'Dựa trên các tùy chọn chiến lược hiện đang được chọn.',
+  monthlyBreakdownBadge: 'Sau chiến lược đã chọn',
+  monthlyRepaymentAfter: 'Khoản trả nợ',
+  monthlyRepaymentHint: '',
+  monthlyInterestPart: 'Tiền lãi tháng này',
+  monthlyInterestHint: 'Sau khi áp dụng offset và khoản trả một lần.',
+  monthlyPrincipalPart: 'Tiền gốc tháng này',
+  monthlyPrincipalHint: 'Phần làm giảm dư nợ khoản vay.',
+  monthlyInterestSaved: 'Tiền lãi tiết kiệm tháng này',
+  monthlySavedHint: 'So với không dùng chiến lược.',
+  donateStep1Title: 'Ủng hộ trang web này',
+  donateStep1Sub: 'Khoản ủng hộ của bạn giúp chi trả chi phí tên miền và bảo trì.',
+  donateSecure: 'Thanh toán được xử lý an toàn bởi Stripe. Trang web này không lưu thông tin thẻ.',
+  donateStep2Title: 'Chọn số tiền và thanh toán',
+  donateStep2Sub: 'Chọn số tiền ủng hộ trong trang thanh toán Stripe an toàn.',
+  donateBankTitle: 'Chuyển khoản ngân hàng',
+  donateBankSub: 'Gửi tiền trực tiếp',
+  donateAccountNameLabel: 'Tên tài khoản',
+  donateBsbLabel: 'BSB',
+  donateAccountNumberLabel: 'Số tài khoản',
+  donateStep3Title: 'Khoản ủng hộ của bạn',
+  donateStep3Sub: 'Cảm ơn bạn đã ủng hộ.',
+  donateAmountLabel: 'Số tiền',
+  donateTotalLabel: 'Tổng cộng',
+  donateCopyButton: 'Tiếp tục',
+  donateCopiedButton: 'Đang mở trang thanh toán an toàn',
+  donateNote: 'Ủng hộ một lần • Thanh toán Stripe an toàn',
+  donatePayIdTitle: 'Pay ID',
+  donatePayIdSub: 'Thanh toán ngân hàng nhanh',
+  donateApplePayTitle: 'Apple Pay',
+  donateApplePaySub: 'Thanh toán ví điện tử',
+  donateCreditCardTitle: 'Thẻ tín dụng',
+  donateCreditCardSub: 'Thanh toán bằng thẻ',
+  donatePaypalTitle: 'PayPal',
+  donatePaypalSub: 'Thanh toán trực tuyến',
+  donateApplePayInfo: 'Có thể kết nối Apple Pay sau khi thêm bộ xử lý thanh toán.',
+  donateCreditCardInfo: 'Có thể kết nối thanh toán thẻ tín dụng sau khi thêm Stripe hoặc bộ xử lý khác.',
+  donatePaypalInfo: 'Có thể kết nối PayPal sau khi thêm liên kết ủng hộ PayPal.',
+  donateMethodLabel: 'Phương thức thanh toán',
+  donateMethodSummaryLabel: 'Phương thức',
+  donateCardTitle: 'Thanh toán Stripe an toàn',
+  donateCardSub: 'Chọn $5, $10, $20, $50 hoặc $100 trong Stripe.',
+  donateCardMethod: 'Thẻ',
+  headerDonationText: 'Ủng hộ',
+  navHome: 'Trang chủ',
+  navAbout: 'Giới thiệu',
+  navCalculator: 'Máy tính',
+  navGuide: 'Hướng dẫn',
+  navFaq: 'FAQ',
+  navContact: 'Liên hệ',
+  ctaPrimary: 'Bắt đầu',
+  ctaSecondary: 'Xem cách hoạt động',
+  datePlaceholder: 'Ngày bắt đầu khoản vay',
+  amountPlaceholder: 'Nhập số tiền',
+  ratePlaceholder: 'Nhập lãi suất'
+};
+
+const RTL_LANGS = ['fa', 'ur', 'ar'];
 
 function t(key) {
   return I18N[currentLang]?.[key] ?? I18N.en[key] ?? key;
@@ -928,7 +1240,7 @@ function isRTL() {
 }
 
 function localeCode() {
-  const map = { en:'en-AU', fa:'fa-AF', hi:'hi-IN', ur:'ur-PK', zh:'zh-CN', es:'es-ES' };
+  const map = { en:'en-AU', fa:'fa-AF', ur:'ur-PK', zh:'zh-Hans-CN', es:'es-ES', ar:'ar', vi:'vi-VN' };
   return map[currentLang] || 'en-AU';
 }
 
@@ -957,7 +1269,7 @@ const fmt = (n, d = 0) =>
 const monthFmt = () => new Intl.DateTimeFormat(localeCode(), { month: 'short', year: 'numeric' });
 
 function setStaticText() {
-  document.documentElement.lang = currentLang;
+  document.documentElement.lang = localeCode();
   document.documentElement.dir = isRTL() ? 'rtl' : 'ltr';
   document.body.classList.toggle('rtl', isRTL());
   document.title = t('docTitle');
@@ -975,8 +1287,10 @@ function setStaticText() {
   setText('navContact', t('navContact'));
   setHTML('.hero h1', t('heroTitle'));
   setHTML('.lead', t('heroLead'));
-  setText('ctaPrimary', t('ctaPrimary'));
-  setText('ctaSecondary', t('ctaSecondary'));
+  const ctaPrimaryLabel = document.querySelector('#ctaPrimary span');
+  const ctaSecondaryLabel = document.querySelector('#ctaSecondary span');
+  if (ctaPrimaryLabel) ctaPrimaryLabel.textContent = t('ctaPrimary');
+  if (ctaSecondaryLabel) ctaSecondaryLabel.textContent = t('ctaSecondary');
 
   const benefits = document.querySelectorAll('.benefit strong');
   [t('benefit1'), t('benefit2'), t('benefit3')].forEach((txt, i) => { if (benefits[i]) benefits[i].innerHTML = txt; });
@@ -1172,8 +1486,10 @@ function setStaticText() {
   setText('copyDonationDetails', t('donateCopyButton'));
   setText('donateNote', t('donateNote'));
 
-  const footer = document.querySelector('.footer-brand span');
-  if (footer) footer.textContent = t('footerLine');
+  const footerTitle = document.querySelector('.footer-title');
+  const footerTagline = document.querySelector('.footer-tagline');
+  if (footerTitle) footerTitle.textContent = t('brand');
+  if (footerTagline) footerTagline.textContent = t('footerLine');
   const footerGroups = document.querySelectorAll('.footer-links > div');
   if (footerGroups[0]) {
     footerGroups[0].querySelector('h4').textContent = t('product');
@@ -1528,6 +1844,9 @@ document.addEventListener('DOMContentLoaded', () => {
     langSelect.addEventListener('change', () => {
       currentLang = langSelect.value;
       localStorage.setItem('mortgagePlannerLanguage', currentLang);
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', currentLang);
+      window.history.replaceState({}, '', url);
       update();
     });
   }

@@ -2511,3 +2511,83 @@ html[dir="rtl"] .hero-composed .benefit:not(:last-child)::after{
   width:20px !important;
   height:20px !important;
 }
+
+/* === Multilingual controls and RTL hardening === */
+.visually-hidden{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+.header-actions .language-picker{
+  display:inline-flex;
+  align-items:center;
+}
+.header-actions .language-select{
+  display:inline-flex!important;
+  height:56px;
+  min-width:150px;
+  border:1px solid #dbe4ee;
+  border-radius:18px;
+  background:#fff;
+  color:#13203b;
+  font-size:16px;
+  font-weight:800;
+  padding:0 16px;
+  box-shadow:0 6px 18px rgba(15,23,42,.04);
+  cursor:pointer;
+}
+.header-actions .language-select:focus{
+  outline:0;
+  border-color:rgba(58,163,72,.7);
+  box-shadow:0 0 0 4px rgba(58,163,72,.12);
+}
+html[dir="rtl"] body,
+html[dir="rtl"] input,
+html[dir="rtl"] select,
+html[dir="rtl"] button{
+  font-family:Inter, Arial, Tahoma, 'Noto Naskh Arabic', 'Noto Sans Arabic', sans-serif;
+}
+html[dir="rtl"] .hero-overlay-copy,
+html[dir="rtl"] .panel,
+html[dir="rtl"] .comparison,
+html[dir="rtl"] .monthly-card,
+html[dir="rtl"] .footer-center{
+  text-align:right;
+}
+html[dir="rtl"] .control{
+  direction:ltr;
+}
+html[dir="rtl"] .control input,
+html[dir="rtl"] .control select{
+  direction:rtl;
+  text-align:right;
+}
+html[dir="rtl"] .control span{
+  direction:ltr;
+}
+html[dir="rtl"] .benefit:not(:last-child)::after{
+  right:auto;
+  left:0;
+}
+html[dir="rtl"] .benefit{
+  padding-right:0;
+  padding-left:38px;
+}
+html[dir="rtl"] .cta-primary,
+html[dir="rtl"] .cta-secondary,
+html[dir="rtl"] .donation-header-btn{
+  flex-direction:row-reverse;
+}
+@media (max-width:1100px){
+  .header-actions{flex-wrap:wrap;justify-content:center}
+  .header-actions .language-select{min-width:140px;height:52px}
+}
+@media (max-width:640px){
+  .header-actions .language-select{min-width:128px;height:48px;font-size:14px}
+}
