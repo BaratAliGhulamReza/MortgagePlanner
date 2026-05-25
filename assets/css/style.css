@@ -1639,3 +1639,38 @@ html[dir="rtl"] .hero-composed .benefit:not(:last-child)::after{
     width:auto;
   }
 }
+
+
+/* === Remove top fade: hero starts cleanly under header === */
+.hero-composed{
+  padding-top: 18px;
+  background:#f4f5f7;
+}
+
+.hero-composed-wrap{
+  background-position:center top;
+}
+
+/* Disable all top fade overlays */
+.hero-composed-wrap::before{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  height:0 !important;
+}
+
+/* Keep only a soft bottom blend into the rest of the website */
+.hero-composed-wrap::after{
+  display:block !important;
+  bottom:0;
+  height:120px;
+  background:linear-gradient(to bottom,
+    rgba(244,245,247,0) 0%,
+    rgba(244,245,247,.35) 48%,
+    #f4f5f7 100%) !important;
+}
+
+/* Make sure the top of the background image is clean and not washed out */
+.hero-bg-scene{
+  display:none !important;
+}
