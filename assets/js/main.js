@@ -262,9 +262,14 @@ function monthlyBreakdown(d, base) {
 
 
 function targetGoalData() {
-  const years = clamp(+($('targetPayoffYears')?.value || 6), 1, 40);
-  const frequency = $('targetExtraFrequency')?.value || 'monthly';
-  return { years, frequency, months: years * 12 };
+  const rawYears = $('targetPayoffYears')?.value;
+  const rawFrequency = $('targetExtraFrequency')?.value;
+  if (!rawYears || !rawFrequency) {
+    return { years: 0, frequency: rawFrequency || '', months: 0, complete: false };
+  }
+  const years = clamp(+rawYears, 1, 40);
+  const frequency = rawFrequency;
+  return { years, frequency, months: years * 12, complete: true };
 }
 
 function paymentPerTargetFrequency(payment, sourceFrequency, targetFrequency) {
@@ -325,6 +330,15 @@ function requiredExtraForTarget(d, base, target) {
 
 function updateTargetGoalStrategy(d, base) {
   const target = targetGoalData();
+  if (!target.complete) {
+    setText('targetExtraNeeded', '$0');
+    setText('targetExtraHint', 'Enter a payoff goal and choose a display frequency.');
+    setText('targetTotalPayment', '$0');
+    setText('targetTotalHint', 'Including normal repayment and extra repayment.');
+    setText('targetPayoffDate', '—');
+    setText('targetPayoffTime', '—');
+    return;
+  }
   const result = requiredExtraForTarget(d, base, target);
   const normalPerTargetFrequency = paymentPerTargetFrequency(base.payment, d.repaymentFrequency, target.frequency);
   const totalTargetPayment = normalPerTargetFrequency + result.extra;
@@ -369,7 +383,59 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 
+function hasCoreInputs() {
+  return !!(
+    $('loanAmount')?.value &&
+    $('interestRate')?.value &&
+    $('loanTerm')?.value &&
+    $('repaymentFrequency')?.value
+  );
+}
+
+function clearCalculatorOutputs() {
+  const dashIds = [
+    'statTerm', 'statFrequency', 'basePayoff', 'baseDate', 'offsetPayoff', 'offsetDate',
+    'planPayoff', 'planDate', 'timeSaved', 'monthsSaved', 'comboPayoff', 'comboDate',
+    'targetPayoffDate', 'targetPayoffTime'
+  ];
+  dashIds.forEach(id => setText(id, '—'));
+
+  const moneyIds = [
+    'statLoan', 'statPayment', 'monthlyRepayment', 'monthlyInterest', 'monthlyPrincipal',
+    'monthlySaved', 'baseInterest', 'offsetInterest', 'offsetSaved', 'extraInterest',
+    'extraSaved', 'lumpInterest', 'lumpSaved', 'comboInterest', 'comboSaved',
+    'targetExtraNeeded', 'targetTotalPayment'
+  ];
+  moneyIds.forEach(id => setText(id, '$0'));
+
+  setText('statRate', '—');
+  setText('comboTitle', 'No strategy selected');
+  setText('comboDescription', 'Enter your loan details, then choose any strategy options you want to compare.');
+  setText('targetExtraHint', 'Enter loan details and a payoff goal.');
+  setText('targetTotalHint', 'Including normal repayment and extra repayment.');
+
+  const canvas = $('chart');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    const cssWidth = rect.width || 900;
+    const cssHeight = rect.height || 330;
+    canvas.width = Math.round(cssWidth * ratio);
+    canvas.height = Math.round(cssHeight * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+  }
+}
+
 function update() {
+  if (!hasCoreInputs()) {
+    clearCalculatorOutputs();
+    setText('statLoan', $('loanAmount')?.value ? fmt(+$('loanAmount').value || 0) : '$0');
+    setText('statRate', $('interestRate')?.value ? (+$('interestRate').value || 0).toFixed(3) + '%' : '—');
+    return;
+  }
+
   const { d, base, offset, extraOnly, lumpOnly, plan, payment } = calculate();
   const offsetSaved = Math.max(0, base.interest - offset.interest);
   const extraSaved = Math.max(0, base.interest - extraOnly.interest);

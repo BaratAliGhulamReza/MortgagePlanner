@@ -55,8 +55,8 @@
   <div class="stats-band">
     <div class="stat"><div><small>Current loan balance</small><strong id="statLoan">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
     <div class="stat"><div><small>Interest rate</small><strong id="statRate">0.000%</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-frequency.svg" alt="stat frequency" width="22" height="22"></div></div>
-    <div class="stat"><div><small>Amortization period</small><strong id="statTerm">30 years</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-payment.svg" alt="stat payment" width="22" height="22"></div></div>
-    <div class="stat"><div><small>Repayment frequency</small><strong id="statFrequency">Monthly</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/footer-logo.svg" alt="footer logo" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Amortization period</small><strong id="statTerm">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-payment.svg" alt="stat payment" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Repayment frequency</small><strong id="statFrequency">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/footer-logo.svg" alt="footer logo" width="22" height="22"></div></div>
     <div class="stat"><div><small>Repayment</small><strong id="statPayment">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
   </div>
 </section>
@@ -70,8 +70,8 @@
         <div class="field"><label>Loan start date</label><div class="control"><input id="startDate" type="date" placeholder="Loan start date"></div><small class="field-hint">Day / Month / Year</small></div>
         <div class="field"><label>Current loan balance</label><div class="control"><span>$</span><input id="loanAmount" type="number" min="0" step="1000" placeholder="0"></div></div>
         <div class="field"><label>Interest rate</label><div class="control"><input id="interestRate" type="number" min="0" step="0.01" placeholder="0"><span>%</span></div></div>
-        <div class="field"><label>Amortization period</label><div class="control"><select id="loanTerm"><option value="30">30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div></div>
-        <div class="field full"><label>Repayment frequency</label><div class="control"><select id="repaymentFrequency"><option value="monthly">Monthly</option><option value="fortnightly">Fortnightly</option><option value="weekly">Weekly</option></select></div></div>
+        <div class="field"><label>Amortization period</label><div class="control"><select id="loanTerm"><option value="" selected>Select period</option><option value="30">30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div></div>
+        <div class="field full"><label>Repayment frequency</label><div class="control"><select id="repaymentFrequency"><option value="" selected>Select frequency</option><option value="monthly">Monthly</option><option value="fortnightly">Fortnightly</option><option value="weekly">Weekly</option></select></div></div>
       </div>
     </section>
 
@@ -80,15 +80,15 @@
       <p class="panel-sub">Choose one or more options to compare strategies.</p>
       <div class="strategy-list">
         <article class="strategy">
-          <div class="strategy-head"><div><h3>Grow offset account</h3><p>Offset is linked to the loan and reduces interest charged.</p></div><label class="use-check"><input id="useOffset" type="checkbox" checked>Use</label></div>
-          <div class="strategy-fields"><div class="field"><label>Current offset / redraw</label><div class="control"><span>$</span><input id="offsetAmount" type="number" min="0" step="1000" placeholder="0"></div></div><div class="field"><label>Grow offset by</label><div class="control"><span>$</span><input id="offsetGrowth" type="number" min="0" step="100" placeholder="0"></div></div><div class="field"><label>Grow frequency</label><div class="control"><select id="offsetFrequency"><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
+          <div class="strategy-head"><div><h3>Grow offset account</h3><p>Offset is linked to the loan and reduces interest charged.</p></div><label class="use-check"><input id="useOffset" type="checkbox">Use</label></div>
+          <div class="strategy-fields"><div class="field"><label>Current offset / redraw</label><div class="control"><span>$</span><input id="offsetAmount" type="number" min="0" step="1000" placeholder="0"></div></div><div class="field"><label>Grow offset by</label><div class="control"><span>$</span><input id="offsetGrowth" type="number" min="0" step="100" placeholder="0"></div></div><div class="field"><label>Grow frequency</label><div class="control"><select id="offsetFrequency"><option value="" selected>Select frequency</option><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
         </article>
         <article class="strategy">
-          <div class="strategy-head"><div><h3>Extra payment</h3><p>Add an extra repayment weekly, fortnightly, monthly, or yearly.</p></div><label class="use-check"><input id="useExtra" type="checkbox" checked>Use</label></div>
-          <div class="strategy-fields two"><div class="field"><label>Extra amount</label><div class="control"><span>$</span><input id="extraAmount" type="number" min="0" step="50" placeholder="0"></div></div><div class="field"><label>How often</label><div class="control"><select id="extraFrequency"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
+          <div class="strategy-head"><div><h3>Extra payment</h3><p>Add an extra repayment weekly, fortnightly, monthly, or yearly.</p></div><label class="use-check"><input id="useExtra" type="checkbox">Use</label></div>
+          <div class="strategy-fields two"><div class="field"><label>Extra amount</label><div class="control"><span>$</span><input id="extraAmount" type="number" min="0" step="50" placeholder="0"></div></div><div class="field"><label>How often</label><div class="control"><select id="extraFrequency"><option value="" selected>Select frequency</option><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
         </article>
         <article class="strategy">
-          <div class="strategy-head"><div><h3>One-off lump sum</h3><p>A single payment toward the home loan.</p></div><label class="use-check"><input id="useLump" type="checkbox" checked>Use</label></div>
+          <div class="strategy-head"><div><h3>One-off lump sum</h3><p>A single payment toward the home loan.</p></div><label class="use-check"><input id="useLump" type="checkbox">Use</label></div>
           <div class="strategy-fields one"><div class="field"><label>Lump sum amount</label><div class="control"><span>$</span><input id="lumpSum" type="number" min="0" step="1000" placeholder="0"></div></div></div>
         </article>
       </div>
@@ -96,48 +96,7 @@
   </div>
 </main>
 
-<section class="container goal-planner-section" id="payoffGoalSection">
-  <div class="goal-card">
-    <div class="goal-head">
-      <div>
-        <h2>Payoff goal</h2>
-        <p>Set your target payoff time and see the extra repayment needed.</p>
-      </div>
-      <span class="badge-soft">Goal calculator</span>
-    </div>
 
-    <div class="goal-layout">
-      <div class="goal-inputs">
-        <div class="field">
-          <label>I want to finish my mortgage in</label>
-          <div class="control"><input id="targetPayoffYears" type="number" min="1" max="40" step="0.5" value="6"><span>years</span></div>
-        </div>
-        <div class="field">
-          <label>Show the extra repayment as</label>
-          <div class="control"><select id="targetExtraFrequency"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option></select></div>
-        </div>
-      </div>
-
-      <div class="goal-results">
-        <div class="goal-result highlight">
-          <small>Extra repayment needed</small>
-          <strong id="targetExtraNeeded">$0</strong>
-          <em id="targetExtraHint">On top of your normal repayment.</em>
-        </div>
-        <div class="goal-result">
-          <small>Total repayment target</small>
-          <strong id="targetTotalPayment">$0</strong>
-          <em id="targetTotalHint">Including normal repayment and extra repayment.</em>
-        </div>
-        <div class="goal-result">
-          <small>Estimated payoff date</small>
-          <strong id="targetPayoffDate">—</strong>
-          <em id="targetPayoffTime">—</em>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="container monthly-breakdown-section">
   <div class="monthly-card">
@@ -254,7 +213,7 @@
       </div>
       <div class="combo-result">
         <small>Payoff time</small>
-        <strong id="comboPayoff">0 months</strong>
+        <strong id="comboPayoff">—</strong>
       </div>
       <div class="combo-result green">
         <small>New payoff date</small>
@@ -267,11 +226,56 @@
     <div class="chart-top"><h3>Mortgage balance over time</h3><div class="legend"><span><i class="dot"></i>No strategy</span><span><i class="dot blue"></i>Offset only</span><span><i class="dot green"></i>All selected strategies</span></div></div>
     <div class="chart-wrap"><canvas id="chart" width="1200" height="380"></canvas></div>
   </div>
+
+
+<section class="container goal-planner-section" id="payoffGoalSection">
+  <div class="goal-card">
+    <div class="goal-head">
+      <div>
+        <h2>Payoff goal</h2>
+        <p>Set your target payoff time and see the extra repayment needed.</p>
+      </div>
+      <span class="badge-soft">Goal calculator</span>
+    </div>
+
+    <div class="goal-layout">
+      <div class="goal-inputs">
+        <div class="field">
+          <label>I want to finish my mortgage in</label>
+          <div class="control"><input id="targetPayoffYears" type="number" min="1" max="40" step="0.5" placeholder="e.g. 6"><span>years</span></div>
+        </div>
+        <div class="field">
+          <label>Show the extra repayment as</label>
+          <div class="control"><select id="targetExtraFrequency"><option value="" selected>Select frequency</option><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly">Monthly</option></select></div>
+        </div>
+      </div>
+
+      <div class="goal-results">
+        <div class="goal-result highlight">
+          <small>Extra repayment needed</small>
+          <strong id="targetExtraNeeded">$0</strong>
+          <em id="targetExtraHint">On top of your normal repayment.</em>
+        </div>
+        <div class="goal-result">
+          <small>Total repayment target</small>
+          <strong id="targetTotalPayment">$0</strong>
+          <em id="targetTotalHint">Including normal repayment and extra repayment.</em>
+        </div>
+        <div class="goal-result">
+          <small>Estimated payoff date</small>
+          <strong id="targetPayoffDate">—</strong>
+          <em id="targetPayoffTime">—</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <div class="payoff-row">
-    <div class="payoff-cell"><small>Payoff time (no strategy)</small><strong id="basePayoff">30 years</strong><em id="baseDate">—</em></div>
-    <div class="payoff-cell"><small>Payoff time (offset only)</small><strong id="offsetPayoff">22 years 4 months</strong><em id="offsetDate">—</em></div>
-    <div class="payoff-cell"><small>Payoff time (all selected)</small><strong id="planPayoff">0 months</strong><em id="planDate">—</em></div>
-    <div class="payoff-cell"><small>Time saved</small><strong class="green-text" id="timeSaved">7 years 5 months</strong><em class="green-text" id="monthsSaved">Paid off 0 months sooner</em></div>
+    <div class="payoff-cell"><small>Payoff time (no strategy)</small><strong id="basePayoff">—</strong><em id="baseDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (offset only)</small><strong id="offsetPayoff">—</strong><em id="offsetDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (all selected)</small><strong id="planPayoff">—</strong><em id="planDate">—</em></div>
+    <div class="payoff-cell"><small>Time saved</small><strong class="green-text" id="timeSaved">—</strong><em class="green-text" id="monthsSaved">—</em></div>
   </div>
 </section>
 
