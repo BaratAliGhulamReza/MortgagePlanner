@@ -99,28 +99,6 @@ This version keeps the desktop layout on mobile and opens zoomed out by default.
 Dari and Urdu hero headings use controlled line breaks, balanced RTL spacing, correct black/green highlight colors, and a flipped hero image.
 
 
-## Donation setup
+## Donation section
 
-The website includes a donation section with preset amounts: $5, $10, $20, $50, and $100.
-
-Payment method buttons are shown for:
-- Credit card
-- Apple Pay
-
-To make donations live, connect a secure payment provider such as Stripe Payment Links, PayPal, or another checkout provider.
-
-Open `assets/js/main.js` and update:
-
-```js
-const DONATION_CHECKOUT_LINKS = {
-  card: 'YOUR_CARD_PAYMENT_LINK',
-  applepay: 'YOUR_APPLE_PAY_PAYMENT_LINK'
-};
-```
-
-Do not publish private bank account details unless you are comfortable with them being public.
-
-
-## Selected donation design
-
-The donation section follows the selected mockup: centered support heading, three-step donation card, preset amounts, payment method selection, donation summary, and trust notes.
+Includes donation amounts, bank transfer details for Barat, and a copy bank details button.

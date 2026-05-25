@@ -109,33 +109,26 @@ const I18N = {
     monthlyPrincipalHint: 'The part reducing your loan balance.',
     monthlyInterestSaved: 'Interest saved this month',
     monthlySavedHint: 'Compared with no strategy.',
-    donationKicker: 'Support this website',
-    donationTitle: 'Support this website',
-    donationText: 'Your donation helps cover domain costs and hosting, so we can keep this mortgage planning tool free and online for everyone.',
-    donationCardMethod: 'Credit card',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: 'Donate',
-    donationNote: 'One-time donation • No hidden fees',
-    donationAlert: 'Donation checkout is not connected yet. Add your Stripe, PayPal, or payment link in assets/js/main.js.',
+    donateStep1Title: 'Choose an amount',
+    donateStep1Sub: 'Select a one-time donation to support this website.',
+    donateSecure: 'Your support helps cover domain and maintenance costs.',
+    donateStep2Title: 'Choose a payment method',
+    donateStep2Sub: 'Use the bank transfer details below.',
+    donateBankTitle: 'Bank transfer',
+    donateBankSub: 'Direct deposit',
+    donateAccountNameLabel: 'Account name',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'Account number',
+    donateStep3Title: 'Your donation',
+    donateStep3Sub: 'Thank you for your support.',
+    donateAmountLabel: 'Amount',
+    donateTotalLabel: 'Total',
+    donateCopyButton: 'Copy bank details',
+    donateCopiedButton: 'Copied',
+    donateNote: 'One-time donation • No hidden fees',
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
-    donationStepAmount: 'Choose an amount',
-    donationAmountSub: 'Select a one-time donation',
-    donationAmountNote: '100% secure. Your support makes a difference.',
-    donationStepMethod: 'Choose a payment method',
-    donationMethodSub: 'Secure and encrypted checkout',
-    donationMethodNote: 'Your payment information is secure and private.',
-    donationSummaryTitle: 'Your donation',
-    donationSummarySub: 'Thank you for your support!',
-    donationSummaryAmountLabel: 'Amount',
-    donationSummaryTotalLabel: 'Total',
-    donationTrust1Title: 'Secure & Encrypted',
-    donationTrust1Text: 'Your data is safe with us',
-    donationTrust2Title: 'Transparent & Honest',
-    donationTrust2Text: 'No fees, no hidden costs',
-    donationTrust3Title: 'Community Powered',
-    donationTrust3Text: 'Built for you, by your support',
   },
   fa: {
     docTitle: 'برنامه‌ریز وام خانه',
@@ -243,33 +236,26 @@ const I18N = {
     monthlyPrincipalHint: 'بخشی که باقی\u200cمانده وام را کم می\u200cکند.',
     monthlyInterestSaved: 'سود صرفه\u200cجویی\u200cشده در این ماه',
     monthlySavedHint: 'در مقایسه با حالت بدون راهکار.',
-    donationKicker: 'حمایت از این وبسایت',
-    donationTitle: 'از این وبسایت حمایت کنید',
-    donationText: 'کمک شما هزینه دامنه و میزبانی را پوشش می\u200cدهد تا این ابزار برنامه\u200cریزی وام رایگان و آنلاین بماند.',
-    donationCardMethod: 'کارت بانکی',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: 'کمک',
-    donationNote: 'کمک یک\u200cباره • بدون هزینه پنهان',
-    donationAlert: 'پرداخت کمک هنوز وصل نشده است. لینک Stripe، PayPal یا پرداخت را در assets/js/main.js اضافه کنید.',
+    donateStep1Title: 'مبلغ را انتخاب کنید',
+    donateStep1Sub: 'یک کمک یک\u200cباره برای حمایت از این وبسایت انتخاب کنید.',
+    donateSecure: 'حمایت شما به پرداخت هزینه دامنه و نگهداری کمک می\u200cکند.',
+    donateStep2Title: 'روش پرداخت را انتخاب کنید',
+    donateStep2Sub: 'از جزئیات انتقال بانکی زیر استفاده کنید.',
+    donateBankTitle: 'انتقال بانکی',
+    donateBankSub: 'واریز مستقیم',
+    donateAccountNameLabel: 'نام حساب',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'شماره حساب',
+    donateStep3Title: 'کمک شما',
+    donateStep3Sub: 'تشکر از حمایت شما.',
+    donateAmountLabel: 'مبلغ',
+    donateTotalLabel: 'جمع کل',
+    donateCopyButton: 'کپی جزئیات بانکی',
+    donateCopiedButton: 'کپی شد',
+    donateNote: 'کمک یک\u200cباره • بدون هزینه پنهان',
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
-    donationStepAmount: 'مبلغ را انتخاب کنید',
-    donationAmountSub: 'یک کمک یک\u200cباره انتخاب کنید',
-    donationAmountNote: '۱۰۰٪ امن. حمایت شما تفاوت ایجاد می\u200cکند.',
-    donationStepMethod: 'روش پرداخت را انتخاب کنید',
-    donationMethodSub: 'پرداخت امن و رمزگذاری\u200cشده',
-    donationMethodNote: 'اطلاعات پرداخت شما امن و خصوصی است.',
-    donationSummaryTitle: 'کمک شما',
-    donationSummarySub: 'از حمایت شما سپاسگزاریم!',
-    donationSummaryAmountLabel: 'مبلغ',
-    donationSummaryTotalLabel: 'مجموع',
-    donationTrust1Title: 'امن و رمزگذاری\u200cشده',
-    donationTrust1Text: 'اطلاعات شما نزد ما امن است',
-    donationTrust2Title: 'شفاف و صادقانه',
-    donationTrust2Text: 'بدون هزینه و مخارج پنهان',
-    donationTrust3Title: 'با حمایت جامعه',
-    donationTrust3Text: 'برای شما، با حمایت شما ساخته شده است',
   },
   hi: {
     docTitle: 'मॉर्गेज प्लानर',
@@ -377,33 +363,26 @@ const I18N = {
     monthlyPrincipalHint: 'वह हिस्सा जो लोन बैलेंस कम करता है.',
     monthlyInterestSaved: 'इस महीने बचा ब्याज',
     monthlySavedHint: 'बिना रणनीति की तुलना में.',
-    donationKicker: 'इस वेबसाइट का समर्थन करें',
-    donationTitle: 'इस वेबसाइट का समर्थन करें',
-    donationText: 'आपका दान डोमेन और होस्टिंग लागत में मदद करता है, ताकि यह मॉर्गेज प्लानिंग टूल सबके लिए मुफ्त और ऑनलाइन रहे.',
-    donationCardMethod: 'क्रेडिट कार्ड',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: 'दान करें',
-    donationNote: 'एक बार का दान • कोई छुपी फीस नहीं',
-    donationAlert: 'डोनेशन चेकआउट अभी जुड़ा नहीं है. assets/js/main.js में Stripe, PayPal या payment link जोड़ें.',
+    donateStep1Title: 'राशि चुनें',
+    donateStep1Sub: 'इस वेबसाइट का समर्थन करने के लिए एक बार की दान राशि चुनें.',
+    donateSecure: 'आपका सहयोग डोमेन और रखरखाव लागत में मदद करता है.',
+    donateStep2Title: 'भुगतान तरीका चुनें',
+    donateStep2Sub: 'नीचे दिए गए बैंक ट्रांसफर विवरण का उपयोग करें.',
+    donateBankTitle: 'बैंक ट्रांसफर',
+    donateBankSub: 'डायरेक्ट डिपॉजिट',
+    donateAccountNameLabel: 'खाता नाम',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'खाता नंबर',
+    donateStep3Title: 'आपका दान',
+    donateStep3Sub: 'आपके समर्थन के लिए धन्यवाद.',
+    donateAmountLabel: 'राशि',
+    donateTotalLabel: 'कुल',
+    donateCopyButton: 'बैंक विवरण कॉपी करें',
+    donateCopiedButton: 'कॉपी हो गया',
+    donateNote: 'एक बार का दान • कोई छिपी फीस नहीं',
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
-    donationStepAmount: 'राशि चुनें',
-    donationAmountSub: 'एक बार का दान चुनें',
-    donationAmountNote: '100% सुरक्षित. आपका सहयोग फर्क लाता है.',
-    donationStepMethod: 'भुगतान विधि चुनें',
-    donationMethodSub: 'सुरक्षित और एन्क्रिप्टेड चेकआउट',
-    donationMethodNote: 'आपकी भुगतान जानकारी सुरक्षित और निजी है.',
-    donationSummaryTitle: 'आपका दान',
-    donationSummarySub: 'आपके सहयोग के लिए धन्यवाद!',
-    donationSummaryAmountLabel: 'राशि',
-    donationSummaryTotalLabel: 'कुल',
-    donationTrust1Title: 'सुरक्षित और एन्क्रिप्टेड',
-    donationTrust1Text: 'आपका डेटा हमारे साथ सुरक्षित है',
-    donationTrust2Title: 'पारदर्शी और ईमानदार',
-    donationTrust2Text: 'कोई छुपी फीस नहीं',
-    donationTrust3Title: 'समुदाय द्वारा समर्थित',
-    donationTrust3Text: 'आपके लिए, आपके समर्थन से',
   },
   ur: {
     docTitle: 'مورگیج پلانر',
@@ -511,33 +490,26 @@ const I18N = {
     monthlyPrincipalHint: 'وہ حصہ جو قرض کا بیلنس کم کرتا ہے.',
     monthlyInterestSaved: 'اس ماہ بچا ہوا سود',
     monthlySavedHint: 'بغیر حکمت عملی کے مقابلے میں.',
-    donationKicker: 'اس ویب سائٹ کی مدد کریں',
-    donationTitle: 'اس ویب سائٹ کی مدد کریں',
-    donationText: 'آپ کا عطیہ ڈومین اور ہوسٹنگ کی لاگت میں مدد کرتا ہے تاکہ یہ مورگیج پلاننگ ٹول سب کے لیے مفت اور آن لائن رہے.',
-    donationCardMethod: 'کریڈٹ کارڈ',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: 'عطیہ کریں',
-    donationNote: 'ایک بار کا عطیہ • کوئی hidden fees نہیں',
-    donationAlert: 'ڈونیشن چیک آؤٹ ابھی منسلک نہیں ہے. assets/js/main.js میں Stripe، PayPal یا payment link شامل کریں.',
+    donateStep1Title: 'رقم منتخب کریں',
+    donateStep1Sub: 'اس ویب سائٹ کی مدد کے لیے ایک بار کی donation منتخب کریں.',
+    donateSecure: 'آپ کی مدد domain اور maintenance cost میں مدد دیتی ہے.',
+    donateStep2Title: 'ادائیگی کا طریقہ منتخب کریں',
+    donateStep2Sub: 'نیچے دی گئی bank transfer details استعمال کریں.',
+    donateBankTitle: 'بینک ٹرانسفر',
+    donateBankSub: 'ڈائریکٹ ڈپازٹ',
+    donateAccountNameLabel: 'اکاؤنٹ نام',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'اکاؤنٹ نمبر',
+    donateStep3Title: 'آپ کی donation',
+    donateStep3Sub: 'آپ کے تعاون کا شکریہ.',
+    donateAmountLabel: 'رقم',
+    donateTotalLabel: 'کل',
+    donateCopyButton: 'بینک details کاپی کریں',
+    donateCopiedButton: 'کاپی ہو گیا',
+    donateNote: 'ایک بار کی donation • کوئی hidden fees نہیں',
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
-    donationStepAmount: 'رقم منتخب کریں',
-    donationAmountSub: 'ایک بار کا عطیہ منتخب کریں',
-    donationAmountNote: '100٪ محفوظ. آپ کی مدد فرق ڈالتی ہے.',
-    donationStepMethod: 'ادائیگی کا طریقہ منتخب کریں',
-    donationMethodSub: 'محفوظ اور encrypted checkout',
-    donationMethodNote: 'آپ کی payment information محفوظ اور private ہے.',
-    donationSummaryTitle: 'آپ کا عطیہ',
-    donationSummarySub: 'آپ کی مدد کا شکریہ!',
-    donationSummaryAmountLabel: 'رقم',
-    donationSummaryTotalLabel: 'کل',
-    donationTrust1Title: 'محفوظ اور encrypted',
-    donationTrust1Text: 'آپ کا data ہمارے ساتھ محفوظ ہے',
-    donationTrust2Title: 'شفاف اور ایماندار',
-    donationTrust2Text: 'کوئی hidden fees نہیں',
-    donationTrust3Title: 'Community powered',
-    donationTrust3Text: 'آپ کے لیے، آپ کی مدد سے',
   },
   zh: {
     docTitle: '房贷规划器',
@@ -645,33 +617,26 @@ const I18N = {
     monthlyPrincipalHint: '用于减少贷款余额的部分。',
     monthlyInterestSaved: '本月节省利息',
     monthlySavedHint: '与无策略相比。',
-    donationKicker: '支持这个网站',
-    donationTitle: '支持这个网站',
-    donationText: '你的捐赠有助于支付域名和托管费用，让这个房贷规划工具继续免费并保持在线。',
-    donationCardMethod: '信用卡',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: '捐赠',
-    donationNote: '一次性捐赠 • 无隐藏费用',
-    donationAlert: '捐赠付款尚未连接。请在 assets/js/main.js 中添加 Stripe、PayPal 或支付链接。',
+    donateStep1Title: '选择金额',
+    donateStep1Sub: '选择一次性捐助来支持本网站。',
+    donateSecure: '你的支持有助于支付域名和维护费用。',
+    donateStep2Title: '选择付款方式',
+    donateStep2Sub: '请使用以下银行转账信息。',
+    donateBankTitle: '银行转账',
+    donateBankSub: '直接存款',
+    donateAccountNameLabel: '账户名',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: '账号',
+    donateStep3Title: '你的捐助',
+    donateStep3Sub: '感谢你的支持。',
+    donateAmountLabel: '金额',
+    donateTotalLabel: '总计',
+    donateCopyButton: '复制银行信息',
+    donateCopiedButton: '已复制',
+    donateNote: '一次性捐助 • 无隐藏费用',
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
-    donationStepAmount: '选择金额',
-    donationAmountSub: '选择一次性捐赠',
-    donationAmountNote: '100% 安全。你的支持很重要。',
-    donationStepMethod: '选择付款方式',
-    donationMethodSub: '安全加密结账',
-    donationMethodNote: '你的付款信息安全且保密。',
-    donationSummaryTitle: '你的捐赠',
-    donationSummarySub: '感谢你的支持！',
-    donationSummaryAmountLabel: '金额',
-    donationSummaryTotalLabel: '总计',
-    donationTrust1Title: '安全加密',
-    donationTrust1Text: '你的数据是安全的',
-    donationTrust2Title: '透明诚信',
-    donationTrust2Text: '无费用，无隐藏成本',
-    donationTrust3Title: '社区支持',
-    donationTrust3Text: '为你而建，由你支持',
   },
   es: {
     docTitle: 'Planificador de hipoteca',
@@ -779,33 +744,26 @@ const I18N = {
     monthlyPrincipalHint: 'La parte que reduce el saldo del préstamo.',
     monthlyInterestSaved: 'Interés ahorrado este mes',
     monthlySavedHint: 'Comparado con no usar estrategia.',
-    donationKicker: 'Apoya este sitio web',
-    donationTitle: 'Apoya este sitio web',
-    donationText: 'Tu donación ayuda a cubrir costos de dominio y hosting, para mantener esta herramienta hipotecaria gratis y online para todos.',
-    donationCardMethod: 'Tarjeta de crédito',
-    donationAppleMethod: 'Apple Pay',
-    donationButton: 'Donar',
-    donationNote: 'Donación única • Sin cargos ocultos',
-    donationAlert: 'El pago de donación aún no está conectado. Agrega tu enlace de Stripe, PayPal o pago en assets/js/main.js.',
+    donateStep1Title: 'Elige un monto',
+    donateStep1Sub: 'Selecciona una donación única para apoyar este sitio web.',
+    donateSecure: 'Tu apoyo ayuda a cubrir los costos del dominio y mantenimiento.',
+    donateStep2Title: 'Elige un método de pago',
+    donateStep2Sub: 'Usa los datos de transferencia bancaria abajo.',
+    donateBankTitle: 'Transferencia bancaria',
+    donateBankSub: 'Depósito directo',
+    donateAccountNameLabel: 'Nombre de cuenta',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'Número de cuenta',
+    donateStep3Title: 'Tu donación',
+    donateStep3Sub: 'Gracias por tu apoyo.',
+    donateAmountLabel: 'Monto',
+    donateTotalLabel: 'Total',
+    donateCopyButton: 'Copiar datos bancarios',
+    donateCopiedButton: 'Copiado',
+    donateNote: 'Donación única • Sin cargos ocultos',
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
-    donationStepAmount: 'Elige un monto',
-    donationAmountSub: 'Selecciona una donación única',
-    donationAmountNote: '100% seguro. Tu apoyo marca la diferencia.',
-    donationStepMethod: 'Elige un método de pago',
-    donationMethodSub: 'Pago seguro y encriptado',
-    donationMethodNote: 'Tu información de pago es segura y privada.',
-    donationSummaryTitle: 'Tu donación',
-    donationSummarySub: '¡Gracias por tu apoyo!',
-    donationSummaryAmountLabel: 'Monto',
-    donationSummaryTotalLabel: 'Total',
-    donationTrust1Title: 'Seguro y encriptado',
-    donationTrust1Text: 'Tus datos están seguros con nosotros',
-    donationTrust2Title: 'Transparente y honesto',
-    donationTrust2Text: 'Sin cargos ni costos ocultos',
-    donationTrust3Title: 'Impulsado por la comunidad',
-    donationTrust3Text: 'Creado para ti, gracias a tu apoyo',
   }
 };
 
@@ -853,8 +811,6 @@ function setStaticText() {
   document.documentElement.dir = isRTL() ? 'rtl' : 'ltr';
   document.body.classList.toggle('rtl', isRTL());
   document.title = t('docTitle');
-
-  setupDonationControls();
 
   const langSelect = $('languageSelect');
   if (langSelect) langSelect.value = currentLang;
@@ -1020,30 +976,23 @@ function setStaticText() {
   setText('monthlySavedLabel', t('monthlyInterestSaved'));
   setText('monthlySavedHint', t('monthlySavedHint'));
 
-  setText('donationTitle', t('donationTitle'));
-  setText('donationText', t('donationText'));
-  setText('donationStepAmount', t('donationStepAmount'));
-  setText('donationAmountSub', t('donationAmountSub'));
-  setText('donationAmountNote', t('donationAmountNote'));
-  setText('donationStepMethod', t('donationStepMethod'));
-  setText('donationMethodSub', t('donationMethodSub'));
-  setText('donationCardMethod', t('donationCardMethod'));
-  setText('donationAppleMethod', t('donationAppleMethod'));
-  setText('donationMethodNote', t('donationMethodNote'));
-  setText('donationSummaryTitle', t('donationSummaryTitle'));
-  setText('donationSummarySub', t('donationSummarySub'));
-  setText('donationSummaryAmountLabel', t('donationSummaryAmountLabel'));
-  setText('donationSummaryTotalLabel', t('donationSummaryTotalLabel'));
-  setText('donationNote', t('donationNote'));
-  setText('donationTrust1Title', t('donationTrust1Title'));
-  setText('donationTrust1Text', t('donationTrust1Text'));
-  setText('donationTrust2Title', t('donationTrust2Title'));
-  setText('donationTrust2Text', t('donationTrust2Text'));
-  setText('donationTrust3Title', t('donationTrust3Title'));
-  setText('donationTrust3Text', t('donationTrust3Text'));
-  updateDonationButton();
-  updateDonationSummary();
 
+  setText('donateStep1Title', t('donateStep1Title'));
+  setText('donateStep1Sub', t('donateStep1Sub'));
+  setText('donateSecure', t('donateSecure'));
+  setText('donateStep2Title', t('donateStep2Title'));
+  setText('donateStep2Sub', t('donateStep2Sub'));
+  setText('donateBankTitle', t('donateBankTitle'));
+  setText('donateBankSub', t('donateBankSub'));
+  setText('donateAccountNameLabel', t('donateAccountNameLabel'));
+  setText('donateBsbLabel', t('donateBsbLabel'));
+  setText('donateAccountNumberLabel', t('donateAccountNumberLabel'));
+  setText('donateStep3Title', t('donateStep3Title'));
+  setText('donateStep3Sub', t('donateStep3Sub'));
+  setText('donateAmountLabel', t('donateAmountLabel'));
+  setText('donateTotalLabel', t('donateTotalLabel'));
+  setText('copyDonationDetails', t('donateCopyButton'));
+  setText('donateNote', t('donateNote'));
 
   const footer = document.querySelector('.footer-brand span');
   if (footer) footer.textContent = t('footerLine');
@@ -1372,76 +1321,49 @@ function update() {
 }
 
 
+function setupDonationSection() {
+  const amountButtons = document.querySelectorAll('.donation-amount');
+  const amountText = $('donationAmountText');
+  const totalText = $('donationTotalText');
+  const copyBtn = $('copyDonationDetails');
 
-const DONATION_CHECKOUT_LINKS = {
-  card: '',
-  applepay: ''
-};
+  function setAmount(amount) {
+    const formatted = new Intl.NumberFormat(localeCode(), {
+      style: 'currency',
+      currency: 'AUD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(amount);
 
-let selectedDonationAmount = 10;
-let selectedDonationMethod = 'card';
-let donationControlsReady = false;
+    if (amountText) amountText.textContent = formatted;
+    if (totalText) totalText.textContent = formatted;
 
-function updateDonationSummary() {
-  const amountText = `$${selectedDonationAmount.toFixed(2)}`;
-  const amount = $('donationSummaryAmount');
-  const total = $('donationSummaryTotal');
-  if (amount) amount.textContent = amountText;
-  if (total) total.textContent = amountText;
-}
-
-function updateDonationButton() {
-  const btn = $('donationSubmit');
-  if (btn) btn.textContent = `♡ ${t('donationButton')} $${selectedDonationAmount}`;
-}
-
-function setupDonationControls() {
-  if (donationControlsReady) {
-    updateDonationButton();
-    updateDonationSummary();
-    return;
+    amountButtons.forEach(btn => btn.classList.toggle('active', Number(btn.dataset.amount) === Number(amount)));
   }
-  donationControlsReady = true;
 
-  document.querySelectorAll('.donation-amount').forEach(btn => {
-    btn.addEventListener('click', () => {
-      selectedDonationAmount = Number(btn.dataset.amount || 10);
-      document.querySelectorAll('.donation-amount').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      updateDonationButton();
-      updateDonationSummary();
-    });
-  });
+  amountButtons.forEach(btn => btn.addEventListener('click', () => setAmount(Number(btn.dataset.amount || 10))));
 
-  document.querySelectorAll('.donation-method').forEach(btn => {
-    btn.addEventListener('click', () => {
-      selectedDonationMethod = btn.dataset.method || 'card';
-      document.querySelectorAll('.donation-method').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  const submit = $('donationSubmit');
-  if (submit) {
-    submit.addEventListener('click', () => {
-      const base = DONATION_CHECKOUT_LINKS[selectedDonationMethod] || '';
-      if (!base) {
-        alert(t('donationAlert'));
-        return;
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const details = 'Donation bank details\nAccount name: Barat\nBSB: 066134\nAccount number: 10743984';
+      try {
+        await navigator.clipboard.writeText(details);
+        copyBtn.classList.add('copied');
+        copyBtn.textContent = t('donateCopiedButton');
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          copyBtn.textContent = t('donateCopyButton');
+        }, 1800);
+      } catch (e) {
+        copyBtn.textContent = 'Barat | BSB 066134 | 10743984';
       }
-      const joiner = base.includes('?') ? '&' : '?';
-      window.open(`${base}${joiner}amount=${selectedDonationAmount}`, '_blank', 'noopener,noreferrer');
     });
   }
 
-  updateDonationButton();
-  updateDonationSummary();
+  setAmount(10);
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
-  setupDonationControls();
-
   const langSelect = $('languageSelect');
   if (langSelect) {
     langSelect.value = currentLang;
@@ -1458,5 +1380,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   window.addEventListener('resize', update);
+  setupDonationSection();
   update();
 });
