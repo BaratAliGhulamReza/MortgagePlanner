@@ -48,3 +48,8 @@ MortgagePlanner/
 - `assets/js/main.js` contains the calculator logic.
 
 Do not move files out of the `assets` folder unless you also update the paths in `index.html`.
+
+
+## Performance cleanup
+
+Unused images/icons were removed. The main hero PNG was converted to WebP and CSS/JS are served as minified files.
