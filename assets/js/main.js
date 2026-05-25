@@ -278,8 +278,6 @@ function simulateTargetPlan(d, extraAmount, extraFrequency) {
     useExtra: true,
     extra: extraAmount,
     extraFrequency,
-    // Keep offset and lump sum choices because they make the plan more realistic,
-    // but calculate the goal repayment independently from the existing extra-payment field.
     useOffset: d.useOffset,
     useLump: d.useLump
   });
@@ -325,17 +323,6 @@ function requiredExtraForTarget(d, base, target) {
   return { extra, plan: simulateTargetPlan(d, extra, target.frequency), achievable: true, reason: '' };
 }
 
-function setStrategySteps(items) {
-  const list = $('targetStrategySteps');
-  if (!list) return;
-  list.innerHTML = '';
-  items.forEach(text => {
-    const li = document.createElement('li');
-    li.textContent = text;
-    list.appendChild(li);
-  });
-}
-
 function updateTargetGoalStrategy(d, base) {
   const target = targetGoalData();
   const result = requiredExtraForTarget(d, base, target);
@@ -351,34 +338,6 @@ function updateTargetGoalStrategy(d, base) {
   setText('targetPayoffDate', monthFmt().format(targetDate));
   setText('targetPayoffTime', 'About ' + monthsText(result.plan.months));
 
-  const basePayText = fmt(normalPerTargetFrequency);
-  const extraText = fmt(result.extra);
-  const totalText = fmt(totalTargetPayment);
-  const goalText = monthsText(target.months);
-  const savedText = fmt(totalInterestSaved);
-
-  const steps = [
-    'Keep paying your normal repayment, which is about ' + basePayText + ' ' + target.frequency + ' when converted from your selected repayment frequency.',
-    'Add an estimated extra ' + extraText + ' ' + target.frequency + ' to target paying the loan off in about ' + goalText + '.',
-    'Aim for a total payment of about ' + totalText + ' ' + target.frequency + '.',
-    'Keep your offset balance working against the loan and review this plan after each interest-rate change.'
-  ];
-
-  if (d.useLump && d.lump > 0) {
-    steps.splice(1, 0, 'Apply the ' + fmt(d.lump) + ' lump sum first, then follow the extra repayment target.');
-  }
-  if (d.useOffset && d.offset > 0) {
-    steps.push('Keep at least ' + fmt(d.offset) + ' in offset if possible, because removing it will increase the extra repayment needed.');
-  }
-  if (totalInterestSaved > 0) {
-    steps.push('Estimated interest saved compared with no strategy: ' + savedText + '.');
-  }
-
-  setStrategySteps(steps);
-  const note = result.achievable
-    ? 'This is a planning estimate, not financial advice. Allow a safety buffer for rate changes, fees, redraws, and changes in income.'
-    : result.reason;
-  setText('targetStrategyNote', note);
 }
 
 
