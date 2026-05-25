@@ -1,7 +1,0 @@
-FINAL CLEAN VERSION
-- Professional custom donation method picker
-- No native browser dropdown
-- No bank account details shown
-- PayID copies baratalighulamreza@gmail.com
-- Credit Card and Apple Pay open Stripe
-- PayPal coming soon
