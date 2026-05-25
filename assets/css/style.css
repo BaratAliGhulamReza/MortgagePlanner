@@ -2493,3 +2493,50 @@ html[dir="rtl"] .hero-composed .benefit:not(:last-child)::after{
   font-size:15px !important;
   font-weight:500 !important;
 }
+
+
+/* === Header: smaller Support Us button + English/Dari dropdown === */
+.language-select{
+  display:inline-flex !important;
+  height:44px !important;
+  min-width:112px !important;
+  border:1px solid #dbe4ee !important;
+  border-radius:14px !important;
+  background:#fff !important;
+  color:#13203b !important;
+  font-size:14px !important;
+  font-weight:800 !important;
+  padding:0 12px !important;
+  outline:none !important;
+  box-shadow:0 6px 16px rgba(15,23,42,.04) !important;
+}
+
+.donation-header-btn{
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:12px !important;
+  gap:8px !important;
+  font-size:14px !important;
+  font-weight:850 !important;
+  background:#2ea541 !important;
+  box-shadow:0 8px 18px rgba(46,165,65,.14) !important;
+}
+
+.donation-header-btn img{
+  width:18px !important;
+  height:18px !important;
+}
+
+.header-actions{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+html[dir="rtl"] .header-actions{
+  flex-direction:row-reverse !important;
+}
+
+html[dir="rtl"] .language-select{
+  direction:rtl !important;
+}
