@@ -1,93 +1,14 @@
-
 const $ = (id) => document.getElementById(id);
-const LANGUAGE_CONFIG = {
-  en: { nativeName: 'English', locale: 'en-AU', dir: 'ltr' },
-  fa: { nativeName: 'دری', locale: 'fa-AF', dir: 'rtl' },
-  es: { nativeName: 'Español', locale: 'es-ES', dir: 'ltr' },
-  zh: { nativeName: '中文（简体）', locale: 'zh-Hans-CN', dir: 'ltr' },
-  ur: { nativeName: 'اردو', locale: 'ur-PK', dir: 'rtl' },
-  ar: { nativeName: 'العربية', locale: 'ar', dir: 'rtl' },
-  vi: { nativeName: 'Tiếng Việt', locale: 'vi-VN', dir: 'ltr' }
-};
-const SUPPORTED_LANGS = Object.keys(LANGUAGE_CONFIG);
-const params = new URLSearchParams(window.location.search);
-const urlLang = params.get('lang');
-let currentLang = SUPPORTED_LANGS.includes(urlLang)
-  ? urlLang
-  : (SUPPORTED_LANGS.includes(localStorage.getItem('mortgagePlannerLanguage')) ? localStorage.getItem('mortgagePlannerLanguage') : 'en');
-let I18N = { en: {} };
-let localeMeta = { en: { ...LANGUAGE_CONFIG.en } };
-
-function normalizeLocalePayload(lang, payload) {
-  if (!payload || typeof payload !== 'object' || !payload.messages) {
-    throw new Error(`Invalid locale payload for ${lang}`);
-  }
-  localeMeta[lang] = { ...LANGUAGE_CONFIG[lang], ...(payload.meta || {}) };
-  I18N[lang] = payload.messages;
-}
-
-async function loadLocale(lang) {
-  const response = await fetch(`assets/i18n/${lang}.json`, { cache: 'no-cache' });
-  if (!response.ok) throw new Error(`Could not load locale: ${lang}`);
-  normalizeLocalePayload(lang, await response.json());
-}
-
-async function ensureLocale(lang) {
-  if (!I18N.en || Object.keys(I18N.en).length === 0) await loadLocale('en');
-  if (lang !== 'en' && (!I18N[lang] || Object.keys(I18N[lang]).length === 0)) {
-    try {
-      await loadLocale(lang);
-    } catch (error) {
-      console.warn(error);
-      currentLang = 'en';
-    }
-  }
-}
-
-
-function t(key, vars = {}) {
-  let value = I18N[currentLang]?.[key] ?? I18N.en?.[key] ?? key;
-  if (typeof value !== 'string') return value;
-  Object.entries(vars).forEach(([name, replacement]) => {
-    value = value.replaceAll(`{${name}}`, replacement);
-  });
-  return value;
-}
-
-function isRTL() {
-  return (localeMeta[currentLang]?.dir || LANGUAGE_CONFIG[currentLang]?.dir) === 'rtl';
-}
+const FORMAT_LOCALE = 'en-AU';
 
 function localeCode() {
-  return localeMeta[currentLang]?.locale || LANGUAGE_CONFIG[currentLang]?.locale || 'en-AU';
-}
-
-function updateHreflangLinks() {
-  const baseUrl = new URL(window.location.href);
-  baseUrl.searchParams.delete('lang');
-  const base = `${baseUrl.origin}${baseUrl.pathname}`;
-  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(link => {
-    const hreflang = link.getAttribute('hreflang');
-    const lang = hreflang === 'x-default'
-      ? 'en'
-      : Object.entries(LANGUAGE_CONFIG).find(([, config]) => config.locale.toLowerCase() === hreflang.toLowerCase() || config.locale.toLowerCase().startsWith(hreflang.toLowerCase()))?.[0];
-    if (lang) link.href = `${base}?lang=${lang}`;
-  });
+  return FORMAT_LOCALE;
 }
 
 function localNumber(value) {
   return new Intl.NumberFormat(localeCode(), { maximumFractionDigits: 0 }).format(Number(value) || 0);
 }
 
-function setPlaceholder(id, value) {
-  const el = $(id);
-  if (el) el.placeholder = value;
-}
-
-function setHTML(selector, value) {
-  const el = document.querySelector(selector);
-  if (el) el.innerHTML = value;
-}
 
 const fmt = (n, d = 0) =>
   new Intl.NumberFormat(localeCode(), {
@@ -99,252 +20,7 @@ const fmt = (n, d = 0) =>
 
 const monthFmt = () => new Intl.DateTimeFormat(localeCode(), { month: 'short', year: 'numeric' });
 
-function setStaticText() {
-  document.documentElement.lang = localeCode();
-  document.documentElement.dir = isRTL() ? 'rtl' : 'ltr';
-  document.body.classList.toggle('rtl', isRTL());
-  document.title = t('docTitle');
-  updateHreflangLinks();
 
-  const langSelect = $('languageSelect');
-  if (langSelect) langSelect.value = currentLang;
-
-  setHTML('.header .brand-text', t('brand'));
-  setText('headerDonationText', t('headerDonationText'));
-  setText('navHome', t('navHome'));
-  setText('navAbout', t('navAbout'));
-  setText('navCalculator', t('navCalculator'));
-  setText('navGuide', t('navGuide'));
-  setText('navFaq', t('navFaq'));
-  setText('navContact', t('navContact'));
-  setHTML('.hero h1', t('heroTitle'));
-  setHTML('.lead', t('heroLead'));
-  const ctaPrimaryLabel = document.querySelector('#ctaPrimary span');
-  const ctaSecondaryLabel = document.querySelector('#ctaSecondary span');
-  if (ctaPrimaryLabel) ctaPrimaryLabel.textContent = t('ctaPrimary');
-  if (ctaSecondaryLabel) ctaSecondaryLabel.textContent = t('ctaSecondary');
-
-  const benefits = document.querySelectorAll('.benefit strong');
-  [t('benefit1'), t('benefit2'), t('benefit3')].forEach((txt, i) => { if (benefits[i]) benefits[i].innerHTML = txt; });
-
-  const statLabels = document.querySelectorAll('.stats-band .stat small');
-  [t('statLoan'), t('statRate'), t('statTerm'), t('statFrequency'), t('statPayment')].forEach((txt, i) => {
-    if (statLabels[i]) statLabels[i].textContent = txt;
-  });
-
-  const panels = document.querySelectorAll('.panel');
-  if (panels[0]) {
-    panels[0].querySelector('h2').textContent = t('calcTitle');
-    panels[0].querySelector('.panel-sub').textContent = t('calcSub');
-  }
-  if (panels[1]) {
-    panels[1].querySelector('h2').textContent = t('strategiesTitle');
-    panels[1].querySelector('.panel-sub').textContent = t('strategiesSub');
-  }
-
-  const fields = document.querySelectorAll('.panel:first-child .field label');
-  [t('loanStartDate'), t('currentLoanBalance'), t('interestRate'), t('amortizationPeriod'), t('repaymentFrequency')].forEach((txt, i) => {
-    if (fields[i]) fields[i].textContent = txt;
-  });
-
-  const hint = document.querySelector('.field-hint');
-  if (hint) hint.textContent = t('dateHint');
-
-  setPlaceholder('startDate', t('datePlaceholder'));
-  setPlaceholder('loanAmount', t('amountPlaceholder'));
-  setPlaceholder('interestRate', t('ratePlaceholder'));
-  setPlaceholder('offsetAmount', t('amountPlaceholder'));
-  setPlaceholder('offsetGrowth', t('amountPlaceholder'));
-  setPlaceholder('extraAmount', t('amountPlaceholder'));
-  setPlaceholder('lumpSum', t('amountPlaceholder'));
-
-  document.querySelectorAll('#loanTerm option').forEach(opt => opt.textContent = localNumber(opt.value) + ' ' + t('years'));
-  document.querySelectorAll('#repaymentFrequency option, #offsetFrequency option, #extraFrequency option').forEach(opt => {
-    opt.textContent = t(opt.value);
-  });
-
-  const strategies = document.querySelectorAll('.strategy');
-  if (strategies[0]) {
-    strategies[0].querySelector('h3').textContent = t('offsetTitle');
-    strategies[0].querySelector('p').textContent = t('offsetDesc');
-    strategies[0].querySelector('.use-check').lastChild.textContent = t('use');
-    const labels = strategies[0].querySelectorAll('.field label');
-    [t('currentOffset'), t('growOffsetBy'), t('growFrequency')].forEach((txt, i) => { if (labels[i]) labels[i].textContent = txt; });
-  }
-  if (strategies[1]) {
-    strategies[1].querySelector('h3').textContent = t('extraTitle');
-    strategies[1].querySelector('p').textContent = t('extraDesc');
-    strategies[1].querySelector('.use-check').lastChild.textContent = t('use');
-    const labels = strategies[1].querySelectorAll('.field label');
-    [t('extraAmount'), t('howOften')].forEach((txt, i) => { if (labels[i]) labels[i].textContent = txt; });
-  }
-  if (strategies[2]) {
-    strategies[2].querySelector('h3').textContent = t('lumpTitle');
-    strategies[2].querySelector('p').textContent = t('lumpDesc');
-    strategies[2].querySelector('.use-check').lastChild.textContent = t('use');
-    const label = strategies[2].querySelector('.field label');
-    if (label) label.textContent = t('lumpAmount');
-  }
-
-  const inputLabels = {
-    startDate: t('loanStartDate'),
-    loanAmount: t('currentLoanBalance'),
-    interestRate: t('interestRate'),
-    loanTerm: t('amortizationPeriod'),
-    repaymentFrequency: t('repaymentFrequency'),
-    offsetAmount: t('currentOffset'),
-    offsetGrowth: t('growOffsetBy'),
-    offsetFrequency: t('growFrequency'),
-    extraAmount: t('extraAmount'),
-    extraFrequency: t('howOften'),
-    lumpSum: t('lumpAmount')
-  };
-  Object.entries(inputLabels).forEach(([id, label]) => {
-    const el = $(id);
-    if (el) {
-      el.setAttribute('aria-label', label);
-      el.setAttribute('title', label);
-    }
-  });
-
-  const sec = document.querySelector('.section-title-row');
-  if (sec) {
-    sec.querySelector('h2').textContent = t('interestComparison');
-    sec.querySelector('p').textContent = t('interestComparisonSub');
-    sec.querySelector('.badge-soft').textContent = t('clearComparison');
-  }
-
-  const note = document.querySelector('.comparison-note');
-  if (note) {
-    note.querySelector('small').textContent = t('noStrategyBaseline');
-    note.querySelector('p').textContent = t('baselineDesc');
-  }
-
-  const cards = document.querySelectorAll('.compare-card');
-  const cardData = [
-    [t('offsetOnly'), t('offsetOnlyDesc'), t('offsetCardP')],
-    [t('extraOnly'), t('extraOnlyDesc'), t('extraCardP')],
-    [t('lumpOnly'), t('lumpOnlyDesc'), t('lumpCardP')]
-  ];
-  cards.forEach((card, i) => {
-    const titleSpan = card.querySelector('.compare-title span');
-    const em = card.querySelector('.compare-title em');
-    const p = card.querySelector(':scope > p');
-    if (titleSpan) {
-      const dot = titleSpan.querySelector('.dot');
-      titleSpan.innerHTML = '';
-      if (dot) titleSpan.appendChild(dot);
-      titleSpan.appendChild(document.createTextNode(cardData[i][0]));
-    }
-    if (em) em.textContent = cardData[i][1];
-    const rows = card.querySelectorAll('.result-row small');
-    if (rows[0]) rows[0].textContent = t('interestPay');
-    if (rows[1]) rows[1].textContent = t('interestSave');
-    if (p) p.textContent = cardData[i][2];
-  });
-
-  const comboSmall = document.querySelectorAll('.combo-result small');
-  [t('interestPayShort'), t('interestSave'), t('payoffTime'), t('newPayoffDate')].forEach((txt, i) => {
-    if (comboSmall[i]) comboSmall[i].textContent = txt;
-  });
-  const comboPill = document.querySelector('.combo-pill');
-  if (comboPill) comboPill.textContent = t('liveCombined');
-
-  const chartTitle = document.querySelector('.chart-top h3');
-  if (chartTitle) chartTitle.textContent = t('chartTitle');
-  const legends = document.querySelectorAll('.legend span');
-  [t('legendNoStrategy'), t('legendOffsetOnly'), t('legendAllSelected')].forEach((txt, i) => {
-    if (legends[i]) {
-      const dot = legends[i].querySelector('.dot');
-      legends[i].innerHTML = '';
-      if (dot) legends[i].appendChild(dot);
-      legends[i].appendChild(document.createTextNode(txt));
-    }
-  });
-
-  const payoffSmall = document.querySelectorAll('.payoff-cell small');
-  [t('payoffNoStrategy'), t('payoffOffsetOnly'), t('payoffAllSelected'), t('timeSaved')].forEach((txt, i) => {
-    if (payoffSmall[i]) payoffSmall[i].textContent = txt;
-  });
-
-
-  setText('monthlyTitle', t('monthlyBreakdownTitle'));
-  setText('monthlySub', t('monthlyBreakdownSub'));
-  setText('monthlyBadge', t('monthlyBreakdownBadge'));
-  setText('monthlyRepaymentLabel', t('monthlyRepaymentAfter'));
-  setText('monthlyRepaymentHint', t('monthlyRepaymentHint'));
-  setText('monthlyInterestLabel', t('monthlyInterestPart'));
-  setText('monthlyInterestHint', t('monthlyInterestHint'));
-  setText('monthlyPrincipalLabel', t('monthlyPrincipalPart'));
-  setText('monthlyPrincipalHint', t('monthlyPrincipalHint'));
-  setText('monthlySavedLabel', t('monthlyInterestSaved'));
-  setText('monthlySavedHint', t('monthlySavedHint'));
-
-
-  setText('donateStep1Title', t('donateStep1Title'));
-  setText('donateStep1Sub', t('donateStep1Sub'));
-  setText('donateSecure', t('donateSecure'));
-  setText('donateStep2Title', t('donateStep2Title'));
-  setText('donateStep2Sub', t('donateStep2Sub'));
-  setText('donateBankTitle', t('donateBankTitle'));
-  setText('donateBankSub', t('donateBankSub'));
-  setText('donateAccountNameLabel', t('donateAccountNameLabel'));
-  setText('donateBsbLabel', t('donateBsbLabel'));
-  setText('donateAccountNumberLabel', t('donateAccountNumberLabel'));
-  setText('donateStep3Title', t('donateStep3Title'));
-  setText('donateStep3Sub', t('donateStep3Sub'));
-  setText('donateAmountLabel', t('donateAmountLabel'));
-  setText('donateTotalLabel', t('donateTotalLabel'));
-
-  setText('donateMethodSummaryLabel', t('donateMethodSummaryLabel'));
-
-
-  setText('donatePayIdTitle', t('donatePayIdTitle'));
-  setText('donatePayIdSub', t('donatePayIdSub'));
-  setText('donateApplePayTitle', t('donateApplePayTitle'));
-  setText('donateApplePaySub', t('donateApplePaySub'));
-  setText('donateCreditCardTitle', t('donateCreditCardTitle'));
-  setText('donateCreditCardSub', t('donateCreditCardSub'));
-  setText('donatePaypalTitle', t('donatePaypalTitle'));
-  setText('donatePaypalSub', t('donatePaypalSub'));
-  setText('donateApplePayInfo', t('donateApplePayInfo'));
-  setText('donateCreditCardInfo', t('donateCreditCardInfo'));
-  setText('donatePaypalInfo', t('donatePaypalInfo'));
-
-
-  setText('donateMethodLabel', t('donateMethodLabel'));
-  localizeDonationMethodOptions();
-
-  setText('copyDonationDetails', t('donateCopyButton'));
-  setText('donateNote', t('donateNote'));
-
-  const footerTitle = document.querySelector('.footer-title');
-  const footerTagline = document.querySelector('.footer-tagline');
-  if (footerTitle) footerTitle.textContent = t('brand');
-  if (footerTagline) footerTagline.textContent = t('footerLine');
-  const footerGroups = document.querySelectorAll('.footer-links > div');
-  if (footerGroups[0]) {
-    footerGroups[0].querySelector('h4').textContent = t('product');
-    const a = footerGroups[0].querySelectorAll('a');
-    if (a[0]) a[0].textContent = t('calculator');
-    if (a[1]) a[1].textContent = t('strategiesTitle');
-    if (a[2]) a[2].textContent = t('savedPlans');
-  }
-  if (footerGroups[1]) {
-    footerGroups[1].querySelector('h4').textContent = t('resources');
-    const a = footerGroups[1].querySelectorAll('a');
-    if (a[0]) a[0].textContent = t('guides');
-    if (a[1]) a[1].textContent = t('faqs');
-    if (a[2]) a[2].textContent = t('glossary');
-  }
-  if (footerGroups[2]) {
-    footerGroups[2].querySelector('h4').textContent = t('company');
-    const a = footerGroups[2].querySelectorAll('a');
-    if (a[0]) a[0].textContent = t('aboutUs');
-    if (a[1]) a[1].textContent = t('contact');
-    if (a[2]) a[2].textContent = t('privacy');
-  }
-}
 
 function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
@@ -352,8 +28,8 @@ function monthsText(months) {
   months = Math.max(0, Math.round(months || 0));
   const y = Math.floor(months / 12);
   const r = months % 12;
-  const yearWord = y === 1 ? t('yearSingular') : t('yearPlural');
-  const monthWord = r === 1 ? t('monthSingular') : t('monthPlural');
+  const yearWord = y === 1 ? 'year' : 'years';
+  const monthWord = r === 1 ? 'month' : 'months';
   if (!y) return localNumber(r) + ' ' + monthWord;
   if (!r) return localNumber(y) + ' ' + yearWord;
   return localNumber(y) + ' ' + yearWord + ' ' + localNumber(r) + ' ' + monthWord;
@@ -372,7 +48,9 @@ function periodsPerYear(frequency) {
   return 12;
 }
 
-function frequencyLabel(frequency) { return t(frequency); }
+function frequencyLabel(frequency) {
+  return { weekly: 'Weekly', fortnightly: 'Fortnightly', monthly: 'Monthly', yearly: 'Yearly' }[frequency] || frequency;
+}
 
 function parseStartDate(value) {
   if (!value) return new Date();
@@ -584,12 +262,25 @@ function monthlyBreakdown(d, base) {
 
 function selectedStrategyText(d) {
   const parts = [];
-  if (d.useOffset) parts.push(t('offset'));
-  if (d.useExtra) parts.push(t('extraRepayment'));
-  if (d.useLump) parts.push(t('oneOffLumpSum'));
-  if (parts.length === 0) return { title: t('noStrategySelected'), description: t('noStrategySelectedDesc') };
-  if (parts.length === 3) return { title: t('allSelectedStrategies'), description: t('allSelectedStrategiesDesc') };
-  return { title: parts.join(' + '), description: t('selectedComboDesc') };
+  if (d.useOffset) parts.push('Offset');
+  if (d.useExtra) parts.push('Extra repayment');
+  if (d.useLump) parts.push('One-off lump sum');
+  if (parts.length === 0) {
+    return {
+      title: 'No strategy selected',
+      description: 'Turn on offset, extra repayments, or lump sum to compare a strategy.'
+    };
+  }
+  if (parts.length === 3) {
+    return {
+      title: 'All selected strategies',
+      description: 'This combines the strategy options currently turned on in the calculator.'
+    };
+  }
+  return {
+    title: parts.join(' + '),
+    description: 'This compares the selected strategy combination against the no-strategy baseline.'
+  };
 }
 
 function setText(id, value) {
@@ -598,7 +289,6 @@ function setText(id, value) {
 }
 
 function update() {
-  setStaticText();
   const { d, base, offset, extraOnly, lumpOnly, plan, payment } = calculate();
   const offsetSaved = Math.max(0, base.interest - offset.interest);
   const extraSaved = Math.max(0, base.interest - extraOnly.interest);
@@ -607,7 +297,7 @@ function update() {
 
   setText('statLoan', fmt(d.principal));
   setText('statRate', d.rate.toFixed(3) + '%');
-  setText('statTerm', localNumber(d.amortizationYears) + ' ' + t('years'));
+  setText('statTerm', localNumber(d.amortizationYears) + ' years');
   setText('statFrequency', frequencyLabel(d.repaymentFrequency));
   setText('statPayment', fmt(payment));
 
@@ -630,7 +320,7 @@ function update() {
   setText('offsetPayoff', monthsText(offset.months));
   setText('planPayoff', monthsText(plan.months));
   setText('timeSaved', monthsText(timeSaved));
-  setText('monthsSaved', t('paidOffMonthsSooner', { n: localNumber(Math.round(timeSaved)) }));
+  setText('monthsSaved', 'Paid off ' + localNumber(Math.round(timeSaved)) + ' months sooner');
 
   setText('baseDate', monthFmt().format(addMonths(d.projectionStart, base.months)));
   setText('offsetDate', monthFmt().format(addMonths(d.projectionStart, offset.months)));
@@ -648,47 +338,14 @@ function update() {
 
 
 
-function localizeDonationMethodOptions() {
-  const methodSelect = $('donationMethod');
-  if (!methodSelect) return;
-  const labels = {
-    payid: t('donatePayIdTitle'),
-    applepay: t('donateApplePayTitle'),
-    creditcard: t('donateCreditCardTitle'),
-    paypal: t('donatePaypalTitle')
-  };
-  [...methodSelect.options].forEach(option => {
-    option.textContent = labels[option.value] || option.textContent;
-  });
-}
-
-
-
-
 function setupDonationSection() {
   // Donation is now a single header button linking to Stripe.
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await ensureLocale(currentLang);
-  const langSelect = $('languageSelect');
-  if (langSelect) {
-    langSelect.value = currentLang;
-    langSelect.addEventListener('change', async () => {
-      currentLang = langSelect.value;
-      await ensureLocale(currentLang);
-      localStorage.setItem('mortgagePlannerLanguage', currentLang);
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', currentLang);
-      window.history.replaceState({}, '', url);
-      update();
-    });
-  }
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('input, select').forEach(el => {
-    if (el.id !== 'languageSelect') {
-      el.addEventListener('input', update);
-      el.addEventListener('change', update);
-    }
+    el.addEventListener('input', update);
+    el.addEventListener('change', update);
   });
   window.addEventListener('resize', update);
   setupDonationSection();
