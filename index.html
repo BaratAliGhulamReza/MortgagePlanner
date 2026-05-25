@@ -236,15 +236,21 @@
       <div class="donation-step"><span>2</span><div><h2 id="donateStep2Title">Choose a payment method</h2><p id="donateStep2Sub">Select your preferred donation method.</p></div></div>
       <div class="donation-method-select-wrap">
         <label id="donateMethodLabel" for="donationMethod">Payment method</label>
-        <select id="donationMethod" class="donation-method-select">
-          <option value="payid">PayID</option>
-          <option value="applepay">Apple Pay</option>
-          <option value="creditcard">Credit Card</option>
-          <option value="paypal">PayPal</option>
-        </select>
-      </div>
-      <div class="payment-details-panel active" id="donationMethodInfo">
-        <p id="donateMethodInfoText">Select a method. Payment setup can be connected later.</p>
+        <div class="donation-method-control">
+          <div class="donation-method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+              <path d="M3 10h18"></path>
+              <path d="M7 15h3"></path>
+            </svg>
+          </div>
+          <select id="donationMethod" class="donation-method-select">
+            <option value="payid">PayID</option>
+            <option value="applepay">Apple Pay</option>
+            <option value="creditcard">Credit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
       </div>
     </div>
 

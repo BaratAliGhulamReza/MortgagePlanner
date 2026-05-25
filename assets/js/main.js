@@ -138,7 +138,6 @@ const I18N = {
     donateCreditCardInfo: "Credit card payments can be connected once Stripe or another processor is added.",
     donatePaypalInfo: "PayPal can be connected once your PayPal donation link is added.",
     donateMethodLabel: "Payment method",
-    donateMethodInfoText: "Select a method. Payment setup can be connected later.",
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -278,7 +277,6 @@ const I18N = {
     donateCreditCardInfo: "پرداخت کارت اعتباری پس از اضافه‌شدن Stripe یا درگاه مشابه قابل اتصال خواهد بود.",
     donatePaypalInfo: "پس از اضافه‌شدن لینک کمک PayPal، PayPal قابل اتصال خواهد بود.",
     donateMethodLabel: "روش پرداخت",
-    donateMethodInfoText: "روش پرداخت را انتخاب کنید. اتصال پرداخت بعداً قابل اضافه‌شدن است.",
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -418,7 +416,6 @@ const I18N = {
     donateCreditCardInfo: "जब Stripe या कोई अन्य प्रोसेसर जोड़ा जाएगा तब क्रेडिट कार्ड पेमेंट जोड़ा जा सकेगा.",
     donatePaypalInfo: "जब आपका PayPal donation link जोड़ा जाएगा तब PayPal जोड़ा जा सकेगा.",
     donateMethodLabel: "भुगतान तरीका",
-    donateMethodInfoText: "तरीका चुनें. भुगतान सेटअप बाद में जोड़ा जा सकता है.",
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -558,7 +555,6 @@ const I18N = {
     donateCreditCardInfo: "جب Stripe یا کوئی اور processor شامل ہوگا تب credit card payment جوڑی جا سکے گی۔",
     donatePaypalInfo: "جب آپ کا PayPal donation link شامل ہوگا تب PayPal جوڑا جا سکے گا۔",
     donateMethodLabel: "ادائیگی کا طریقہ",
-    donateMethodInfoText: "طریقہ منتخب کریں۔ payment setup بعد میں جوڑا جا سکتا ہے۔",
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -698,7 +694,6 @@ const I18N = {
     donateCreditCardInfo: "添加 Stripe 或其他处理器后即可连接信用卡付款。",
     donatePaypalInfo: "添加 PayPal 捐助链接后即可连接 PayPal。",
     donateMethodLabel: "付款方式",
-    donateMethodInfoText: "请选择一种方式。付款设置可稍后连接。",
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -838,7 +833,6 @@ const I18N = {
     donateCreditCardInfo: "Los pagos con tarjeta se pueden conectar una vez que agregues Stripe u otro procesador.",
     donatePaypalInfo: "PayPal se puede conectar una vez que agregues tu enlace de donación de PayPal.",
     donateMethodLabel: "Método de pago",
-    donateMethodInfoText: "Selecciona un método. La configuración de pago se puede conectar más tarde.",
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -1084,7 +1078,6 @@ function setStaticText() {
 
 
   setText('donateMethodLabel', t('donateMethodLabel'));
-  setText('donateMethodInfoText', t('donateMethodInfoText'));
   localizeDonationMethodOptions();
 
   setText('copyDonationDetails', t('donateCopyButton'));
@@ -1469,8 +1462,6 @@ function setupDonationSection() {
 
   if (methodSelect) {
     methodSelect.addEventListener('change', () => {
-      const info = $('donateMethodInfoText');
-      if (info) info.textContent = t('donateMethodInfoText');
     });
   }
 

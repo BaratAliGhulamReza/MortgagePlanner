@@ -112,3 +112,8 @@ Donation UI now shows PayID, Apple Pay, Credit Card, and PayPal options. PayID d
 ## Donation method dropdown
 
 Account details have been removed. The donation section now uses a payment method dropdown with PayID, Apple Pay, Credit Card, and PayPal.
+
+
+## Polished donation dropdown
+
+The donation helper text has been removed. The payment method is now shown as a styled dropdown with a matching card-style icon.
