@@ -2704,3 +2704,50 @@ html[dir="rtl"] .hero-composed-wrap::before{
 }
 
 /* Old working language logic restored in main.js */
+
+
+/* === Final hero background repair === */
+.hero-composed-wrap{
+  background: transparent !important;
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+.hero-composed-wrap::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background-image:url("../images/hero-clean-background.png") !important;
+  background-size:100% auto !important;
+  background-position:center top !important;
+  background-repeat:no-repeat !important;
+  transform:none !important;
+  transform-origin:center center !important;
+}
+.hero-composed-wrap::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  height:120px !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:linear-gradient(to bottom, rgba(244,245,247,0) 0%, rgba(244,245,247,.28) 58%, #f4f5f7 100%) !important;
+}
+.hero-overlay-copy{
+  z-index:3 !important;
+}
+html[dir="rtl"] .hero-composed-wrap::before{
+  transform:scaleX(-1) !important;
+}
+html[dir="rtl"] .hero-overlay-copy{
+  text-align:right !important;
+}
+html[lang="zh-CN"] body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",Inter,sans-serif !important;}
+html[lang="hi"] body{font-family:"Noto Sans Devanagari","Mangal",Inter,sans-serif !important;}
+html[lang="ur"] body, html[lang="fa"] body{font-family:"Noto Naskh Arabic","Noto Sans Arabic","Tahoma",Arial,sans-serif !important;}

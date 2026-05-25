@@ -1577,4 +1577,3 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDonationSection();
   update();
 });
-
