@@ -491,3 +491,45 @@ html[dir="rtl"] .donation-column:last-child{border-left:0}
 .payment-details-panel{display:none;margin-top:16px;border:1px solid #edf2f7;border-radius:16px;background:#fff;padding:16px}
 .payment-details-panel.active{display:block}
 .payment-details-panel p{margin:0;color:#64748b;font-weight:700;line-height:1.5}
+
+
+/* Donation method dropdown */
+.donation-method-select-wrap{
+  display:grid;
+  gap:10px;
+}
+.donation-method-select-wrap label{
+  color:#334155;
+  font-size:13px;
+  font-weight:900;
+}
+.donation-method-select{
+  width:100%;
+  height:58px;
+  border:1px solid #dbe4ee;
+  border-radius:16px;
+  background:#fff;
+  color:#111827;
+  font-size:17px;
+  font-weight:850;
+  padding:0 16px;
+  outline:none;
+}
+.donation-method-select:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 4px rgba(10,160,110,.10);
+}
+#donationMethodInfo{
+  display:block;
+  margin-top:16px;
+}
+#donationMethodInfo p{
+  margin:0;
+  color:#64748b;
+  font-weight:700;
+  line-height:1.5;
+}
+.payment-methods,
+.bank-details{
+  display:none !important;
+}

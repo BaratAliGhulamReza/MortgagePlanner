@@ -107,3 +107,8 @@ Includes donation amounts, bank transfer details for Barat, and a copy bank deta
 ## Additional donation payment methods
 
 Donation UI now shows PayID, Apple Pay, Credit Card, and PayPal options. PayID displays bank details. The other methods are shown as supported UI options pending integration details.
+
+
+## Donation method dropdown
+
+Account details have been removed. The donation section now uses a payment method dropdown with PayID, Apple Pay, Credit Card, and PayPal.

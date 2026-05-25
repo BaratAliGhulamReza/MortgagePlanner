@@ -233,50 +233,18 @@
     </div>
 
     <div class="donation-column">
-      <div class="donation-step"><span>2</span><div><h2 id="donateStep2Title">Choose a payment method</h2><p id="donateStep2Sub">Choose how you want to support this website.</p></div></div>
-      <div class="payment-methods">
-        <button class="payment-method active" type="button" data-method="payid">
-          <div>
-            <strong id="donatePayIdTitle">PayID</strong>
-            <span id="donatePayIdSub">Fast bank payment</span>
-          </div>
-          <b class="payment-dot"></b>
-        </button>
-        <button class="payment-method" type="button" data-method="applepay">
-          <div>
-            <strong id="donateApplePayTitle">Apple Pay</strong>
-            <span id="donateApplePaySub">Wallet payment</span>
-          </div>
-          <b class="payment-dot"></b>
-        </button>
-        <button class="payment-method" type="button" data-method="creditcard">
-          <div>
-            <strong id="donateCreditCardTitle">Credit card</strong>
-            <span id="donateCreditCardSub">Card payment</span>
-          </div>
-          <b class="payment-dot"></b>
-        </button>
-        <button class="payment-method" type="button" data-method="paypal">
-          <div>
-            <strong id="donatePaypalTitle">PayPal</strong>
-            <span id="donatePaypalSub">Online payment</span>
-          </div>
-          <b class="payment-dot"></b>
-        </button>
+      <div class="donation-step"><span>2</span><div><h2 id="donateStep2Title">Choose a payment method</h2><p id="donateStep2Sub">Select your preferred donation method.</p></div></div>
+      <div class="donation-method-select-wrap">
+        <label id="donateMethodLabel" for="donationMethod">Payment method</label>
+        <select id="donationMethod" class="donation-method-select">
+          <option value="payid">PayID</option>
+          <option value="applepay">Apple Pay</option>
+          <option value="creditcard">Credit Card</option>
+          <option value="paypal">PayPal</option>
+        </select>
       </div>
-      <div class="bank-details payment-details-panel active" data-panel="payid">
-        <div><small id="donateAccountNameLabel">Account name</small><strong>Barat</strong></div>
-        <div><small id="donateBsbLabel">BSB</small><strong>066134</strong></div>
-        <div><small id="donateAccountNumberLabel">Account number</small><strong>10743984</strong></div>
-      </div>
-      <div class="payment-details-panel" data-panel="applepay">
-        <p id="donateApplePayInfo">Apple Pay can be connected once your payment processor is added.</p>
-      </div>
-      <div class="payment-details-panel" data-panel="creditcard">
-        <p id="donateCreditCardInfo">Credit card payments can be connected once Stripe or another processor is added.</p>
-      </div>
-      <div class="payment-details-panel" data-panel="paypal">
-        <p id="donatePaypalInfo">PayPal can be connected once your PayPal donation link is added.</p>
+      <div class="payment-details-panel active" id="donationMethodInfo">
+        <p id="donateMethodInfoText">Select a method. Payment setup can be connected later.</p>
       </div>
     </div>
 
@@ -286,7 +254,7 @@
         <div><span id="donateAmountLabel">Amount</span><strong id="donationAmountText">$10.00</strong></div>
         <div class="total"><span id="donateTotalLabel">Total</span><strong id="donationTotalText">$10.00</strong></div>
       </div>
-      <button class="donation-copy-btn" type="button" id="copyDonationDetails">Copy payment details</button>
+      <button class="donation-copy-btn" type="button" id="copyDonationDetails">Continue</button>
       <p class="donation-note" id="donateNote">One-time donation • No hidden fees</p>
     </div>
   </div>
