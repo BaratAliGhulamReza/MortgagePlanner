@@ -53,3 +53,8 @@ Do not move files out of the `assets` folder unless you also update the paths in
 ## Performance cleanup
 
 Unused images/icons were removed. The main hero PNG was converted to WebP and CSS/JS are served as minified files.
+
+
+## SEO files
+
+This version includes `robots.txt`, `sitemap.xml`, absolute canonical URL, Open Graph/Twitter metadata, WebApplication/FAQ structured data, and extra on-page content for mortgage calculator search intent. Submit `https://www.smartmortgageplanner.com/sitemap.xml` in Google Search Console after deployment.
