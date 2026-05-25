@@ -219,17 +219,11 @@
 
 
 
-<section class="container donation-section" id="donate">
-  <div class="donation-card pro">
-    <div class="donation-column">
-      <div class="donation-step">
-        <span>1</span>
-        <div>
-          <h2 id="donateStep1Title">Choose an amount</h2>
-          <p id="donateStep1Sub">Select a one-time donation to support this website.</p>
-        </div>
-      </div>
 
+<section class="container donation-section" id="donate">
+  <div class="donation-card card-only">
+    <div class="donation-column">
+      <div class="donation-step"><span>1</span><div><h2 id="donateStep1Title">Choose an amount</h2><p id="donateStep1Sub">Select a one-time donation to support this website.</p></div></div>
       <div class="donation-amounts">
         <button class="donation-amount active" type="button" data-amount="5">$5</button>
         <button class="donation-amount" type="button" data-amount="10">$10</button>
@@ -237,69 +231,40 @@
         <button class="donation-amount" type="button" data-amount="50">$50</button>
         <button class="donation-amount" type="button" data-amount="100">$100</button>
       </div>
-
       <p class="donation-secure" id="donateSecure">Your support helps cover domain and maintenance costs.</p>
     </div>
 
     <div class="donation-column">
-      <div class="donation-step">
-        <span>2</span>
+      <div class="donation-step"><span>2</span><div><h2 id="donateStep2Title">Card payment</h2><p id="donateStep2Sub">Secure checkout powered by Stripe.</p></div></div>
+      <div class="card-payment-box">
+        <div class="card-payment-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+            <path d="M3 10h18"></path>
+            <path d="M7 15h3"></path>
+          </svg>
+        </div>
         <div>
-          <h2 id="donateStep2Title">Payment method</h2>
-          <p id="donateStep2Sub">Choose how you would like to donate.</p>
+          <strong id="donateCardTitle">Credit / debit card</strong>
+          <span id="donateCardSub">Apple Pay may appear in Stripe when available.</span>
         </div>
-      </div>
-
-      <div class="method-picker" id="methodPicker">
-        <button class="method-picker-button" type="button" id="methodPickerButton" aria-expanded="false">
-          <span class="method-picker-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-              <path d="M3 10h18"></path>
-              <path d="M7 15h3"></path>
-            </svg>
-          </span>
-          <span class="method-picker-text" id="selectedMethodText">Pay ID</span>
-          <span class="method-picker-chevron" aria-hidden="true">⌄</span>
-        </button>
-
-        <div class="method-picker-menu" id="methodPickerMenu" role="listbox">
-          <button type="button" class="method-option active" data-method="payid" role="option">
-            <span id="methodPayId">Pay ID</span>
-          </button>
-          <button type="button" class="method-option" data-method="applepay" role="option">
-            <span id="methodApplePay">Apple Pay</span>
-          </button>
-          <button type="button" class="method-option" data-method="creditcard" role="option">
-            <span id="methodCreditCard">Credit Card</span>
-          </button>
-          <button type="button" class="method-option" data-method="paypal" role="option">
-            <span id="methodPaypal">PayPal</span>
-          </button>
-        </div>
+        <b class="card-payment-check">✓</b>
       </div>
     </div>
 
     <div class="donation-column summary">
-      <div class="donation-step">
-        <span>3</span>
-        <div>
-          <h2 id="donateStep3Title">Your donation</h2>
-          <p id="donateStep3Sub">Thank you for your support.</p>
-        </div>
-      </div>
-
+      <div class="donation-step"><span>3</span><div><h2 id="donateStep3Title">Your donation</h2><p id="donateStep3Sub">Thank you for your support.</p></div></div>
       <div class="donation-summary-box">
         <div><span id="donateAmountLabel">Amount</span><strong id="donationAmountText">$5.00</strong></div>
-        <div><span id="donateMethodSummaryLabel">Method</span><strong id="donationMethodText">Pay ID</strong></div>
+        <div><span id="donateMethodSummaryLabel">Method</span><strong id="donationMethodText">Card</strong></div>
         <div class="total"><span id="donateTotalLabel">Total</span><strong id="donationTotalText">$5.00</strong></div>
       </div>
-
       <button class="donation-copy-btn" type="button" id="copyDonationDetails">Continue $5.00</button>
-      <p class="donation-note" id="donateNote">One-time donation • No hidden fees</p>
+      <p class="donation-note" id="donateNote">One-time donation • Secure Stripe checkout</p>
     </div>
   </div>
 </section>
+
 
 
 

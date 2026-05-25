@@ -112,8 +112,8 @@ const I18N = {
     donateStep1Title: "Choose an amount",
     donateStep1Sub: "Select a one-time donation to support this website.",
     donateSecure: "Your support helps cover domain and maintenance costs.",
-    donateStep2Title: "Payment method",
-    donateStep2Sub: "Choose how you would like to donate.",
+    donateStep2Title: "Card payment",
+    donateStep2Sub: "Secure checkout powered by Stripe.",
     donateBankTitle: 'Bank transfer',
     donateBankSub: 'Direct deposit',
     donateAccountNameLabel: 'Account name',
@@ -124,8 +124,8 @@ const I18N = {
     donateAmountLabel: "Amount",
     donateTotalLabel: "Total",
     donateCopyButton: "Continue",
-    donateCopiedButton: "Copied",
-    donateNote: "One-time donation • No hidden fees",
+    donateCopiedButton: "Opening secure checkout",
+    donateNote: "One-time donation • Secure Stripe checkout",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "Fast bank payment",
     donateApplePayTitle: "Apple Pay",
@@ -139,10 +139,9 @@ const I18N = {
     donatePaypalInfo: "PayPal can be connected once your PayPal donation link is added.",
     donateMethodLabel: "Payment method",
     donateMethodSummaryLabel: "Method",
-    donatePayIdAction: "Copy PayID",
-    donatePayIdCopied: "PayID copied",
-    donateStripeAction: "Continue to secure checkout",
-    donatePaypalSoon: "PayPal coming soon",
+    donateCardTitle: "Credit / debit card",
+    donateCardSub: "Apple Pay may appear in Stripe when available.",
+    donateCardMethod: "Card",
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -256,8 +255,8 @@ const I18N = {
     donateStep1Title: "مبلغ را انتخاب کنید",
     donateStep1Sub: "یک کمک یک‌باره برای حمایت از این وبسایت انتخاب کنید.",
     donateSecure: "حمایت شما به پرداخت هزینه دامنه و نگهداری کمک می‌کند.",
-    donateStep2Title: "روش پرداخت",
-    donateStep2Sub: "انتخاب کنید چگونه می‌خواهید کمک کنید.",
+    donateStep2Title: "پرداخت کارتی",
+    donateStep2Sub: "پرداخت امن از طریق Stripe.",
     donateBankTitle: 'انتقال بانکی',
     donateBankSub: 'واریز مستقیم',
     donateAccountNameLabel: 'نام حساب',
@@ -268,8 +267,8 @@ const I18N = {
     donateAmountLabel: "مبلغ",
     donateTotalLabel: "جمع کل",
     donateCopyButton: "ادامه",
-    donateCopiedButton: "کپی شد",
-    donateNote: "کمک یک‌باره • بدون هزینه پنهان",
+    donateCopiedButton: "در حال بازکردن پرداخت امن",
+    donateNote: "کمک یک‌باره • پرداخت امن Stripe",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "پرداخت سریع بانکی",
     donateApplePayTitle: "Apple Pay",
@@ -283,10 +282,9 @@ const I18N = {
     donatePaypalInfo: "پس از اضافه‌شدن لینک کمک PayPal، PayPal قابل اتصال خواهد بود.",
     donateMethodLabel: "روش پرداخت",
     donateMethodSummaryLabel: "روش",
-    donatePayIdAction: "کپی PayID",
-    donatePayIdCopied: "PayID کپی شد",
-    donateStripeAction: "ادامه به پرداخت امن",
-    donatePaypalSoon: "PayPal به‌زودی",
+    donateCardTitle: "کارت اعتباری / بانکی",
+    donateCardSub: "Apple Pay در صورت فعال بودن در Stripe نمایش داده می‌شود.",
+    donateCardMethod: "کارت",
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -400,8 +398,8 @@ const I18N = {
     donateStep1Title: 'राशि चुनें',
     donateStep1Sub: 'इस वेबसाइट का समर्थन करने के लिए एक बार की दान राशि चुनें.',
     donateSecure: 'आपका सहयोग डोमेन और रखरखाव लागत में मदद करता है.',
-    donateStep2Title: "भुगतान तरीका",
-    donateStep2Sub: "चुनें कि आप कैसे दान करना चाहते हैं.",
+    donateStep2Title: "कार्ड भुगतान",
+    donateStep2Sub: "Stripe द्वारा सुरक्षित भुगतान.",
     donateBankTitle: 'बैंक ट्रांसफर',
     donateBankSub: 'डायरेक्ट डिपॉजिट',
     donateAccountNameLabel: 'खाता नाम',
@@ -412,8 +410,8 @@ const I18N = {
     donateAmountLabel: 'राशि',
     donateTotalLabel: 'कुल',
     donateCopyButton: "जारी रखें",
-    donateCopiedButton: "कॉपी हो गया",
-    donateNote: 'एक बार का दान • कोई छिपी फीस नहीं',
+    donateCopiedButton: "सुरक्षित भुगतान खुल रहा है",
+    donateNote: "एक बार का दान • सुरक्षित Stripe checkout",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "तेज़ बैंक भुगतान",
     donateApplePayTitle: "Apple Pay",
@@ -427,10 +425,9 @@ const I18N = {
     donatePaypalInfo: "जब आपका PayPal donation link जोड़ा जाएगा तब PayPal जोड़ा जा सकेगा.",
     donateMethodLabel: "भुगतान तरीका",
     donateMethodSummaryLabel: "तरीका",
-    donatePayIdAction: "PayID कॉपी करें",
-    donatePayIdCopied: "PayID कॉपी हो गया",
-    donateStripeAction: "सुरक्षित भुगतान पर जाएं",
-    donatePaypalSoon: "PayPal जल्द आएगा",
+    donateCardTitle: "क्रेडिट / डेबिट कार्ड",
+    donateCardSub: "उपलब्ध होने पर Stripe में Apple Pay दिख सकता है.",
+    donateCardMethod: "कार्ड",
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -544,8 +541,8 @@ const I18N = {
     donateStep1Title: 'رقم منتخب کریں',
     donateStep1Sub: 'اس ویب سائٹ کی مدد کے لیے ایک بار کی donation منتخب کریں.',
     donateSecure: 'آپ کی مدد domain اور maintenance cost میں مدد دیتی ہے.',
-    donateStep2Title: "ادائیگی کا طریقہ",
-    donateStep2Sub: "منتخب کریں کہ آپ کیسے donate کرنا چاہتے ہیں۔",
+    donateStep2Title: "کارڈ ادائیگی",
+    donateStep2Sub: "Stripe کے ذریعے محفوظ checkout۔",
     donateBankTitle: 'بینک ٹرانسفر',
     donateBankSub: 'ڈائریکٹ ڈپازٹ',
     donateAccountNameLabel: 'اکاؤنٹ نام',
@@ -556,8 +553,8 @@ const I18N = {
     donateAmountLabel: 'رقم',
     donateTotalLabel: 'کل',
     donateCopyButton: "جاری رکھیں",
-    donateCopiedButton: "کاپی ہو گیا",
-    donateNote: 'ایک بار کی donation • کوئی hidden fees نہیں',
+    donateCopiedButton: "محفوظ checkout کھل رہا ہے",
+    donateNote: "ایک بار کی donation • محفوظ Stripe checkout",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "تیز بینک ادائیگی",
     donateApplePayTitle: "Apple Pay",
@@ -571,10 +568,9 @@ const I18N = {
     donatePaypalInfo: "جب آپ کا PayPal donation link شامل ہوگا تب PayPal جوڑا جا سکے گا۔",
     donateMethodLabel: "ادائیگی کا طریقہ",
     donateMethodSummaryLabel: "طریقہ",
-    donatePayIdAction: "PayID کاپی کریں",
-    donatePayIdCopied: "PayID کاپی ہو گیا",
-    donateStripeAction: "محفوظ checkout پر جائیں",
-    donatePaypalSoon: "PayPal جلد آئے گا",
+    donateCardTitle: "کریڈٹ / ڈیبٹ کارڈ",
+    donateCardSub: "Apple Pay دستیاب ہونے پر Stripe میں ظاہر ہو سکتا ہے۔",
+    donateCardMethod: "کارڈ",
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -688,8 +684,8 @@ const I18N = {
     donateStep1Title: '选择金额',
     donateStep1Sub: '选择一次性捐助来支持本网站。',
     donateSecure: '你的支持有助于支付域名和维护费用。',
-    donateStep2Title: "付款方式",
-    donateStep2Sub: "请选择你想如何捐助。",
+    donateStep2Title: "银行卡付款",
+    donateStep2Sub: "由 Stripe 提供安全结账。",
     donateBankTitle: '银行转账',
     donateBankSub: '直接存款',
     donateAccountNameLabel: '账户名',
@@ -700,8 +696,8 @@ const I18N = {
     donateAmountLabel: '金额',
     donateTotalLabel: '总计',
     donateCopyButton: "继续",
-    donateCopiedButton: "已复制",
-    donateNote: '一次性捐助 • 无隐藏费用',
+    donateCopiedButton: "正在打开安全结账",
+    donateNote: "一次性捐助 • 安全 Stripe 结账",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "快速银行付款",
     donateApplePayTitle: "Apple Pay",
@@ -715,10 +711,9 @@ const I18N = {
     donatePaypalInfo: "添加 PayPal 捐助链接后即可连接 PayPal。",
     donateMethodLabel: "付款方式",
     donateMethodSummaryLabel: "方式",
-    donatePayIdAction: "复制 PayID",
-    donatePayIdCopied: "PayID 已复制",
-    donateStripeAction: "前往安全结账",
-    donatePaypalSoon: "PayPal 即将推出",
+    donateCardTitle: "信用卡 / 借记卡",
+    donateCardSub: "可用时，Apple Pay 会在 Stripe 中显示。",
+    donateCardMethod: "银行卡",
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -832,8 +827,8 @@ const I18N = {
     donateStep1Title: 'Elige un monto',
     donateStep1Sub: 'Selecciona una donación única para apoyar este sitio web.',
     donateSecure: 'Tu apoyo ayuda a cubrir los costos del dominio y mantenimiento.',
-    donateStep2Title: "Método de pago",
-    donateStep2Sub: "Elige cómo quieres donar.",
+    donateStep2Title: "Pago con tarjeta",
+    donateStep2Sub: "Pago seguro mediante Stripe.",
     donateBankTitle: 'Transferencia bancaria',
     donateBankSub: 'Depósito directo',
     donateAccountNameLabel: 'Nombre de cuenta',
@@ -844,8 +839,8 @@ const I18N = {
     donateAmountLabel: 'Monto',
     donateTotalLabel: 'Total',
     donateCopyButton: "Continuar",
-    donateCopiedButton: "Copiado",
-    donateNote: 'Donación única • Sin cargos ocultos',
+    donateCopiedButton: "Abriendo pago seguro",
+    donateNote: "Donación única • Pago seguro con Stripe",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "Pago bancario rápido",
     donateApplePayTitle: "Apple Pay",
@@ -859,10 +854,9 @@ const I18N = {
     donatePaypalInfo: "PayPal se puede conectar una vez que agregues tu enlace de donación de PayPal.",
     donateMethodLabel: "Método de pago",
     donateMethodSummaryLabel: "Método",
-    donatePayIdAction: "Copiar PayID",
-    donatePayIdCopied: "PayID copiado",
-    donateStripeAction: "Ir al pago seguro",
-    donatePaypalSoon: "PayPal próximamente",
+    donateCardTitle: "Tarjeta de crédito / débito",
+    donateCardSub: "Apple Pay puede aparecer en Stripe cuando esté disponible.",
+    donateCardMethod: "Tarjeta",
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -1463,26 +1457,11 @@ function localizeDonationMethodOptions() {
 
 function setupDonationSection() {
   const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00';
-  const PAYID_EMAIL = 'baratalighulamreza@gmail.com';
-
   const amountText = $('donationAmountText');
   const totalText = $('donationTotalText');
   const continueBtn = $('copyDonationDetails');
-  const methodPicker = $('methodPicker');
-  const methodButton = $('methodPickerButton');
-  const selectedMethodText = $('selectedMethodText');
   const methodSummary = $('donationMethodText');
   let selectedAmount = 5;
-  let selectedMethod = 'payid';
-
-  function methodLabels() {
-    return {
-      payid: t('donatePayIdTitle'),
-      applepay: t('donateApplePayTitle'),
-      creditcard: t('donateCreditCardTitle'),
-      paypal: t('donatePaypalTitle')
-    };
-  }
 
   function formatDonationAmount(amount) {
     return new Intl.NumberFormat('en-AU', {
@@ -1493,60 +1472,19 @@ function setupDonationSection() {
     }).format(Number(amount) || 0);
   }
 
-  function buttonLabel() {
-    const formatted = formatDonationAmount(selectedAmount);
-    if (selectedMethod === 'payid') return t('donatePayIdAction') + ' • ' + formatted;
-    if (selectedMethod === 'paypal') return t('donatePaypalSoon');
-    return t('donateStripeAction') + ' • ' + formatted;
-  }
-
   function updateDonationUI() {
     const formatted = formatDonationAmount(selectedAmount);
-    const labels = methodLabels();
-
     if (amountText) amountText.textContent = formatted;
     if (totalText) totalText.textContent = formatted;
-    if (selectedMethodText) selectedMethodText.textContent = labels[selectedMethod] || 'Pay ID';
-    if (methodSummary) methodSummary.textContent = labels[selectedMethod] || 'Pay ID';
-
+    if (methodSummary) methodSummary.textContent = t('donateCardMethod');
+    setText('donateCardTitle', t('donateCardTitle'));
+    setText('donateCardSub', t('donateCardSub'));
     document.querySelectorAll('.donation-amount').forEach(btn => {
       const isActive = Number(btn.dataset.amount) === Number(selectedAmount);
       btn.classList.toggle('active', isActive);
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
-
-    document.querySelectorAll('.method-option').forEach(btn => {
-      const isActive = btn.dataset.method === selectedMethod;
-      btn.classList.toggle('active', isActive);
-      const span = btn.querySelector('span');
-      if (span) span.textContent = labels[btn.dataset.method] || span.textContent;
-    });
-
-    if (continueBtn) {
-      continueBtn.textContent = buttonLabel();
-      continueBtn.disabled = false;
-      continueBtn.classList.toggle('coming-soon', selectedMethod === 'paypal');
-    }
-  }
-
-  async function copyPayId() {
-    if (!continueBtn) return;
-    const text = 'PayID: ' + PAYID_EMAIL;
-    try {
-      await navigator.clipboard.writeText(text);
-      continueBtn.classList.add('copied');
-      continueBtn.textContent = t('donatePayIdCopied') + ' • ' + PAYID_EMAIL;
-      setTimeout(() => {
-        continueBtn.classList.remove('copied');
-        updateDonationUI();
-      }, 1800);
-    } catch (e) {
-      continueBtn.textContent = PAYID_EMAIL;
-    }
-  }
-
-  function openStripe() {
-    window.open(STRIPE_PAYMENT_LINK, '_blank', 'noopener,noreferrer');
+    if (continueBtn) continueBtn.textContent = t('donateCopyButton') + ' ' + formatted;
   }
 
   document.addEventListener('click', (event) => {
@@ -1557,47 +1495,19 @@ function setupDonationSection() {
       updateDonationUI();
       return;
     }
-
-    const pickerButton = event.target.closest('#methodPickerButton');
-    if (pickerButton && methodPicker) {
-      event.preventDefault();
-      const isOpen = methodPicker.classList.toggle('open');
-      pickerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      return;
-    }
-
-    const methodOption = event.target.closest('.method-option');
-    if (methodOption) {
-      event.preventDefault();
-      selectedMethod = methodOption.dataset.method || 'payid';
-      if (methodPicker) methodPicker.classList.remove('open');
-      if (methodButton) methodButton.setAttribute('aria-expanded', 'false');
-      updateDonationUI();
-      return;
-    }
-
     if (event.target.closest('#copyDonationDetails')) {
       event.preventDefault();
-      if (selectedMethod === 'payid') {
-        copyPayId();
-      } else if (selectedMethod === 'creditcard' || selectedMethod === 'applepay') {
-        openStripe();
-      } else if (selectedMethod === 'paypal') {
-        if (continueBtn) {
-          continueBtn.classList.add('copied');
-          continueBtn.textContent = t('donatePaypalSoon');
-          setTimeout(updateDonationUI, 1600);
-        }
+      if (continueBtn) {
+        continueBtn.classList.add('copied');
+        continueBtn.textContent = t('donateCopiedButton') + ' • ' + formatDonationAmount(selectedAmount);
       }
-      return;
-    }
-
-    if (methodPicker && !event.target.closest('#methodPicker')) {
-      methodPicker.classList.remove('open');
-      if (methodButton) methodButton.setAttribute('aria-expanded', 'false');
+      window.open(STRIPE_PAYMENT_LINK, '_blank', 'noopener,noreferrer');
+      setTimeout(() => {
+        if (continueBtn) continueBtn.classList.remove('copied');
+        updateDonationUI();
+      }, 1200);
     }
   });
-
   updateDonationUI();
 }
 

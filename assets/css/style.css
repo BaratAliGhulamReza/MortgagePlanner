@@ -1003,3 +1003,42 @@ html[dir="rtl"] .donation-card.pro .donation-amount.active::after{
   .donation-card.pro .donation-column{padding:20px}
   .donation-card.pro .donation-amounts{grid-template-columns:1fr 1fr}
 }
+
+
+/* Card-only professional donation section */
+.donation-card.card-only{border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:0 18px 50px rgba(15,23,42,.08);display:grid;grid-template-columns:1fr 1fr .95fr;overflow:visible}
+.donation-card.card-only .donation-column{padding:30px;border-right:1px solid var(--line)}
+.donation-card.card-only .donation-column:last-child{border-right:0}
+.donation-card.card-only .donation-step{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.donation-card.card-only .donation-step>span{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#0aa06e,#3f8f35);color:#fff;font-size:14px;font-weight:900;flex:0 0 30px}
+.donation-card.card-only .donation-step h2{margin:0;color:#111827;font-size:23px;letter-spacing:-.045em;line-height:1.1}
+.donation-card.card-only .donation-step p{margin:9px 0 0;color:#526179;font-weight:700;line-height:1.48}
+.donation-card.card-only .donation-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:370px}
+.donation-card.card-only .donation-amount{height:64px;border:1px solid #dbe4ee;border-radius:14px;background:#fff;color:#111827;font-size:20px;font-weight:900;cursor:pointer;position:relative;transition:.18s ease}
+.donation-card.card-only .donation-amount:hover{border-color:rgba(10,160,110,.55);transform:translateY(-1px)}
+.donation-card.card-only .donation-amount.active{border-color:var(--green);background:linear-gradient(135deg,#fff 0%,#eefbf5 100%);color:var(--green);box-shadow:0 12px 22px rgba(10,160,110,.10);outline:3px solid rgba(10,160,110,.12)}
+.donation-card.card-only .donation-amount.active::after{content:"✓";position:absolute;top:8px;right:10px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:13px;font-weight:900}
+.donation-card.card-only .donation-secure{margin:24px 0 0;color:#526179;font-weight:750;line-height:1.5}
+.card-payment-box{min-height:84px;border:1px solid rgba(10,160,110,.45);border-radius:18px;background:linear-gradient(135deg,#fff 0%,#eefbf5 100%);display:grid;grid-template-columns:50px 1fr 30px;align-items:center;gap:16px;padding:18px;box-shadow:0 14px 26px rgba(10,160,110,.10)}
+.card-payment-icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:rgba(10,160,110,.10);color:var(--green)}
+.card-payment-box strong{display:block;font-size:20px;font-weight:900;color:#111827}
+.card-payment-box span{display:block;margin-top:5px;color:#64748b;font-weight:700;line-height:1.35}
+.card-payment-check{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:14px;font-weight:900;justify-self:end}
+.donation-card.card-only .summary{background:linear-gradient(135deg,#fff 0%,#f0fbf6 100%)}
+.donation-card.card-only .donation-summary-box{border:1px solid rgba(10,160,110,.16);border-radius:18px;background:rgba(255,255,255,.86);padding:18px;display:grid;gap:14px;margin-bottom:16px}
+.donation-card.card-only .donation-summary-box div{display:flex;justify-content:space-between;align-items:center;gap:14px;color:#526179;font-weight:850}
+.donation-card.card-only .donation-summary-box .total{border-top:1px solid #dfeee8;padding-top:14px}
+.donation-card.card-only .donation-summary-box strong{color:#111827;font-size:18px;text-align:right}
+.donation-card.card-only .donation-summary-box .total strong{color:var(--green);font-size:25px}
+.donation-card.card-only .donation-copy-btn{width:100%;min-height:56px;border:0;border-radius:14px;background:linear-gradient(135deg,#0aa06e,#3f8f35);color:#fff;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 14px 26px rgba(10,160,110,.18)}
+.donation-card.card-only .donation-copy-btn.copied{background:linear-gradient(135deg,#0c7f5a,#0aa06e)}
+.donation-card.card-only .donation-note{margin:14px 0 0;text-align:center;color:#64748b;font-weight:750}
+.method-picker,.donation-method-select-wrap,.donation-method-control,.payment-methods,.payment-details-panel,.bank-details{display:none!important}
+html[dir="rtl"] .donation-card.card-only .donation-column{border-right:0;border-left:1px solid var(--line)}
+html[dir="rtl"] .donation-card.card-only .donation-column:last-child{border-left:0}
+html[dir="rtl"] .card-payment-box{grid-template-columns:30px 1fr 50px}
+html[dir="rtl"] .card-payment-icon{order:3}
+html[dir="rtl"] .card-payment-check{order:1;justify-self:start}
+html[dir="rtl"] .donation-card.card-only .donation-amount.active::after{right:auto;left:10px}
+@media (max-width:980px){.donation-card.card-only{grid-template-columns:1fr}.donation-card.card-only .donation-column,html[dir="rtl"] .donation-card.card-only .donation-column{border-right:0;border-left:0;border-bottom:1px solid var(--line)}.donation-card.card-only .donation-column:last-child{border-bottom:0}}
+@media (max-width:640px){.donation-card.card-only .donation-column{padding:20px}.donation-card.card-only .donation-amounts{grid-template-columns:1fr 1fr}}
