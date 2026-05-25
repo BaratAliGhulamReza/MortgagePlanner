@@ -2304,3 +2304,47 @@ html[dir="rtl"] .header-actions{ margin-left:0 !important; margin-right:auto !im
   .header{ position:relative !important; top:0 !important; padding-top:8px !important; }
   .hero-composed-wrap{ padding-top:36px !important; }
 }
+
+
+/* === Restore previous sticky floating header behaviour === */
+/* Header stays visible while scrolling, like the earlier versions. */
+.header{
+  position: sticky !important;
+  top: 12px !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: 1000 !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+/* Pull hero upward so the background still starts behind/under the floating header. */
+.hero-composed{
+  margin-top: -112px !important;
+  padding-top: 112px !important;
+  background: transparent !important;
+}
+
+/* Keep the header card floating and clean while sticky */
+.nav-card{
+  background: rgba(255,255,255,.96) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 14px 34px rgba(15,23,42,.08) !important;
+  border: 1px solid rgba(223,231,239,.95) !important;
+}
+
+/* Prevent small-screen override from turning the header back into normal flow */
+@media (max-width:1150px){
+  .header{
+    position: sticky !important;
+    top: 8px !important;
+    padding-top: 0 !important;
+  }
+  .hero-composed{
+    margin-top: -96px !important;
+    padding-top: 96px !important;
+  }
+}
