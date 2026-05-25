@@ -338,8 +338,34 @@ function update() {
 
 
 
+const OFFICIAL_SUPPORT_URL = 'https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00';
+const OFFICIAL_SUPPORT_ORIGIN = 'https://buy.stripe.com';
+
 function setupDonationSection() {
-  // Donation is now a single header button linking to Stripe.
+  const button = $('headerDonationButton');
+  if (!button) return;
+
+  // Keep the support button locked to the official Stripe Payment Link.
+  button.href = OFFICIAL_SUPPORT_URL;
+  button.target = '_blank';
+  button.rel = 'noopener noreferrer nofollow';
+  button.referrerPolicy = 'no-referrer';
+
+  button.addEventListener('click', (event) => {
+    let url;
+    try {
+      url = new URL(button.href, window.location.href);
+    } catch (_) {
+      event.preventDefault();
+      window.alert('For safety, the support link is temporarily unavailable.');
+      return;
+    }
+
+    if (url.origin !== OFFICIAL_SUPPORT_ORIGIN || url.href !== OFFICIAL_SUPPORT_URL) {
+      event.preventDefault();
+      window.alert('For safety, the support link is temporarily unavailable.');
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
