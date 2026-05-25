@@ -2446,3 +2446,50 @@ html[dir="rtl"] .hero-composed .benefit:not(:last-child)::after{
     display:none !important;
   }
 }
+
+
+/* === Footer: stack icon, brand name, and tagline in the center === */
+.footer-center{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  gap:10px !important;
+}
+
+.footer-mark{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-decoration:none !important;
+}
+
+.footer-logo,
+.footer-title{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  color:#13203b !important;
+  text-decoration:none !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+  letter-spacing:-.04em !important;
+  line-height:1.15 !important;
+}
+
+.footer-logo-icon{
+  width:34px !important;
+  height:34px !important;
+  display:block !important;
+}
+
+.footer-tagline,
+.site-footer p{
+  margin:0 !important;
+  text-align:center !important;
+  color:#5f6b7e !important;
+  font-size:15px !important;
+  font-weight:500 !important;
+}
