@@ -331,10 +331,10 @@ function requiredExtraForTarget(d, base, target) {
 function updateTargetGoalStrategy(d, base) {
   const target = targetGoalData();
   if (!target.complete) {
-    setText('targetExtraNeeded', '$0');
+    setText('targetExtraNeeded', '—');
     setText('targetExtraHint', 'Enter a payoff goal and choose a display frequency.');
-    setText('targetTotalPayment', '$0');
-    setText('targetTotalHint', 'Including normal repayment and extra repayment.');
+    setText('targetTotalPayment', '—');
+    setText('targetTotalHint', 'Complete the details to calculate this.');
     setText('targetPayoffDate', '—');
     setText('targetPayoffTime', '—');
     return;
@@ -406,13 +406,13 @@ function clearCalculatorOutputs() {
     'extraSaved', 'lumpInterest', 'lumpSaved', 'comboInterest', 'comboSaved',
     'targetExtraNeeded', 'targetTotalPayment'
   ];
-  moneyIds.forEach(id => setText(id, '$0'));
+  moneyIds.forEach(id => setText(id, '—'));
 
   setText('statRate', '—');
   setText('comboTitle', 'No strategy selected');
   setText('comboDescription', 'Enter your loan details, then choose any strategy options you want to compare.');
   setText('targetExtraHint', 'Enter loan details and a payoff goal.');
-  setText('targetTotalHint', 'Including normal repayment and extra repayment.');
+  setText('targetTotalHint', 'Complete the details to calculate this.');
 
   const canvas = $('chart');
   if (canvas) {
@@ -431,7 +431,7 @@ function clearCalculatorOutputs() {
 function update() {
   if (!hasCoreInputs()) {
     clearCalculatorOutputs();
-    setText('statLoan', $('loanAmount')?.value ? fmt(+$('loanAmount').value || 0) : '$0');
+    setText('statLoan', $('loanAmount')?.value ? fmt(+$('loanAmount').value || 0) : '—');
     setText('statRate', $('interestRate')?.value ? (+$('interestRate').value || 0).toFixed(3) + '%' : '—');
     return;
   }

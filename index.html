@@ -53,11 +53,11 @@
 
 <section class="container" id="calculatorSection">
   <div class="stats-band">
-    <div class="stat"><div><small>Current loan balance</small><strong id="statLoan">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Current loan balance</small><strong id="statLoan">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
     <div class="stat"><div><small>Interest rate</small><strong id="statRate">0.000%</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-frequency.svg" alt="stat frequency" width="22" height="22"></div></div>
     <div class="stat"><div><small>Amortization period</small><strong id="statTerm">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-payment.svg" alt="stat payment" width="22" height="22"></div></div>
     <div class="stat"><div><small>Repayment frequency</small><strong id="statFrequency">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/footer-logo.svg" alt="footer logo" width="22" height="22"></div></div>
-    <div class="stat"><div><small>Repayment</small><strong id="statPayment">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
+    <div class="stat"><div><small>Repayment</small><strong id="statPayment">—</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
   </div>
 </section>
 
@@ -80,23 +80,21 @@
       <p class="panel-sub">Choose one or more options to compare strategies.</p>
       <div class="strategy-list">
         <article class="strategy">
-          <div class="strategy-head"><div><h3>Grow offset account</h3><p>Offset is linked to the loan and reduces interest charged.</p></div><label class="use-check"><input id="useOffset" type="checkbox">Use</label></div>
+          <div class="strategy-head"><div><h3>Grow offset account</h3><p>Offset is linked to the loan and reduces interest charged.</p></div><label class="use-check"><input id="useOffset" type="checkbox" checked>Use</label></div>
           <div class="strategy-fields"><div class="field"><label>Current offset / redraw</label><div class="control"><span>$</span><input id="offsetAmount" type="number" min="0" step="1000" placeholder="0"></div></div><div class="field"><label>Grow offset by</label><div class="control"><span>$</span><input id="offsetGrowth" type="number" min="0" step="100" placeholder="0"></div></div><div class="field"><label>Grow frequency</label><div class="control"><select id="offsetFrequency"><option value="" selected>Select frequency</option><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
         </article>
         <article class="strategy">
-          <div class="strategy-head"><div><h3>Extra payment</h3><p>Add an extra repayment weekly, fortnightly, monthly, or yearly.</p></div><label class="use-check"><input id="useExtra" type="checkbox">Use</label></div>
+          <div class="strategy-head"><div><h3>Extra payment</h3><p>Add an extra repayment weekly, fortnightly, monthly, or yearly.</p></div><label class="use-check"><input id="useExtra" type="checkbox" checked>Use</label></div>
           <div class="strategy-fields two"><div class="field"><label>Extra amount</label><div class="control"><span>$</span><input id="extraAmount" type="number" min="0" step="50" placeholder="0"></div></div><div class="field"><label>How often</label><div class="control"><select id="extraFrequency"><option value="" selected>Select frequency</option><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></div></div></div>
         </article>
         <article class="strategy">
-          <div class="strategy-head"><div><h3>One-off lump sum</h3><p>A single payment toward the home loan.</p></div><label class="use-check"><input id="useLump" type="checkbox">Use</label></div>
+          <div class="strategy-head"><div><h3>One-off lump sum</h3><p>A single payment toward the home loan.</p></div><label class="use-check"><input id="useLump" type="checkbox" checked>Use</label></div>
           <div class="strategy-fields one"><div class="field"><label>Lump sum amount</label><div class="control"><span>$</span><input id="lumpSum" type="number" min="0" step="1000" placeholder="0"></div></div></div>
         </article>
       </div>
     </section>
   </div>
 </main>
-
-
 
 <section class="container monthly-breakdown-section">
   <div class="monthly-card">
@@ -111,22 +109,22 @@
     <div class="monthly-grid">
       <div class="monthly-item">
         <small id="monthlyRepaymentLabel">Monthly repayment after strategy</small>
-        <strong id="monthlyRepayment">$0</strong>
+        <strong id="monthlyRepayment">—</strong>
         <em id="monthlyRepaymentHint"></em>
       </div>
       <div class="monthly-item">
         <small id="monthlyInterestLabel">This month to interest</small>
-        <strong id="monthlyInterest">$0</strong>
+        <strong id="monthlyInterest">—</strong>
         <em id="monthlyInterestHint">After offset and lump sum are applied.</em>
       </div>
       <div class="monthly-item">
         <small id="monthlyPrincipalLabel">This month to principal</small>
-        <strong id="monthlyPrincipal">$0</strong>
+        <strong id="monthlyPrincipal">—</strong>
         <em id="monthlyPrincipalHint">The part reducing your loan balance.</em>
       </div>
       <div class="monthly-item save">
         <small id="monthlySavedLabel">Interest saved this month</small>
-        <strong id="monthlySaved">$0</strong>
+        <strong id="monthlySaved">—</strong>
         <em id="monthlySavedHint">Compared with no strategy.</em>
       </div>
     </div>
@@ -145,7 +143,7 @@
   <div class="comparison-note">
     <div>
       <small>No strategy baseline</small>
-      <strong id="baseInterest">$0</strong>
+      <strong id="baseInterest">—</strong>
     </div>
     <p>This is the estimated interest you would pay if you kept the loan as-is, with no offset, no extra repayments, and no lump sum.</p>
   </div>
@@ -159,8 +157,8 @@
         </div>
       </div>
       <div class="result-rows">
-        <div class="result-row"><small>Interest you pay</small><strong id="offsetInterest">$0</strong></div>
-        <div class="result-row save"><small>Interest you save</small><strong id="offsetSaved">$0</strong></div>
+        <div class="result-row"><small>Interest you pay</small><strong id="offsetInterest">—</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="offsetSaved">—</strong></div>
       </div>
       <p>Shows how much interest is reduced by keeping money in offset against the loan.</p>
     </article>
@@ -173,8 +171,8 @@
         </div>
       </div>
       <div class="result-rows">
-        <div class="result-row"><small>Interest you pay</small><strong id="extraInterest">$0</strong></div>
-        <div class="result-row save"><small>Interest you save</small><strong id="extraSaved">$0</strong></div>
+        <div class="result-row"><small>Interest you pay</small><strong id="extraInterest">—</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="extraSaved">—</strong></div>
       </div>
       <p>Shows the interest saving from paying extra on top of the normal repayment.</p>
     </article>
@@ -187,8 +185,8 @@
         </div>
       </div>
       <div class="result-rows">
-        <div class="result-row"><small>Interest you pay</small><strong id="lumpInterest">$0</strong></div>
-        <div class="result-row save"><small>Interest you save</small><strong id="lumpSaved">$0</strong></div>
+        <div class="result-row"><small>Interest you pay</small><strong id="lumpInterest">—</strong></div>
+        <div class="result-row save"><small>Interest you save</small><strong id="lumpSaved">—</strong></div>
       </div>
       <p>Shows the interest saving from putting one single payment into the loan. If the lump sum is $0, the saving will be $0.</p>
     </article>
@@ -205,11 +203,11 @@
     <div class="combo-results">
       <div class="combo-result">
         <small>Interest you pay</small>
-        <strong id="comboInterest">$0</strong>
+        <strong id="comboInterest">—</strong>
       </div>
       <div class="combo-result green">
         <small>Interest you save</small>
-        <strong id="comboSaved">$0</strong>
+        <strong id="comboSaved">—</strong>
       </div>
       <div class="combo-result">
         <small>Payoff time</small>
@@ -227,6 +225,14 @@
     <div class="chart-wrap"><canvas id="chart" width="1200" height="380"></canvas></div>
   </div>
 
+
+  <div class="payoff-row">
+    <div class="payoff-cell"><small>Payoff time (no strategy)</small><strong id="basePayoff">—</strong><em id="baseDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (offset only)</small><strong id="offsetPayoff">—</strong><em id="offsetDate">—</em></div>
+    <div class="payoff-cell"><small>Payoff time (all selected)</small><strong id="planPayoff">—</strong><em id="planDate">—</em></div>
+    <div class="payoff-cell"><small>Time saved</small><strong class="green-text" id="timeSaved">—</strong><em class="green-text" id="monthsSaved">—</em></div>
+  </div>
+</section>
 
 <section class="container goal-planner-section" id="payoffGoalSection">
   <div class="goal-card">
@@ -253,13 +259,13 @@
       <div class="goal-results">
         <div class="goal-result highlight">
           <small>Extra repayment needed</small>
-          <strong id="targetExtraNeeded">$0</strong>
-          <em id="targetExtraHint">On top of your normal repayment.</em>
+          <strong id="targetExtraNeeded">—</strong>
+          <em id="targetExtraHint">Complete the details to calculate this.</em>
         </div>
         <div class="goal-result">
           <small>Total repayment target</small>
-          <strong id="targetTotalPayment">$0</strong>
-          <em id="targetTotalHint">Including normal repayment and extra repayment.</em>
+          <strong id="targetTotalPayment">—</strong>
+          <em id="targetTotalHint">Complete the details to calculate this.</em>
         </div>
         <div class="goal-result">
           <small>Estimated payoff date</small>
@@ -270,23 +276,6 @@
     </div>
   </div>
 </section>
-
-  <div class="payoff-row">
-    <div class="payoff-cell"><small>Payoff time (no strategy)</small><strong id="basePayoff">—</strong><em id="baseDate">—</em></div>
-    <div class="payoff-cell"><small>Payoff time (offset only)</small><strong id="offsetPayoff">—</strong><em id="offsetDate">—</em></div>
-    <div class="payoff-cell"><small>Payoff time (all selected)</small><strong id="planPayoff">—</strong><em id="planDate">—</em></div>
-    <div class="payoff-cell"><small>Time saved</small><strong class="green-text" id="timeSaved">—</strong><em class="green-text" id="monthsSaved">—</em></div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
 
 <footer class="site-footer" id="footerSection">
   <div class="container footer-center">
