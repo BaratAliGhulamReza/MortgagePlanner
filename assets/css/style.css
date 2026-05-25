@@ -1497,3 +1497,46 @@ html[dir="rtl"] .hero-composed .benefit:not(:last-child)::after{
   .hero-composed-wrap::before{height: 42px;}
   .hero-composed-wrap::after{height: 72px;}
 }
+
+
+/* === stronger four-side edge blending for hero background === */
+.hero-composed-wrap{
+  background: #f4f5f7;
+}
+.hero-bg-scene{
+  content: url("../images/hero-clean-background-soft.png");
+  display:block;
+  width:100%;
+  height:auto;
+  position:relative;
+  z-index:0;
+  box-shadow:
+    inset 120px 0 110px -110px #f4f5f7,
+    inset -120px 0 110px -110px #f4f5f7,
+    inset 0 70px 70px -70px #f4f5f7,
+    inset 0 -150px 120px -120px #f4f5f7;
+}
+.hero-composed-wrap::before{
+  top: 0;
+  height: 82px;
+  background: linear-gradient(to bottom,
+    #f4f5f7 0%,
+    rgba(244,245,247,0.98) 18%,
+    rgba(244,245,247,0.78) 42%,
+    rgba(244,245,247,0.32) 72%,
+    rgba(244,245,247,0) 100%);
+}
+.hero-composed-wrap::after{
+  bottom: 0;
+  height: 160px;
+  background: linear-gradient(to bottom,
+    rgba(244,245,247,0) 0%,
+    rgba(244,245,247,0.24) 20%,
+    rgba(244,245,247,0.66) 56%,
+    rgba(244,245,247,0.92) 82%,
+    #f4f5f7 100%);
+}
+@media (max-width: 1200px){
+  .hero-composed-wrap::before{height: 50px;}
+  .hero-composed-wrap::after{height: 86px;}
+}
