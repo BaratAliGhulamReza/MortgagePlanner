@@ -9,39 +9,56 @@
   <link rel="shortcut icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 </head>
 <body>
-<header class="header">
-  <div class="container nav">
-    <a class="logo" href="#"><img class="icon-img" src="assets/icons/logo-house.svg" alt="logo house"><span>Mortgage Planner</span></a>
-    <div class="header-actions"><select id="languageSelect" class="language-select" aria-label="Language">
-      <option value="en">English</option>
-      <option value="fa">دری</option>
-      <option value="hi">हिन्दी</option>
-      <option value="ur">اردو</option>
-      <option value="zh">中文</option>
-      <option value="es">Español</option>
-    </select><a class="donation-header-btn" id="headerDonationButton" href="https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00" target="_blank" rel="noopener noreferrer">
-  <span class="donation-heart" aria-hidden="true">♡</span>
-  <span id="headerDonationText">Donation</span>
-</a></div>
+<header class="header" id="top">
+  <div class="container">
+    <div class="nav nav-card">
+      <a class="logo" href="#top"><img class="icon-img logo-icon" src="assets/icons/logo-house.svg" alt="logo house"><span class="brand-text">Mortgage Planner</span></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="nav-link active" id="navHome" href="#top">Home</a>
+        <a class="nav-link" id="navAbout" href="#calculatorSection">About</a>
+        <a class="nav-link" id="navCalculator" href="#calculatorSection">Calculator</a>
+        <a class="nav-link" id="navGuide" href="#calculatorSection">Guide</a>
+        <a class="nav-link" id="navFaq" href="#footerSection">FAQ</a>
+        <a class="nav-link" id="navContact" href="#footerSection">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <select id="languageSelect" class="language-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="fa">دری</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ur">اردو</option>
+          <option value="zh">中文</option>
+          <option value="es">Español</option>
+        </select>
+        <a class="donation-header-btn" id="headerDonationButton" href="https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00" target="_blank" rel="noopener noreferrer">
+          <span class="donation-heart" aria-hidden="true">♡</span>
+          <span id="headerDonationText">Donation</span>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <h1>Plan <span>smarter.</span><br>Pay off your mortgage sooner.</h1>
-      <p class="lead">See how extra payments and smart strategies can save you time and thousands in interest.</p>
+      <p class="lead">Powerful planning tools and clear insights to help you save money and achieve financial freedom.</p>
+      <div class="hero-ctas">
+        <a class="cta-primary" id="ctaPrimary" href="#calculatorSection">Get Started</a>
+        <a class="cta-secondary" id="ctaSecondary" href="#calculatorSection">Learn How It Works</a>
+      </div>
       <div class="benefits">
-        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/hero-check.svg" alt="hero check" width="20" height="20"></div><strong>Lower interest<br>costs</strong></div>
-        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-loan.svg" alt="stat loan" width="20" height="20"></div><strong>Pay off your loan<br>sooner</strong></div>
-        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-rate.svg" alt="stat rate" width="20" height="20"></div><strong>Build financial<br>freedom</strong></div>
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-rate.svg" alt="payoff icon" width="20" height="20"></div><strong>See your payoff date</strong></div>
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/hero-check.svg" alt="savings icon" width="20" height="20"></div><strong>Save thousands</strong></div>
+        <div class="benefit"><div class="bicon"><img class="icon-img" src="assets/icons/stat-frequency.svg" alt="track icon" width="20" height="20"></div><strong>Stay on track</strong></div>
       </div>
     </div>
     <div class="hero-art"><img alt="Modern house illustration" src="assets/images/hero-house.png"></div>
   </div>
 </section>
 
-<section class="container">
+<section class="container" id="calculatorSection">
   <div class="stats-band">
     <div class="stat"><div><small>Current loan balance</small><strong id="statLoan">$0</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-term.svg" alt="stat term" width="22" height="22"></div></div>
     <div class="stat"><div><small>Interest rate</small><strong id="statRate">0.000%</strong></div><div class="stat-icon"><img class="icon-img" src="assets/icons/stat-frequency.svg" alt="stat frequency" width="22" height="22"></div></div>
