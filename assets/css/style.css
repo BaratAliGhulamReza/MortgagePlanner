@@ -2751,3 +2751,92 @@ html[dir="rtl"] .hero-overlay-copy{
 html[lang="zh-CN"] body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",Inter,sans-serif !important;}
 html[lang="hi"] body{font-family:"Noto Sans Devanagari","Mangal",Inter,sans-serif !important;}
 html[lang="ur"] body, html[lang="fa"] body{font-family:"Noto Naskh Arabic","Noto Sans Arabic","Tahoma",Arial,sans-serif !important;}
+
+
+/* === Final fix: real hero background image layer === */
+.hero-composed-wrap{
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  background:#f4f5f7 !important;
+  min-height:clamp(760px,59vw,980px) !important;
+}
+
+.hero-real-bg{
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  transform-origin:center center !important;
+}
+
+/* Remove pseudo background conflicts */
+.hero-composed-wrap::before{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+}
+
+.hero-composed-wrap::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  height:130px !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:linear-gradient(to bottom,
+    rgba(244,245,247,0) 0%,
+    rgba(244,245,247,.30) 58%,
+    #f4f5f7 100%) !important;
+}
+
+/* Text must sit above real image */
+.hero-overlay-copy,
+.stats-band,
+.hero-composed .hero-ctas,
+.hero-composed .benefits{
+  position:relative !important;
+  z-index:3 !important;
+}
+
+/* Flip only the real background image in RTL languages */
+html[dir="rtl"] .hero-real-bg{
+  transform:scaleX(-1) !important;
+}
+
+/* Keep RTL text readable and placed correctly */
+html[dir="rtl"] .hero-overlay-copy{
+  text-align:right !important;
+}
+
+@media (max-width:1150px){
+  .hero-real-bg{
+    height:100% !important;
+    object-fit:cover !important;
+  }
+}
+
+/* === Complete language/background final CSS === */
+.hero-composed-wrap{position:relative!important;overflow:hidden!important;isolation:isolate!important;background:#f4f5f7!important;}
+.hero-real-bg{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:100%!important;object-fit:cover!important;object-position:center top!important;z-index:0!important;pointer-events:none!important;opacity:1!important;visibility:visible!important;transform:none!important;transform-origin:center center!important;}
+.hero-composed-wrap::before{display:none!important;content:none!important;background:none!important;}
+.hero-composed-wrap::after{content:""!important;display:block!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;height:130px!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(to bottom,rgba(244,245,247,0) 0%,rgba(244,245,247,.30) 58%,#f4f5f7 100%)!important;}
+.hero-overlay-copy{z-index:3!important;}
+html[dir="rtl"] .hero-real-bg{transform:scaleX(-1)!important;}
+html[dir="rtl"] .hero-overlay-copy{text-align:right!important;}
+html[dir="rtl"] .control{direction:ltr!important;}
+html[lang="zh-CN"] body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",Inter,sans-serif!important;}
+html[lang="hi"] body{font-family:"Noto Sans Devanagari","Mangal",Inter,sans-serif!important;}
+html[lang="ur"] body,html[lang="fa"] body{font-family:"Noto Naskh Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif!important;}
