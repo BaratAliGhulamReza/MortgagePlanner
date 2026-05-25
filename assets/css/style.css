@@ -2702,3 +2702,5 @@ html[dir="rtl"] .hero-composed-wrap::before{
     background-size: cover !important;
   }
 }
+
+/* Language switch fixed in main.js */

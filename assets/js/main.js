@@ -1861,7 +1861,7 @@ document.addEventListener('DOMContentLoaded', () => {
       select.value = startLang;
       select.addEventListener("change", function () {
         applyLanguage(select.value);
-        if (typeof window.update === "function") window.update();
+        // Do not call the old update() here; it can overwrite translated text.
       });
     }
   });
@@ -2434,11 +2434,35 @@ document.addEventListener('DOMContentLoaded', () => {
       select.value = startLang;
       select.addEventListener("change", function () {
         applyLanguage(select.value);
-        if (typeof window.update === "function") window.update();
+        // Do not call the old update() here; it can overwrite translated text.
       });
     }
   });
 
   window.applyMortgagePlannerLanguage = applyLanguage;
 })();
+
+
+/* === Language switch final safety pass === */
+document.addEventListener("DOMContentLoaded", function () {
+  const select = document.getElementById("languageSelect");
+  if (!select || typeof window.applyMortgagePlannerLanguage !== "function") return;
+
+  const saved = localStorage.getItem("mortgagePlannerLanguage");
+  const supported = ["en", "fa", "zh", "hi", "ur", "es"];
+  const startLang = supported.includes(saved) ? saved : "en";
+
+  setTimeout(function () {
+    select.value = startLang;
+    window.applyMortgagePlannerLanguage(startLang);
+  }, 0);
+
+  select.addEventListener("change", function () {
+    const selected = select.value;
+    localStorage.setItem("mortgagePlannerLanguage", selected);
+    setTimeout(function () {
+      window.applyMortgagePlannerLanguage(selected);
+    }, 0);
+  });
+});
 
