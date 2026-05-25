@@ -109,11 +109,11 @@ const I18N = {
     monthlyPrincipalHint: 'The part reducing your loan balance.',
     monthlyInterestSaved: 'Interest saved this month',
     monthlySavedHint: 'Compared with no strategy.',
-    donateStep1Title: "Choose an amount",
-    donateStep1Sub: "Select a one-time donation to support this website.",
-    donateSecure: "Your support helps cover domain and maintenance costs.",
-    donateStep2Title: "Card payment",
-    donateStep2Sub: "Secure checkout powered by Stripe.",
+    donateStep1Title: "Support this website",
+    donateStep1Sub: "Your donation helps cover domain and maintenance costs.",
+    donateSecure: "Payments are handled securely by Stripe. This website does not store card details.",
+    donateStep2Title: "Choose amount and pay",
+    donateStep2Sub: "Select your donation amount in the secure Stripe checkout.",
     donateBankTitle: 'Bank transfer',
     donateBankSub: 'Direct deposit',
     donateAccountNameLabel: 'Account name',
@@ -139,8 +139,8 @@ const I18N = {
     donatePaypalInfo: "PayPal can be connected once your PayPal donation link is added.",
     donateMethodLabel: "Payment method",
     donateMethodSummaryLabel: "Method",
-    donateCardTitle: "Credit / debit card",
-    donateCardSub: "Apple Pay may appear in Stripe when available.",
+    donateCardTitle: "Secure Stripe checkout",
+    donateCardSub: "Choose $5, $10, $20, $50, or $100 in Stripe.",
     donateCardMethod: "Card",
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
@@ -252,11 +252,11 @@ const I18N = {
     monthlyPrincipalHint: 'بخشی که باقی\u200cمانده وام را کم می\u200cکند.',
     monthlyInterestSaved: 'سود صرفه\u200cجویی\u200cشده در این ماه',
     monthlySavedHint: 'در مقایسه با حالت بدون راهکار.',
-    donateStep1Title: "مبلغ را انتخاب کنید",
-    donateStep1Sub: "یک کمک یک‌باره برای حمایت از این وبسایت انتخاب کنید.",
-    donateSecure: "حمایت شما به پرداخت هزینه دامنه و نگهداری کمک می‌کند.",
-    donateStep2Title: "پرداخت کارتی",
-    donateStep2Sub: "پرداخت امن از طریق Stripe.",
+    donateStep1Title: "حمایت از این وبسایت",
+    donateStep1Sub: "کمک شما به پرداخت هزینه دامنه و نگهداری کمک می‌کند.",
+    donateSecure: "پرداخت‌ها به‌صورت امن توسط Stripe انجام می‌شود. این وبسایت جزئیات کارت را ذخیره نمی‌کند.",
+    donateStep2Title: "مبلغ را انتخاب و پرداخت کنید",
+    donateStep2Sub: "مبلغ کمک را در پرداخت امن Stripe انتخاب کنید.",
     donateBankTitle: 'انتقال بانکی',
     donateBankSub: 'واریز مستقیم',
     donateAccountNameLabel: 'نام حساب',
@@ -282,8 +282,8 @@ const I18N = {
     donatePaypalInfo: "پس از اضافه‌شدن لینک کمک PayPal، PayPal قابل اتصال خواهد بود.",
     donateMethodLabel: "روش پرداخت",
     donateMethodSummaryLabel: "روش",
-    donateCardTitle: "کارت اعتباری / بانکی",
-    donateCardSub: "Apple Pay در صورت فعال بودن در Stripe نمایش داده می‌شود.",
+    donateCardTitle: "پرداخت امن Stripe",
+    donateCardSub: "در Stripe مبلغ $5، $10، $20، $50 یا $100 را انتخاب کنید.",
     donateCardMethod: "کارت",
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
@@ -395,11 +395,11 @@ const I18N = {
     monthlyPrincipalHint: 'वह हिस्सा जो लोन बैलेंस कम करता है.',
     monthlyInterestSaved: 'इस महीने बचा ब्याज',
     monthlySavedHint: 'बिना रणनीति की तुलना में.',
-    donateStep1Title: 'राशि चुनें',
-    donateStep1Sub: 'इस वेबसाइट का समर्थन करने के लिए एक बार की दान राशि चुनें.',
-    donateSecure: 'आपका सहयोग डोमेन और रखरखाव लागत में मदद करता है.',
-    donateStep2Title: "कार्ड भुगतान",
-    donateStep2Sub: "Stripe द्वारा सुरक्षित भुगतान.",
+    donateStep1Title: "इस वेबसाइट को सपोर्ट करें",
+    donateStep1Sub: "आपका दान डोमेन और रखरखाव लागत में मदद करता है.",
+    donateSecure: "भुगतान Stripe द्वारा सुरक्षित रूप से संभाला जाता है. यह वेबसाइट कार्ड विवरण संग्रहीत नहीं करती.",
+    donateStep2Title: "राशि चुनें और भुगतान करें",
+    donateStep2Sub: "सुरक्षित Stripe checkout में अपनी दान राशि चुनें.",
     donateBankTitle: 'बैंक ट्रांसफर',
     donateBankSub: 'डायरेक्ट डिपॉजिट',
     donateAccountNameLabel: 'खाता नाम',
@@ -425,8 +425,8 @@ const I18N = {
     donatePaypalInfo: "जब आपका PayPal donation link जोड़ा जाएगा तब PayPal जोड़ा जा सकेगा.",
     donateMethodLabel: "भुगतान तरीका",
     donateMethodSummaryLabel: "तरीका",
-    donateCardTitle: "क्रेडिट / डेबिट कार्ड",
-    donateCardSub: "उपलब्ध होने पर Stripe में Apple Pay दिख सकता है.",
+    donateCardTitle: "सुरक्षित Stripe checkout",
+    donateCardSub: "Stripe में $5, $10, $20, $50 या $100 चुनें.",
     donateCardMethod: "कार्ड",
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
@@ -538,11 +538,11 @@ const I18N = {
     monthlyPrincipalHint: 'وہ حصہ جو قرض کا بیلنس کم کرتا ہے.',
     monthlyInterestSaved: 'اس ماہ بچا ہوا سود',
     monthlySavedHint: 'بغیر حکمت عملی کے مقابلے میں.',
-    donateStep1Title: 'رقم منتخب کریں',
-    donateStep1Sub: 'اس ویب سائٹ کی مدد کے لیے ایک بار کی donation منتخب کریں.',
-    donateSecure: 'آپ کی مدد domain اور maintenance cost میں مدد دیتی ہے.',
-    donateStep2Title: "کارڈ ادائیگی",
-    donateStep2Sub: "Stripe کے ذریعے محفوظ checkout۔",
+    donateStep1Title: "اس ویب سائٹ کو سپورٹ کریں",
+    donateStep1Sub: "آپ کی donation domain اور maintenance cost میں مدد دیتی ہے۔",
+    donateSecure: "ادائیگیاں Stripe کے ذریعے محفوظ طریقے سے ہوتی ہیں. یہ ویب سائٹ card details محفوظ نہیں کرتی۔",
+    donateStep2Title: "رقم منتخب کریں اور ادا کریں",
+    donateStep2Sub: "محفوظ Stripe checkout میں donation amount منتخب کریں۔",
     donateBankTitle: 'بینک ٹرانسفر',
     donateBankSub: 'ڈائریکٹ ڈپازٹ',
     donateAccountNameLabel: 'اکاؤنٹ نام',
@@ -568,8 +568,8 @@ const I18N = {
     donatePaypalInfo: "جب آپ کا PayPal donation link شامل ہوگا تب PayPal جوڑا جا سکے گا۔",
     donateMethodLabel: "ادائیگی کا طریقہ",
     donateMethodSummaryLabel: "طریقہ",
-    donateCardTitle: "کریڈٹ / ڈیبٹ کارڈ",
-    donateCardSub: "Apple Pay دستیاب ہونے پر Stripe میں ظاہر ہو سکتا ہے۔",
+    donateCardTitle: "محفوظ Stripe checkout",
+    donateCardSub: "Stripe میں $5، $10، $20، $50 یا $100 منتخب کریں۔",
     donateCardMethod: "کارڈ",
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
@@ -681,11 +681,11 @@ const I18N = {
     monthlyPrincipalHint: '用于减少贷款余额的部分。',
     monthlyInterestSaved: '本月节省利息',
     monthlySavedHint: '与无策略相比。',
-    donateStep1Title: '选择金额',
-    donateStep1Sub: '选择一次性捐助来支持本网站。',
-    donateSecure: '你的支持有助于支付域名和维护费用。',
-    donateStep2Title: "银行卡付款",
-    donateStep2Sub: "由 Stripe 提供安全结账。",
+    donateStep1Title: "支持本网站",
+    donateStep1Sub: "你的捐助有助于支付域名和维护费用。",
+    donateSecure: "付款由 Stripe 安全处理。本网站不会存储银行卡信息。",
+    donateStep2Title: "选择金额并付款",
+    donateStep2Sub: "在安全的 Stripe 结账中选择捐助金额。",
     donateBankTitle: '银行转账',
     donateBankSub: '直接存款',
     donateAccountNameLabel: '账户名',
@@ -711,8 +711,8 @@ const I18N = {
     donatePaypalInfo: "添加 PayPal 捐助链接后即可连接 PayPal。",
     donateMethodLabel: "付款方式",
     donateMethodSummaryLabel: "方式",
-    donateCardTitle: "信用卡 / 借记卡",
-    donateCardSub: "可用时，Apple Pay 会在 Stripe 中显示。",
+    donateCardTitle: "安全 Stripe 结账",
+    donateCardSub: "在 Stripe 中选择 $5、$10、$20、$50 或 $100。",
     donateCardMethod: "银行卡",
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
@@ -824,11 +824,11 @@ const I18N = {
     monthlyPrincipalHint: 'La parte que reduce el saldo del préstamo.',
     monthlyInterestSaved: 'Interés ahorrado este mes',
     monthlySavedHint: 'Comparado con no usar estrategia.',
-    donateStep1Title: 'Elige un monto',
-    donateStep1Sub: 'Selecciona una donación única para apoyar este sitio web.',
-    donateSecure: 'Tu apoyo ayuda a cubrir los costos del dominio y mantenimiento.',
-    donateStep2Title: "Pago con tarjeta",
-    donateStep2Sub: "Pago seguro mediante Stripe.",
+    donateStep1Title: "Apoya este sitio web",
+    donateStep1Sub: "Tu donación ayuda a cubrir los costos del dominio y mantenimiento.",
+    donateSecure: "Los pagos se procesan de forma segura con Stripe. Este sitio no guarda datos de tarjetas.",
+    donateStep2Title: "Elige monto y paga",
+    donateStep2Sub: "Selecciona tu monto en el pago seguro de Stripe.",
     donateBankTitle: 'Transferencia bancaria',
     donateBankSub: 'Depósito directo',
     donateAccountNameLabel: 'Nombre de cuenta',
@@ -840,7 +840,7 @@ const I18N = {
     donateTotalLabel: 'Total',
     donateCopyButton: "Continuar",
     donateCopiedButton: "Abriendo pago seguro",
-    donateNote: "Donación única • Pago seguro con Stripe",
+    donateNote: "Donación única • Pago seguro de Stripe",
     donatePayIdTitle: "Pay ID",
     donatePayIdSub: "Pago bancario rápido",
     donateApplePayTitle: "Apple Pay",
@@ -854,8 +854,8 @@ const I18N = {
     donatePaypalInfo: "PayPal se puede conectar una vez que agregues tu enlace de donación de PayPal.",
     donateMethodLabel: "Método de pago",
     donateMethodSummaryLabel: "Método",
-    donateCardTitle: "Tarjeta de crédito / débito",
-    donateCardSub: "Apple Pay puede aparecer en Stripe cuando esté disponible.",
+    donateCardTitle: "Pago seguro de Stripe",
+    donateCardSub: "Elige $5, $10, $20, $50 o $100 en Stripe.",
     donateCardMethod: "Tarjeta",
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
@@ -1456,59 +1456,7 @@ function localizeDonationMethodOptions() {
 
 
 function setupDonationSection() {
-  const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00';
-  const amountText = $('donationAmountText');
-  const totalText = $('donationTotalText');
-  const continueBtn = $('copyDonationDetails');
-  const methodSummary = $('donationMethodText');
-  let selectedAmount = 5;
-
-  function formatDonationAmount(amount) {
-    return new Intl.NumberFormat('en-AU', {
-      style: 'currency',
-      currency: 'AUD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).format(Number(amount) || 0);
-  }
-
-  function updateDonationUI() {
-    const formatted = formatDonationAmount(selectedAmount);
-    if (amountText) amountText.textContent = formatted;
-    if (totalText) totalText.textContent = formatted;
-    if (methodSummary) methodSummary.textContent = t('donateCardMethod');
-    setText('donateCardTitle', t('donateCardTitle'));
-    setText('donateCardSub', t('donateCardSub'));
-    document.querySelectorAll('.donation-amount').forEach(btn => {
-      const isActive = Number(btn.dataset.amount) === Number(selectedAmount);
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-    if (continueBtn) continueBtn.textContent = t('donateCopyButton') + ' ' + formatted;
-  }
-
-  document.addEventListener('click', (event) => {
-    const amountButton = event.target.closest('.donation-amount');
-    if (amountButton) {
-      event.preventDefault();
-      selectedAmount = Number(amountButton.dataset.amount || 5);
-      updateDonationUI();
-      return;
-    }
-    if (event.target.closest('#copyDonationDetails')) {
-      event.preventDefault();
-      if (continueBtn) {
-        continueBtn.classList.add('copied');
-        continueBtn.textContent = t('donateCopiedButton') + ' • ' + formatDonationAmount(selectedAmount);
-      }
-      window.open(STRIPE_PAYMENT_LINK, '_blank', 'noopener,noreferrer');
-      setTimeout(() => {
-        if (continueBtn) continueBtn.classList.remove('copied');
-        updateDonationUI();
-      }, 1200);
-    }
-  });
-  updateDonationUI();
+  // Stripe Buy Button handles amount selection and payment securely.
 }
 
 document.addEventListener('DOMContentLoaded', () => {

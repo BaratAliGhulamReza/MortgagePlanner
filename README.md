@@ -136,3 +136,12 @@ The donation payment method selector is now a custom styled picker instead of a 
 
 ## Card-only donation setup
 Only card checkout is shown. Button opens Stripe: https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00
+
+
+## Stripe Buy Button donation setup
+
+This version embeds the official Stripe Buy Button:
+- buy-button-id: buy_btn_1Tar3QGjn1O7f9qk927xAmU4
+- uses the provided live publishable key
+- Stripe controls the real checkout amount safely
+- the website does not store or process card details

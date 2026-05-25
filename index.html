@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=1280, initial-scale=0.30, minimum-scale=0.25, maximum-scale=5, user-scalable=yes">
 <title>Mortgage Planner</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
 <header class="header">
@@ -220,23 +221,19 @@
 
 
 
-<section class="container donation-section" id="donate">
-  <div class="donation-card card-only">
-    <div class="donation-column">
-      <div class="donation-step"><span>1</span><div><h2 id="donateStep1Title">Choose an amount</h2><p id="donateStep1Sub">Select a one-time donation to support this website.</p></div></div>
-      <div class="donation-amounts">
-        <button class="donation-amount active" type="button" data-amount="5">$5</button>
-        <button class="donation-amount" type="button" data-amount="10">$10</button>
-        <button class="donation-amount" type="button" data-amount="20">$20</button>
-        <button class="donation-amount" type="button" data-amount="50">$50</button>
-        <button class="donation-amount" type="button" data-amount="100">$100</button>
-      </div>
-      <p class="donation-secure" id="donateSecure">Your support helps cover domain and maintenance costs.</p>
-    </div>
 
-    <div class="donation-column">
-      <div class="donation-step"><span>2</span><div><h2 id="donateStep2Title">Card payment</h2><p id="donateStep2Sub">Secure checkout powered by Stripe.</p></div></div>
-      <div class="card-payment-box">
+<section class="container donation-section" id="donate">
+  <div class="donation-card stripe-official">
+    <div class="donation-column donation-info">
+      <div class="donation-step">
+        <span>1</span>
+        <div>
+          <h2 id="donateStep1Title">Support this website</h2>
+          <p id="donateStep1Sub">Your donation helps cover domain and maintenance costs.</p>
+        </div>
+      </div>
+
+      <div class="donation-trust-card">
         <div class="card-payment-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="5" width="18" height="14" rx="3"></rect>
@@ -245,25 +242,35 @@
           </svg>
         </div>
         <div>
-          <strong id="donateCardTitle">Credit / debit card</strong>
-          <span id="donateCardSub">Apple Pay may appear in Stripe when available.</span>
+          <strong id="donateCardTitle">Secure Stripe checkout</strong>
+          <span id="donateCardSub">Choose $5, $10, $20, $50, or $100 in Stripe.</span>
         </div>
-        <b class="card-payment-check">✓</b>
       </div>
+
+      <p class="donation-secure" id="donateSecure">Payments are handled securely by Stripe. This website does not store card details.</p>
     </div>
 
-    <div class="donation-column summary">
-      <div class="donation-step"><span>3</span><div><h2 id="donateStep3Title">Your donation</h2><p id="donateStep3Sub">Thank you for your support.</p></div></div>
-      <div class="donation-summary-box">
-        <div><span id="donateAmountLabel">Amount</span><strong id="donationAmountText">$5.00</strong></div>
-        <div><span id="donateMethodSummaryLabel">Method</span><strong id="donationMethodText">Card</strong></div>
-        <div class="total"><span id="donateTotalLabel">Total</span><strong id="donationTotalText">$5.00</strong></div>
+    <div class="donation-column donation-checkout">
+      <div class="donation-step">
+        <span>2</span>
+        <div>
+          <h2 id="donateStep2Title">Choose amount and pay</h2>
+          <p id="donateStep2Sub">Select your donation amount in the secure Stripe checkout.</p>
+        </div>
       </div>
-      <button class="donation-copy-btn" type="button" id="copyDonationDetails">Continue $5.00</button>
+
+      <div class="stripe-buy-wrapper">
+        <stripe-buy-button
+          buy-button-id="buy_btn_1Tar3QGjn1O7f9qk927xAmU4"
+          publishable-key="pk_live_51TaoilGjn1O7f9qkQHRUaeJUQvzpWQnkpQ8tlCYUYOCItOqWuR8uUwjTAIBj6YXCoPxa4nkSZVLVVZd7HHQRdtEN00jK76KSQg">
+        </stripe-buy-button>
+      </div>
+
       <p class="donation-note" id="donateNote">One-time donation • Secure Stripe checkout</p>
     </div>
   </div>
 </section>
+
 
 
 
