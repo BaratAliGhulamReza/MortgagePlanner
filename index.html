@@ -96,6 +96,57 @@
   </div>
 </main>
 
+<section class="container goal-planner-section" id="payoffGoalSection">
+  <div class="goal-card">
+    <div class="goal-head">
+      <div>
+        <h2>Payoff goal strategy</h2>
+        <p>Tell the planner when you want the mortgage finished. It will estimate the extra repayment needed and build a realistic payoff target from your current loan details.</p>
+      </div>
+      <span class="badge-soft">Goal-based strategy</span>
+    </div>
+
+    <div class="goal-layout">
+      <div class="goal-inputs">
+        <div class="field">
+          <label>I want to finish my mortgage in</label>
+          <div class="control"><input id="targetPayoffYears" type="number" min="1" max="40" step="0.5" value="6"><span>years</span></div>
+        </div>
+        <div class="field">
+          <label>Show the extra repayment as</label>
+          <div class="control"><select id="targetExtraFrequency"><option value="weekly">Weekly</option><option value="fortnightly">Fortnightly</option><option value="monthly" selected>Monthly</option></select></div>
+        </div>
+      </div>
+
+      <div class="goal-results">
+        <div class="goal-result highlight">
+          <small>Extra repayment needed</small>
+          <strong id="targetExtraNeeded">$0</strong>
+          <em id="targetExtraHint">On top of your normal repayment.</em>
+        </div>
+        <div class="goal-result">
+          <small>Total repayment target</small>
+          <strong id="targetTotalPayment">$0</strong>
+          <em id="targetTotalHint">Including normal repayment and extra repayment.</em>
+        </div>
+        <div class="goal-result">
+          <small>Estimated payoff date</small>
+          <strong id="targetPayoffDate">—</strong>
+          <em id="targetPayoffTime">—</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-plan">
+      <h3>Realistic strategy</h3>
+      <ol id="targetStrategySteps">
+        <li>Enter your loan balance, rate, repayment frequency, and goal above.</li>
+      </ol>
+      <p class="goal-note" id="targetStrategyNote">This is an estimate only. Keep a buffer for rate changes, fees, and life expenses.</p>
+    </div>
+  </div>
+</section>
+
 <section class="container monthly-breakdown-section">
   <div class="monthly-card">
     <div class="monthly-head">

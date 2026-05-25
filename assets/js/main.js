@@ -260,6 +260,128 @@ function monthlyBreakdown(d, base) {
   return { monthlyRepayment, strategyInterest, principalPaid, interestSaved };
 }
 
+
+function targetGoalData() {
+  const years = clamp(+($('targetPayoffYears')?.value || 6), 1, 40);
+  const frequency = $('targetExtraFrequency')?.value || 'monthly';
+  return { years, frequency, months: years * 12 };
+}
+
+function paymentPerTargetFrequency(payment, sourceFrequency, targetFrequency) {
+  const yearlyAmount = (payment || 0) * periodsPerYear(sourceFrequency);
+  return yearlyAmount / periodsPerYear(targetFrequency);
+}
+
+function simulateTargetPlan(d, extraAmount, extraFrequency) {
+  return simulate({
+    ...d,
+    useExtra: true,
+    extra: extraAmount,
+    extraFrequency,
+    // Keep offset and lump sum choices because they make the plan more realistic,
+    // but calculate the goal repayment independently from the existing extra-payment field.
+    useOffset: d.useOffset,
+    useLump: d.useLump
+  });
+}
+
+function requiredExtraForTarget(d, base, target) {
+  if (!d.principal || d.principal <= 0 || !Number.isFinite(target.months) || target.months <= 0) {
+    return { extra: 0, plan: base, achievable: false, reason: 'Enter a valid current loan balance and payoff goal.' };
+  }
+
+  const planWithCurrentOffsetAndLump = simulateTargetPlan(d, 0, target.frequency);
+  if (planWithCurrentOffsetAndLump.months <= target.months + 0.05) {
+    return { extra: 0, plan: planWithCurrentOffsetAndLump, achievable: true, reason: '' };
+  }
+
+  let low = 0;
+  let high = 100;
+  let highPlan = simulateTargetPlan(d, high, target.frequency);
+  const maxExtraPerPeriod = 1000000;
+
+  while (highPlan.months > target.months && high < maxExtraPerPeriod) {
+    high *= 2;
+    highPlan = simulateTargetPlan(d, high, target.frequency);
+  }
+
+  if (highPlan.months > target.months) {
+    return {
+      extra: high,
+      plan: highPlan,
+      achievable: false,
+      reason: 'The goal may be unrealistic with the current inputs. Try a longer target or review the loan balance and rate.'
+    };
+  }
+
+  for (let i = 0; i < 44; i++) {
+    const mid = (low + high) / 2;
+    const midPlan = simulateTargetPlan(d, mid, target.frequency);
+    if (midPlan.months <= target.months) high = mid;
+    else low = mid;
+  }
+
+  const extra = Math.ceil(high);
+  return { extra, plan: simulateTargetPlan(d, extra, target.frequency), achievable: true, reason: '' };
+}
+
+function setStrategySteps(items) {
+  const list = $('targetStrategySteps');
+  if (!list) return;
+  list.innerHTML = '';
+  items.forEach(text => {
+    const li = document.createElement('li');
+    li.textContent = text;
+    list.appendChild(li);
+  });
+}
+
+function updateTargetGoalStrategy(d, base) {
+  const target = targetGoalData();
+  const result = requiredExtraForTarget(d, base, target);
+  const normalPerTargetFrequency = paymentPerTargetFrequency(base.payment, d.repaymentFrequency, target.frequency);
+  const totalTargetPayment = normalPerTargetFrequency + result.extra;
+  const targetDate = addMonths(d.projectionStart, result.plan.months);
+  const totalInterestSaved = Math.max(0, base.interest - result.plan.interest);
+
+  setText('targetExtraNeeded', fmt(result.extra));
+  setText('targetExtraHint', result.extra > 0 ? frequencyLabel(target.frequency) + ' extra repayment on top of your normal repayment.' : 'Your current selected offset/lump settings already meet this goal.');
+  setText('targetTotalPayment', fmt(totalTargetPayment));
+  setText('targetTotalHint', frequencyLabel(target.frequency) + ' target amount including the normal repayment.');
+  setText('targetPayoffDate', monthFmt().format(targetDate));
+  setText('targetPayoffTime', 'About ' + monthsText(result.plan.months));
+
+  const basePayText = fmt(normalPerTargetFrequency);
+  const extraText = fmt(result.extra);
+  const totalText = fmt(totalTargetPayment);
+  const goalText = monthsText(target.months);
+  const savedText = fmt(totalInterestSaved);
+
+  const steps = [
+    'Keep paying your normal repayment, which is about ' + basePayText + ' ' + target.frequency + ' when converted from your selected repayment frequency.',
+    'Add an estimated extra ' + extraText + ' ' + target.frequency + ' to target paying the loan off in about ' + goalText + '.',
+    'Aim for a total payment of about ' + totalText + ' ' + target.frequency + '.',
+    'Keep your offset balance working against the loan and review this plan after each interest-rate change.'
+  ];
+
+  if (d.useLump && d.lump > 0) {
+    steps.splice(1, 0, 'Apply the ' + fmt(d.lump) + ' lump sum first, then follow the extra repayment target.');
+  }
+  if (d.useOffset && d.offset > 0) {
+    steps.push('Keep at least ' + fmt(d.offset) + ' in offset if possible, because removing it will increase the extra repayment needed.');
+  }
+  if (totalInterestSaved > 0) {
+    steps.push('Estimated interest saved compared with no strategy: ' + savedText + '.');
+  }
+
+  setStrategySteps(steps);
+  const note = result.achievable
+    ? 'This is a planning estimate, not financial advice. Allow a safety buffer for rate changes, fees, redraws, and changes in income.'
+    : result.reason;
+  setText('targetStrategyNote', note);
+}
+
+
 function selectedStrategyText(d) {
   const parts = [];
   if (d.useOffset) parts.push('Offset');
@@ -307,6 +429,8 @@ function update() {
   setText('monthlyInterest', fmt(monthView.strategyInterest));
   setText('monthlyPrincipal', fmt(monthView.principalPaid));
   setText('monthlySaved', fmt(monthView.interestSaved));
+
+  updateTargetGoalStrategy(d, base);
 
   setText('baseInterest', fmt(base.interest));
   setText('offsetInterest', fmt(offset.interest));

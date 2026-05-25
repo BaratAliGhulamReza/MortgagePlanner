@@ -27,6 +27,7 @@ MortgagePlanner/
 - Extra repayment strategy comparison
 - Lump sum strategy comparison
 - Monthly repayment breakdown
+- Payoff goal strategy: users can enter a target such as 6 years and see the extra repayment needed
 - Interest comparison chart
 - Stripe support button in the header
 
