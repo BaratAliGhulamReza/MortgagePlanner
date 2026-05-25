@@ -142,6 +142,7 @@ const I18N = {
     donateCardTitle: "Secure Stripe checkout",
     donateCardSub: "Choose $5, $10, $20, $50, or $100 in Stripe.",
     donateCardMethod: "Card",
+    headerDonationText: "Donation",
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -285,6 +286,7 @@ const I18N = {
     donateCardTitle: "پرداخت امن Stripe",
     donateCardSub: "در Stripe مبلغ $5، $10، $20، $50 یا $100 را انتخاب کنید.",
     donateCardMethod: "کارت",
+    headerDonationText: "کمک مالی",
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -428,6 +430,7 @@ const I18N = {
     donateCardTitle: "सुरक्षित Stripe checkout",
     donateCardSub: "Stripe में $5, $10, $20, $50 या $100 चुनें.",
     donateCardMethod: "कार्ड",
+    headerDonationText: "दान",
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -571,6 +574,7 @@ const I18N = {
     donateCardTitle: "محفوظ Stripe checkout",
     donateCardSub: "Stripe میں $5، $10، $20، $50 یا $100 منتخب کریں۔",
     donateCardMethod: "کارڈ",
+    headerDonationText: "ڈونیشن",
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -714,6 +718,7 @@ const I18N = {
     donateCardTitle: "安全 Stripe 结账",
     donateCardSub: "在 Stripe 中选择 $5、$10、$20、$50 或 $100。",
     donateCardMethod: "银行卡",
+    headerDonationText: "捐助",
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -857,6 +862,7 @@ const I18N = {
     donateCardTitle: "Pago seguro de Stripe",
     donateCardSub: "Elige $5, $10, $20, $50 o $100 en Stripe.",
     donateCardMethod: "Tarjeta",
+    headerDonationText: "Donación",
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -913,6 +919,7 @@ function setStaticText() {
 
   setHTML('.header .logo span', t('brand'));
   setHTML('.save-plan span', t('savePlan'));
+  setText('headerDonationText', t('headerDonationText'));
   setHTML('.hero h1', t('heroTitle'));
   setHTML('.lead', t('heroLead'));
 
@@ -1456,7 +1463,7 @@ function localizeDonationMethodOptions() {
 
 
 function setupDonationSection() {
-  // Stripe Buy Button handles amount selection and payment securely.
+  // Donation is now a single header button linking to Stripe.
 }
 
 document.addEventListener('DOMContentLoaded', () => {

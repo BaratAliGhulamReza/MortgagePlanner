@@ -145,3 +145,16 @@ This version embeds the official Stripe Buy Button:
 - uses the provided live publishable key
 - Stripe controls the real checkout amount safely
 - the website does not store or process card details
+
+
+## Header donation button
+
+The full donation section has been removed. The old Save plan button is replaced with a single Donation button in the header.
+
+Donation button opens:
+https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00
+
+
+## Favicon/logo tab icon
+
+The browser tab now uses `assets/icons/favicon.svg` as the Mortgage Planner logo icon.

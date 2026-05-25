@@ -1160,3 +1160,35 @@ html[dir="rtl"] .donation-trust-card .card-payment-icon{
     border-bottom:1px solid var(--line);
   }
 }
+
+
+/* Header donation button */
+.donation-header-btn{
+  height:42px;
+  padding:0 18px;
+  border:1px solid rgba(10,160,110,.35);
+  border-radius:14px;
+  background:linear-gradient(135deg,#0aa06e,#3f8f35);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  font-size:14px;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:0 12px 24px rgba(10,160,110,.16);
+  transition:.18s ease;
+}
+.donation-header-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 30px rgba(10,160,110,.22);
+}
+.donation-heart{
+  font-size:18px;
+  line-height:1;
+  transform:translateY(-1px);
+}
+html[dir="rtl"] .donation-header-btn{
+  flex-direction:row-reverse;
+}
