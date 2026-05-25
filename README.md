@@ -127,3 +127,17 @@ Donation amount buttons now use robust click handling. Selecting an amount updat
 ## Donation dropdown button style
 
 The payment method dropdown is styled to match the donation amount buttons, with a matching icon, border, hover, and focus treatment.
+
+
+## Professional custom donation method picker
+
+The donation payment method selector is now a custom styled picker instead of a native browser dropdown. It only shows: Pay ID, Apple Pay, Credit Card, and PayPal.
+
+
+## Live donation links
+
+Donation payment actions:
+- PayID copies: baratalighulamreza@gmail.com
+- Credit Card opens Stripe: https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00
+- Apple Pay opens Stripe: https://buy.stripe.com/dRm00j0Dp30P5CSe8PgMw00
+- PayPal is marked as coming soon until the PayPal link is added.
