@@ -2540,3 +2540,105 @@ html[dir="rtl"] .header-actions{
 html[dir="rtl"] .language-select{
   direction:rtl !important;
 }
+
+
+/* === Ensure English/Dari dropdown stays visible and Support Us is compact === */
+.language-select{
+  display:inline-flex !important;
+  height:44px !important;
+  min-width:112px !important;
+  border:1px solid #dbe4ee !important;
+  border-radius:14px !important;
+  background:#fff !important;
+  color:#13203b !important;
+  font-size:14px !important;
+  font-weight:800 !important;
+  padding:0 12px !important;
+  outline:none !important;
+}
+
+.donation-header-btn{
+  height:46px !important;
+  padding:0 18px !important;
+  border-radius:12px !important;
+  gap:8px !important;
+  font-size:14px !important;
+}
+
+.donation-header-btn img{
+  width:18px !important;
+  height:18px !important;
+}
+
+
+/* === Six-language dropdown and multilingual layout support === */
+.language-select{
+  display:inline-flex !important;
+  height:44px !important;
+  min-width:128px !important;
+  border:1px solid #dbe4ee !important;
+  border-radius:14px !important;
+  background:#fff !important;
+  color:#13203b !important;
+  font-size:14px !important;
+  font-weight:800 !important;
+  padding:0 12px !important;
+  outline:none !important;
+}
+
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] .hero-overlay-copy h1,
+html[lang="zh-CN"] .brand-text{
+  font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",Inter,sans-serif !important;
+}
+
+html[lang="hi"] body,
+html[lang="hi"] .hero-overlay-copy h1,
+html[lang="hi"] .brand-text{
+  font-family:"Noto Sans Devanagari","Mangal",Inter,sans-serif !important;
+}
+
+html[lang="ur"] body,
+html[lang="fa"] body{
+  font-family:"Noto Naskh Arabic","Noto Sans Arabic","Tahoma",Arial,sans-serif !important;
+}
+
+html[dir="rtl"] .hero-overlay-copy{
+  text-align:right !important;
+}
+
+html[dir="rtl"] .hero-composed .hero-ctas,
+html[dir="rtl"] .hero-composed .benefits{
+  justify-content:flex-start !important;
+}
+
+html[dir="rtl"] .control{
+  direction:ltr !important;
+}
+
+html[dir="rtl"] .language-select{
+  direction:rtl !important;
+}
+
+/* Long translated headings need a little more room */
+html[lang="hi"] .hero-overlay-copy,
+html[lang="ur"] .hero-overlay-copy,
+html[lang="fa"] .hero-overlay-copy,
+html[lang="es"] .hero-overlay-copy{
+  width:min(52%, 760px) !important;
+  max-width:760px !important;
+}
+
+html[lang="zh-CN"] .hero-overlay-copy h1,
+html[lang="hi"] .hero-overlay-copy h1,
+html[lang="ur"] .hero-overlay-copy h1,
+html[lang="fa"] .hero-overlay-copy h1,
+html[lang="es"] .hero-overlay-copy h1{
+  font-size:clamp(36px,3.15vw,52px) !important;
+  line-height:1.16 !important;
+  letter-spacing:-0.035em !important;
+}
+
+html[dir="rtl"] .header-actions{
+  flex-direction:row-reverse !important;
+}
