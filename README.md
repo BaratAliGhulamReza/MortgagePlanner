@@ -1,4 +1,4 @@
-# Mortgage Planner Website
+# Smart Mortgage Planner Website
 
 English-only mortgage planning website.
 
