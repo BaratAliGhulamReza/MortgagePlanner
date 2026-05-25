@@ -119,3 +119,8 @@ const DONATION_CHECKOUT_LINKS = {
 ```
 
 Do not publish private bank account details unless you are comfortable with them being public.
+
+
+## Professional donation section
+
+The donation area has been redesigned with a more polished modern layout, clearer donation flow, amount selection, payment method selection, and support messaging.

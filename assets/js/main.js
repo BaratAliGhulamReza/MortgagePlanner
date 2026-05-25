@@ -117,6 +117,18 @@ const I18N = {
     donationButton: 'Donate',
     donationNote: 'Secure payment link needs to be connected before donations go live.',
     donationAlert: 'Donation checkout is not connected yet. Add your Stripe, PayPal, or payment link in assets/js/main.js.',
+    donationTrust1Title: 'Domain and hosting',
+    donationTrust1Text: 'Helps cover the ongoing cost of keeping the website live.',
+    donationTrust2Title: 'Free for everyone',
+    donationTrust2Text: 'Your support helps keep this tool available to the community.',
+    donationStepAmount: 'Choose an amount',
+    donationSummaryLabel: 'Selected amount',
+    donationSecureLabel: 'Secure support',
+    donationStepMethod: 'Choose payment method',
+    donationMeta1Title: 'Why donate?',
+    donationMeta1Text: 'Helps maintain the domain name and keep the tool online.',
+    donationMeta2Title: 'Checkout',
+    donationMeta2Text: 'Connect Stripe or another payment provider to go live.',
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -235,6 +247,18 @@ const I18N = {
     donationButton: 'کمک',
     donationNote: 'لینک پرداخت امن باید قبل از فعال\u200cشدن کمک\u200cها وصل شود.',
     donationAlert: 'پرداخت کمک هنوز وصل نشده است. لینک Stripe، PayPal یا پرداخت را در assets/js/main.js اضافه کنید.',
+    donationTrust1Title: 'دامنه و میزبانی',
+    donationTrust1Text: 'به پوشش هزینه دوامدار زنده\u200cماندن وبسایت کمک می\u200cکند.',
+    donationTrust2Title: 'رایگان برای همه',
+    donationTrust2Text: 'حمایت شما کمک می\u200cکند این ابزار برای جامعه در دسترس بماند.',
+    donationStepAmount: 'مبلغ را انتخاب کنید',
+    donationSummaryLabel: 'مبلغ انتخاب\u200cشده',
+    donationSecureLabel: 'حمایت امن',
+    donationStepMethod: 'روش پرداخت را انتخاب کنید',
+    donationMeta1Title: 'چرا کمک کنیم؟',
+    donationMeta1Text: 'به نگهداری دامنه و آنلاین\u200cماندن این ابزار کمک می\u200cکند.',
+    donationMeta2Title: 'پرداخت',
+    donationMeta2Text: 'برای فعال\u200cشدن، Stripe یا یک ارائه\u200cدهنده پرداخت دیگر را وصل کنید.',
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -353,6 +377,18 @@ const I18N = {
     donationButton: 'दान करें',
     donationNote: 'दान चालू करने से पहले सुरक्षित भुगतान लिंक जोड़ना होगा.',
     donationAlert: 'डोनेशन चेकआउट अभी जुड़ा नहीं है. assets/js/main.js में Stripe, PayPal या payment link जोड़ें.',
+    donationTrust1Title: 'डोमेन और होस्टिंग',
+    donationTrust1Text: 'वेबसाइट को लाइव रखने की चलती लागत में मदद करता है।',
+    donationTrust2Title: 'सबके लिए मुफ्त',
+    donationTrust2Text: 'आपका सहयोग इस टूल को समुदाय के लिए उपलब्ध रखने में मदद करता है।',
+    donationStepAmount: 'राशि चुनें',
+    donationSummaryLabel: 'चुनी गई राशि',
+    donationSecureLabel: 'सुरक्षित सहयोग',
+    donationStepMethod: 'भुगतान विधि चुनें',
+    donationMeta1Title: 'दान क्यों करें?',
+    donationMeta1Text: 'डोमेन और टूल को ऑनलाइन बनाए रखने में मदद करता है।',
+    donationMeta2Title: 'चेकआउट',
+    donationMeta2Text: 'इसे लाइव करने के लिए Stripe या किसी अन्य पेमेंट प्रोवाइडर को जोड़ें।',
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -471,6 +507,18 @@ const I18N = {
     donationButton: 'عطیہ کریں',
     donationNote: 'عطیات لائیو کرنے سے پہلے محفوظ payment link جوڑنا ہوگا.',
     donationAlert: 'ڈونیشن چیک آؤٹ ابھی منسلک نہیں ہے. assets/js/main.js میں Stripe، PayPal یا payment link شامل کریں.',
+    donationTrust1Title: 'ڈومین اور ہوسٹنگ',
+    donationTrust1Text: 'ویب سائٹ کو چلتے رکھنے کی مسلسل لاگت میں مدد کرتا ہے۔',
+    donationTrust2Title: 'سب کے لیے مفت',
+    donationTrust2Text: 'آپ کی مدد اس ٹول کو کمیونٹی کے لیے دستیاب رکھنے میں مدد کرتی ہے۔',
+    donationStepAmount: 'رقم منتخب کریں',
+    donationSummaryLabel: 'منتخب رقم',
+    donationSecureLabel: 'محفوظ تعاون',
+    donationStepMethod: 'ادائیگی کا طریقہ منتخب کریں',
+    donationMeta1Title: 'عطیہ کیوں دیں؟',
+    donationMeta1Text: 'ڈومین اور ٹول کو آن لائن رکھنے میں مدد کرتا ہے۔',
+    donationMeta2Title: 'چیک آؤٹ',
+    donationMeta2Text: 'اسے لائیو کرنے کے لیے Stripe یا کسی اور payment provider کو جوڑیں۔',
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -589,6 +637,18 @@ const I18N = {
     donationButton: '捐赠',
     donationNote: '上线捐赠前需要连接安全支付链接。',
     donationAlert: '捐赠付款尚未连接。请在 assets/js/main.js 中添加 Stripe、PayPal 或支付链接。',
+    donationTrust1Title: '域名与托管',
+    donationTrust1Text: '帮助承担维持网站在线运行的持续成本。',
+    donationTrust2Title: '永久免费使用',
+    donationTrust2Text: '你的支持有助于让社区继续使用这个工具。',
+    donationStepAmount: '选择金额',
+    donationSummaryLabel: '已选金额',
+    donationSecureLabel: '安全支持',
+    donationStepMethod: '选择付款方式',
+    donationMeta1Title: '为什么捐赠？',
+    donationMeta1Text: '帮助维护域名并让这个工具持续在线。',
+    donationMeta2Title: '结账',
+    donationMeta2Text: '上线前请连接 Stripe 或其他支付服务。',
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -707,6 +767,18 @@ const I18N = {
     donationButton: 'Donar',
     donationNote: 'Debes conectar un enlace de pago seguro antes de recibir donaciones.',
     donationAlert: 'El pago de donación aún no está conectado. Agrega tu enlace de Stripe, PayPal o pago en assets/js/main.js.',
+    donationTrust1Title: 'Dominio y hosting',
+    donationTrust1Text: 'Ayuda a cubrir el costo continuo de mantener el sitio web activo.',
+    donationTrust2Title: 'Gratis para todos',
+    donationTrust2Text: 'Tu apoyo ayuda a mantener esta herramienta disponible para la comunidad.',
+    donationStepAmount: 'Elige un monto',
+    donationSummaryLabel: 'Monto seleccionado',
+    donationSecureLabel: 'Apoyo seguro',
+    donationStepMethod: 'Elige el método de pago',
+    donationMeta1Title: '¿Por qué donar?',
+    donationMeta1Text: 'Ayuda a mantener el dominio y la herramienta online.',
+    donationMeta2Title: 'Pago',
+    donationMeta2Text: 'Conecta Stripe u otro proveedor de pagos para activarlo.',
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -924,14 +996,27 @@ function setStaticText() {
   setText('monthlySavedLabel', t('monthlyInterestSaved'));
   setText('monthlySavedHint', t('monthlySavedHint'));
 
-
   setText('donationKicker', t('donationKicker'));
   setText('donationTitle', t('donationTitle'));
   setText('donationText', t('donationText'));
+  setText('donationTrust1Title', t('donationTrust1Title'));
+  setText('donationTrust1Text', t('donationTrust1Text'));
+  setText('donationTrust2Title', t('donationTrust2Title'));
+  setText('donationTrust2Text', t('donationTrust2Text'));
+  setText('donationStepAmount', t('donationStepAmount'));
+  setText('donationSummaryLabel', t('donationSummaryLabel'));
+  setText('donationSecureLabel', t('donationSecureLabel'));
+  setText('donationStepMethod', t('donationStepMethod'));
   setText('donationCardMethod', t('donationCardMethod'));
   setText('donationAppleMethod', t('donationAppleMethod'));
+  setText('donationMeta1Title', t('donationMeta1Title'));
+  setText('donationMeta1Text', t('donationMeta1Text'));
+  setText('donationMeta2Title', t('donationMeta2Title'));
+  setText('donationMeta2Text', t('donationMeta2Text'));
   setText('donationNote', t('donationNote'));
   updateDonationButton();
+  updateDonationSummary();
+
 
   const footer = document.querySelector('.footer-brand span');
   if (footer) footer.textContent = t('footerLine');
@@ -1267,6 +1352,12 @@ const DONATION_CHECKOUT_LINKS = {
 
 let selectedDonationAmount = 5;
 let selectedDonationMethod = 'card';
+let donationControlsReady = false;
+
+function updateDonationSummary() {
+  const el = $('donationSummaryAmount');
+  if (el) el.textContent = `$${selectedDonationAmount}`;
+}
 
 function updateDonationButton() {
   const btn = $('donationSubmit');
@@ -1274,12 +1365,20 @@ function updateDonationButton() {
 }
 
 function setupDonationControls() {
+  if (donationControlsReady) {
+    updateDonationButton();
+    updateDonationSummary();
+    return;
+  }
+  donationControlsReady = true;
+
   document.querySelectorAll('.donation-amount').forEach(btn => {
     btn.addEventListener('click', () => {
       selectedDonationAmount = Number(btn.dataset.amount || 5);
       document.querySelectorAll('.donation-amount').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       updateDonationButton();
+      updateDonationSummary();
     });
   });
 
@@ -1303,6 +1402,9 @@ function setupDonationControls() {
       window.open(`${base}${joiner}amount=${selectedDonationAmount}`, '_blank', 'noopener,noreferrer');
     });
   }
+
+  updateDonationButton();
+  updateDonationSummary();
 }
 
 

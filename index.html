@@ -218,15 +218,44 @@
 </section>
 
 
+
 <section class="container donation-section" id="support">
-  <div class="donation-card">
+  <div class="donation-shell">
     <div class="donation-copy">
       <span class="donation-kicker" id="donationKicker">Support this website</span>
       <h2 id="donationTitle">Help keep this tool online</h2>
       <p id="donationText">Your donation helps cover domain name and maintenance costs so this mortgage planner can stay free to use.</p>
+
+      <div class="donation-trust-list">
+        <div class="donation-trust-item">
+          <div class="donation-trust-icon">◎</div>
+          <div>
+            <strong id="donationTrust1Title">Domain and hosting</strong>
+            <span id="donationTrust1Text">Helps cover the ongoing cost of keeping the website live.</span>
+          </div>
+        </div>
+        <div class="donation-trust-item">
+          <div class="donation-trust-icon">◌</div>
+          <div>
+            <strong id="donationTrust2Title">Free for everyone</strong>
+            <span id="donationTrust2Text">Your support helps keep this tool available to the community.</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="donation-panel">
+    <div class="donation-checkout">
+      <div class="donation-checkout-top">
+        <div>
+          <span class="donation-step" id="donationStepAmount">Choose an amount</span>
+          <div class="donation-summary">
+            <small id="donationSummaryLabel">Selected amount</small>
+            <strong id="donationSummaryAmount">$5</strong>
+          </div>
+        </div>
+        <div class="donation-chip" id="donationSecureLabel">Secure support</div>
+      </div>
+
       <div class="donation-amounts" aria-label="Donation amount">
         <button type="button" class="donation-amount active" data-amount="5">$5</button>
         <button type="button" class="donation-amount" data-amount="10">$10</button>
@@ -235,9 +264,29 @@
         <button type="button" class="donation-amount" data-amount="100">$100</button>
       </div>
 
+      <div class="donation-divider"></div>
+
+      <span class="donation-step" id="donationStepMethod">Choose payment method</span>
       <div class="donation-methods" aria-label="Payment method">
-        <button type="button" class="donation-method active" data-method="card" id="donationCardMethod">Credit card</button>
-        <button type="button" class="donation-method" data-method="applepay" id="donationAppleMethod">Apple Pay</button>
+        <button type="button" class="donation-method active" data-method="card">
+          <span class="donation-method-icon">◫</span>
+          <span id="donationCardMethod">Credit card</span>
+        </button>
+        <button type="button" class="donation-method" data-method="applepay">
+          <span class="donation-method-icon">◐</span>
+          <span id="donationAppleMethod">Apple Pay</span>
+        </button>
+      </div>
+
+      <div class="donation-meta-row">
+        <div class="donation-meta-item">
+          <strong id="donationMeta1Title">Why donate?</strong>
+          <span id="donationMeta1Text">Helps maintain the domain name and keep the tool online.</span>
+        </div>
+        <div class="donation-meta-item">
+          <strong id="donationMeta2Title">Checkout</strong>
+          <span id="donationMeta2Text">Connect Stripe or another payment provider to go live.</span>
+        </div>
       </div>
 
       <button type="button" class="donation-submit" id="donationSubmit">Donate $5</button>
@@ -245,7 +294,6 @@
     </div>
   </div>
 </section>
-
 
 <footer class="site-footer" id="footer"><div class="container footer-inner"><div class="footer-brand"><a class="logo" href="#"><img class="icon-img" src="assets/icons/icon-10.svg" alt="icon 10" width="26" height="26">Mortgage Planner</a><span>Plan today. Enjoy tomorrow.</span></div><div class="footer-links"><div><h4>Product</h4><a href="#calculator">Calculator</a><a href="#">Strategies</a><a href="#">Saved plans</a></div><div><h4>Resources</h4><a href="#">Guides</a><a href="#">FAQs</a><a href="#">Glossary</a></div><div><h4>Company</h4><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy</a></div></div></div></footer>
 
