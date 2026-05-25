@@ -97,3 +97,13 @@ This version keeps the desktop layout on mobile and opens zoomed out by default.
 ## Polished Dari and Urdu hero layout
 
 Dari and Urdu hero headings use controlled line breaks, balanced RTL spacing, correct black/green highlight colors, and a flipped hero image.
+
+
+## Donation section
+
+Includes donation amounts, bank transfer details for Barat, and a copy bank details button.
+
+
+## Additional donation payment methods
+
+Donation UI now shows PayID, Apple Pay, Credit Card, and PayPal options. PayID displays bank details. The other methods are shown as supported UI options pending integration details.

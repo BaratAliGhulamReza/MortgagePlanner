@@ -109,6 +109,34 @@ const I18N = {
     monthlyPrincipalHint: 'The part reducing your loan balance.',
     monthlyInterestSaved: 'Interest saved this month',
     monthlySavedHint: 'Compared with no strategy.',
+    donateStep1Title: 'Choose an amount',
+    donateStep1Sub: 'Select a one-time donation to support this website.',
+    donateSecure: 'Your support helps cover domain and maintenance costs.',
+    donateStep2Title: 'Choose a payment method',
+    donateStep2Sub: "Elige cómo quieres apoyar este sitio web.",
+    donateBankTitle: 'Bank transfer',
+    donateBankSub: 'Direct deposit',
+    donateAccountNameLabel: 'Account name',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'Account number',
+    donateStep3Title: 'Your donation',
+    donateStep3Sub: 'Thank you for your support.',
+    donateAmountLabel: 'Amount',
+    donateTotalLabel: 'Total',
+    donateCopyButton: "Copiar datos de pago",
+    donateCopiedButton: "Copiado",
+    donateNote: 'One-time donation • No hidden fees',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "Fast bank payment",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "Wallet payment",
+    donateCreditCardTitle: "Credit card",
+    donateCreditCardSub: "Card payment",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "Online payment",
+    donateApplePayInfo: "Apple Pay can be connected once your payment processor is added.",
+    donateCreditCardInfo: "Credit card payments can be connected once Stripe or another processor is added.",
+    donatePaypalInfo: "PayPal can be connected once your PayPal donation link is added.",
     datePlaceholder: 'Loan start date',
     amountPlaceholder: 'Enter amount',
     ratePlaceholder: 'Enter rate'
@@ -219,6 +247,34 @@ const I18N = {
     monthlyPrincipalHint: 'بخشی که باقی\u200cمانده وام را کم می\u200cکند.',
     monthlyInterestSaved: 'سود صرفه\u200cجویی\u200cشده در این ماه',
     monthlySavedHint: 'در مقایسه با حالت بدون راهکار.',
+    donateStep1Title: 'مبلغ را انتخاب کنید',
+    donateStep1Sub: 'یک کمک یک\u200cباره برای حمایت از این وبسایت انتخاب کنید.',
+    donateSecure: 'حمایت شما به پرداخت هزینه دامنه و نگهداری کمک می\u200cکند.',
+    donateStep2Title: 'روش پرداخت را انتخاب کنید',
+    donateStep2Sub: 'از جزئیات انتقال بانکی زیر استفاده کنید.',
+    donateBankTitle: 'انتقال بانکی',
+    donateBankSub: 'واریز مستقیم',
+    donateAccountNameLabel: 'نام حساب',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'شماره حساب',
+    donateStep3Title: 'کمک شما',
+    donateStep3Sub: 'تشکر از حمایت شما.',
+    donateAmountLabel: 'مبلغ',
+    donateTotalLabel: 'جمع کل',
+    donateCopyButton: 'کپی جزئیات بانکی',
+    donateCopiedButton: 'کپی شد',
+    donateNote: 'کمک یک\u200cباره • بدون هزینه پنهان',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "پرداخت سریع بانکی",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "پرداخت کیف پول",
+    donateCreditCardTitle: "کارت اعتباری",
+    donateCreditCardSub: "پرداخت کارتی",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "پرداخت آنلاین",
+    donateApplePayInfo: "پس از اضافه‌شدن درگاه پرداخت، Apple Pay قابل اتصال خواهد بود.",
+    donateCreditCardInfo: "پرداخت کارت اعتباری پس از اضافه‌شدن Stripe یا درگاه مشابه قابل اتصال خواهد بود.",
+    donatePaypalInfo: "پس از اضافه‌شدن لینک کمک PayPal، PayPal قابل اتصال خواهد بود.",
     datePlaceholder: 'روز / ماه / سال',
     amountPlaceholder: 'مبلغ را وارد کنید',
     ratePlaceholder: 'نرخ را وارد کنید'
@@ -329,6 +385,34 @@ const I18N = {
     monthlyPrincipalHint: 'वह हिस्सा जो लोन बैलेंस कम करता है.',
     monthlyInterestSaved: 'इस महीने बचा ब्याज',
     monthlySavedHint: 'बिना रणनीति की तुलना में.',
+    donateStep1Title: 'राशि चुनें',
+    donateStep1Sub: 'इस वेबसाइट का समर्थन करने के लिए एक बार की दान राशि चुनें.',
+    donateSecure: 'आपका सहयोग डोमेन और रखरखाव लागत में मदद करता है.',
+    donateStep2Title: 'भुगतान तरीका चुनें',
+    donateStep2Sub: 'नीचे दिए गए बैंक ट्रांसफर विवरण का उपयोग करें.',
+    donateBankTitle: 'बैंक ट्रांसफर',
+    donateBankSub: 'डायरेक्ट डिपॉजिट',
+    donateAccountNameLabel: 'खाता नाम',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'खाता नंबर',
+    donateStep3Title: 'आपका दान',
+    donateStep3Sub: 'आपके समर्थन के लिए धन्यवाद.',
+    donateAmountLabel: 'राशि',
+    donateTotalLabel: 'कुल',
+    donateCopyButton: 'बैंक विवरण कॉपी करें',
+    donateCopiedButton: 'कॉपी हो गया',
+    donateNote: 'एक बार का दान • कोई छिपी फीस नहीं',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "तेज़ बैंक भुगतान",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "वॉलेट भुगतान",
+    donateCreditCardTitle: "क्रेडिट कार्ड",
+    donateCreditCardSub: "कार्ड भुगतान",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "ऑनलाइन भुगतान",
+    donateApplePayInfo: "जब आपका पेमेंट प्रोसेसर जोड़ा जाएगा तब Apple Pay जोड़ा जा सकेगा.",
+    donateCreditCardInfo: "जब Stripe या कोई अन्य प्रोसेसर जोड़ा जाएगा तब क्रेडिट कार्ड पेमेंट जोड़ा जा सकेगा.",
+    donatePaypalInfo: "जब आपका PayPal donation link जोड़ा जाएगा तब PayPal जोड़ा जा सकेगा.",
     datePlaceholder: 'दिन / महीना / साल',
     amountPlaceholder: 'राशि दर्ज करें',
     ratePlaceholder: 'दर दर्ज करें'
@@ -439,6 +523,34 @@ const I18N = {
     monthlyPrincipalHint: 'وہ حصہ جو قرض کا بیلنس کم کرتا ہے.',
     monthlyInterestSaved: 'اس ماہ بچا ہوا سود',
     monthlySavedHint: 'بغیر حکمت عملی کے مقابلے میں.',
+    donateStep1Title: 'رقم منتخب کریں',
+    donateStep1Sub: 'اس ویب سائٹ کی مدد کے لیے ایک بار کی donation منتخب کریں.',
+    donateSecure: 'آپ کی مدد domain اور maintenance cost میں مدد دیتی ہے.',
+    donateStep2Title: 'ادائیگی کا طریقہ منتخب کریں',
+    donateStep2Sub: 'نیچے دی گئی bank transfer details استعمال کریں.',
+    donateBankTitle: 'بینک ٹرانسفر',
+    donateBankSub: 'ڈائریکٹ ڈپازٹ',
+    donateAccountNameLabel: 'اکاؤنٹ نام',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'اکاؤنٹ نمبر',
+    donateStep3Title: 'آپ کی donation',
+    donateStep3Sub: 'آپ کے تعاون کا شکریہ.',
+    donateAmountLabel: 'رقم',
+    donateTotalLabel: 'کل',
+    donateCopyButton: 'بینک details کاپی کریں',
+    donateCopiedButton: 'کاپی ہو گیا',
+    donateNote: 'ایک بار کی donation • کوئی hidden fees نہیں',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "تیز بینک ادائیگی",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "والیٹ ادائیگی",
+    donateCreditCardTitle: "کریڈٹ کارڈ",
+    donateCreditCardSub: "کارڈ ادائیگی",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "آن لائن ادائیگی",
+    donateApplePayInfo: "جب آپ کا payment processor شامل ہوگا تب Apple Pay جوڑا جا سکے گا۔",
+    donateCreditCardInfo: "جب Stripe یا کوئی اور processor شامل ہوگا تب credit card payment جوڑی جا سکے گی۔",
+    donatePaypalInfo: "جب آپ کا PayPal donation link شامل ہوگا تب PayPal جوڑا جا سکے گا۔",
     datePlaceholder: 'دن / مہینہ / سال',
     amountPlaceholder: 'رقم درج کریں',
     ratePlaceholder: 'شرح درج کریں'
@@ -549,6 +661,34 @@ const I18N = {
     monthlyPrincipalHint: '用于减少贷款余额的部分。',
     monthlyInterestSaved: '本月节省利息',
     monthlySavedHint: '与无策略相比。',
+    donateStep1Title: '选择金额',
+    donateStep1Sub: '选择一次性捐助来支持本网站。',
+    donateSecure: '你的支持有助于支付域名和维护费用。',
+    donateStep2Title: '选择付款方式',
+    donateStep2Sub: '请使用以下银行转账信息。',
+    donateBankTitle: '银行转账',
+    donateBankSub: '直接存款',
+    donateAccountNameLabel: '账户名',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: '账号',
+    donateStep3Title: '你的捐助',
+    donateStep3Sub: '感谢你的支持。',
+    donateAmountLabel: '金额',
+    donateTotalLabel: '总计',
+    donateCopyButton: '复制银行信息',
+    donateCopiedButton: '已复制',
+    donateNote: '一次性捐助 • 无隐藏费用',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "快速银行付款",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "钱包付款",
+    donateCreditCardTitle: "信用卡",
+    donateCreditCardSub: "银行卡付款",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "在线付款",
+    donateApplePayInfo: "添加支付处理器后即可连接 Apple Pay。",
+    donateCreditCardInfo: "添加 Stripe 或其他处理器后即可连接信用卡付款。",
+    donatePaypalInfo: "添加 PayPal 捐助链接后即可连接 PayPal。",
     datePlaceholder: '日 / 月 / 年',
     amountPlaceholder: '输入金额',
     ratePlaceholder: '输入利率'
@@ -659,6 +799,34 @@ const I18N = {
     monthlyPrincipalHint: 'La parte que reduce el saldo del préstamo.',
     monthlyInterestSaved: 'Interés ahorrado este mes',
     monthlySavedHint: 'Comparado con no usar estrategia.',
+    donateStep1Title: 'Elige un monto',
+    donateStep1Sub: 'Selecciona una donación única para apoyar este sitio web.',
+    donateSecure: 'Tu apoyo ayuda a cubrir los costos del dominio y mantenimiento.',
+    donateStep2Title: 'Elige un método de pago',
+    donateStep2Sub: 'Usa los datos de transferencia bancaria abajo.',
+    donateBankTitle: 'Transferencia bancaria',
+    donateBankSub: 'Depósito directo',
+    donateAccountNameLabel: 'Nombre de cuenta',
+    donateBsbLabel: 'BSB',
+    donateAccountNumberLabel: 'Número de cuenta',
+    donateStep3Title: 'Tu donación',
+    donateStep3Sub: 'Gracias por tu apoyo.',
+    donateAmountLabel: 'Monto',
+    donateTotalLabel: 'Total',
+    donateCopyButton: 'Copiar datos bancarios',
+    donateCopiedButton: 'Copiado',
+    donateNote: 'Donación única • Sin cargos ocultos',
+    donatePayIdTitle: "PayID",
+    donatePayIdSub: "Pago bancario rápido",
+    donateApplePayTitle: "Apple Pay",
+    donateApplePaySub: "Pago con billetera",
+    donateCreditCardTitle: "Tarjeta de crédito",
+    donateCreditCardSub: "Pago con tarjeta",
+    donatePaypalTitle: "PayPal",
+    donatePaypalSub: "Pago en línea",
+    donateApplePayInfo: "Apple Pay se puede conectar una vez que agregues tu procesador de pagos.",
+    donateCreditCardInfo: "Los pagos con tarjeta se pueden conectar una vez que agregues Stripe u otro procesador.",
+    donatePaypalInfo: "PayPal se puede conectar una vez que agregues tu enlace de donación de PayPal.",
     datePlaceholder: 'Día / Mes / Año',
     amountPlaceholder: 'Ingresa monto',
     ratePlaceholder: 'Ingresa tasa'
@@ -873,6 +1041,37 @@ function setStaticText() {
   setText('monthlyPrincipalHint', t('monthlyPrincipalHint'));
   setText('monthlySavedLabel', t('monthlyInterestSaved'));
   setText('monthlySavedHint', t('monthlySavedHint'));
+
+
+  setText('donateStep1Title', t('donateStep1Title'));
+  setText('donateStep1Sub', t('donateStep1Sub'));
+  setText('donateSecure', t('donateSecure'));
+  setText('donateStep2Title', t('donateStep2Title'));
+  setText('donateStep2Sub', t('donateStep2Sub'));
+  setText('donateBankTitle', t('donateBankTitle'));
+  setText('donateBankSub', t('donateBankSub'));
+  setText('donateAccountNameLabel', t('donateAccountNameLabel'));
+  setText('donateBsbLabel', t('donateBsbLabel'));
+  setText('donateAccountNumberLabel', t('donateAccountNumberLabel'));
+  setText('donateStep3Title', t('donateStep3Title'));
+  setText('donateStep3Sub', t('donateStep3Sub'));
+  setText('donateAmountLabel', t('donateAmountLabel'));
+  setText('donateTotalLabel', t('donateTotalLabel'));
+
+  setText('donatePayIdTitle', t('donatePayIdTitle'));
+  setText('donatePayIdSub', t('donatePayIdSub'));
+  setText('donateApplePayTitle', t('donateApplePayTitle'));
+  setText('donateApplePaySub', t('donateApplePaySub'));
+  setText('donateCreditCardTitle', t('donateCreditCardTitle'));
+  setText('donateCreditCardSub', t('donateCreditCardSub'));
+  setText('donatePaypalTitle', t('donatePaypalTitle'));
+  setText('donatePaypalSub', t('donatePaypalSub'));
+  setText('donateApplePayInfo', t('donateApplePayInfo'));
+  setText('donateCreditCardInfo', t('donateCreditCardInfo'));
+  setText('donatePaypalInfo', t('donatePaypalInfo'));
+
+  setText('copyDonationDetails', t('donateCopyButton'));
+  setText('donateNote', t('donateNote'));
 
   const footer = document.querySelector('.footer-brand span');
   if (footer) footer.textContent = t('footerLine');
@@ -1200,6 +1399,70 @@ function update() {
   drawChart(base, offset, plan);
 }
 
+
+function setupDonationSection() {
+  const amountButtons = document.querySelectorAll('.donation-amount');
+  const methodButtons = document.querySelectorAll('.payment-method');
+  const detailPanels = document.querySelectorAll('.payment-details-panel');
+  const amountText = $('donationAmountText');
+  const totalText = $('donationTotalText');
+  const copyBtn = $('copyDonationDetails');
+  let currentMethod = 'payid';
+
+  function setAmount(amount) {
+    const formatted = new Intl.NumberFormat(localeCode(), {
+      style: 'currency',
+      currency: 'AUD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(amount);
+
+    if (amountText) amountText.textContent = formatted;
+    if (totalText) totalText.textContent = formatted;
+    amountButtons.forEach(btn => btn.classList.toggle('active', Number(btn.dataset.amount) === Number(amount)));
+  }
+
+  function setMethod(method) {
+    currentMethod = method;
+    methodButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.method === method));
+    detailPanels.forEach(panel => panel.classList.toggle('active', panel.dataset.panel === method));
+    if (copyBtn) {
+      if (method === 'payid') {
+        copyBtn.style.display = '';
+        copyBtn.textContent = t('donateCopyButton');
+      } else {
+        copyBtn.style.display = 'none';
+      }
+    }
+  }
+
+  amountButtons.forEach(btn => btn.addEventListener('click', () => setAmount(Number(btn.dataset.amount || 10))));
+  methodButtons.forEach(btn => btn.addEventListener('click', () => setMethod(btn.dataset.method || 'payid')));
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const details = 'Payment details
+Account name: Barat
+BSB: 066134
+Account number: 10743984';
+      try {
+        await navigator.clipboard.writeText(details);
+        copyBtn.classList.add('copied');
+        copyBtn.textContent = t('donateCopiedButton');
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          if (currentMethod === 'payid') copyBtn.textContent = t('donateCopyButton');
+        }, 1800);
+      } catch (e) {
+        copyBtn.textContent = 'Barat | BSB 066134 | 10743984';
+      }
+    });
+  }
+
+  setAmount(10);
+  setMethod('payid');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const langSelect = $('languageSelect');
   if (langSelect) {
@@ -1217,5 +1480,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   window.addEventListener('resize', update);
+  setupDonationSection();
   update();
 });
