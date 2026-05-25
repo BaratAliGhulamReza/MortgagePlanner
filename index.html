@@ -220,80 +220,115 @@
 
 
 <section class="container donation-section" id="support">
-  <div class="donation-shell">
-    <div class="donation-copy">
-      <span class="donation-kicker" id="donationKicker">Support this website</span>
-      <h2 id="donationTitle">Help keep this tool online</h2>
-      <p id="donationText">Your donation helps cover domain name and maintenance costs so this mortgage planner can stay free to use.</p>
+  <div class="donation-hero">
+    <div class="donation-heart">♡</div>
+    <h2 id="donationTitle">Support this website</h2>
+    <p id="donationText">Your donation helps cover domain costs and hosting, so we can keep this mortgage planning tool free and online for everyone.</p>
+  </div>
 
-      <div class="donation-trust-list">
-        <div class="donation-trust-item">
-          <div class="donation-trust-icon">◎</div>
-          <div>
-            <strong id="donationTrust1Title">Domain and hosting</strong>
-            <span id="donationTrust1Text">Helps cover the ongoing cost of keeping the website live.</span>
-          </div>
-        </div>
-        <div class="donation-trust-item">
-          <div class="donation-trust-icon">◌</div>
-          <div>
-            <strong id="donationTrust2Title">Free for everyone</strong>
-            <span id="donationTrust2Text">Your support helps keep this tool available to the community.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="donation-checkout">
-      <div class="donation-checkout-top">
+  <div class="donation-checkout-card">
+    <div class="donation-column">
+      <div class="donation-step-head">
+        <span class="donation-step-number">1</span>
         <div>
-          <span class="donation-step" id="donationStepAmount">Choose an amount</span>
-          <div class="donation-summary">
-            <small id="donationSummaryLabel">Selected amount</small>
-            <strong id="donationSummaryAmount">$5</strong>
-          </div>
+          <h3 id="donationStepAmount">Choose an amount</h3>
+          <p id="donationAmountSub">Select a one-time donation</p>
         </div>
-        <div class="donation-chip" id="donationSecureLabel">Secure support</div>
       </div>
 
       <div class="donation-amounts" aria-label="Donation amount">
-        <button type="button" class="donation-amount active" data-amount="5">$5</button>
-        <button type="button" class="donation-amount" data-amount="10">$10</button>
+        <button type="button" class="donation-amount" data-amount="5">$5</button>
+        <button type="button" class="donation-amount active" data-amount="10">$10</button>
         <button type="button" class="donation-amount" data-amount="20">$20</button>
         <button type="button" class="donation-amount" data-amount="50">$50</button>
         <button type="button" class="donation-amount" data-amount="100">$100</button>
       </div>
 
-      <div class="donation-divider"></div>
+      <div class="donation-micro-note">
+        <span class="donation-mini-icon">♢</span>
+        <span id="donationAmountNote">100% secure. Your support makes a difference.</span>
+      </div>
+    </div>
 
-      <span class="donation-step" id="donationStepMethod">Choose payment method</span>
+    <div class="donation-column">
+      <div class="donation-step-head">
+        <span class="donation-step-number">2</span>
+        <div>
+          <h3 id="donationStepMethod">Choose a payment method</h3>
+          <p id="donationMethodSub">Secure and encrypted checkout</p>
+        </div>
+      </div>
+
       <div class="donation-methods" aria-label="Payment method">
         <button type="button" class="donation-method active" data-method="card">
-          <span class="donation-method-icon">◫</span>
+          <span class="donation-method-icon">▭</span>
           <span id="donationCardMethod">Credit card</span>
+          <span class="donation-radio"></span>
         </button>
         <button type="button" class="donation-method" data-method="applepay">
-          <span class="donation-method-icon">◐</span>
+          <span class="donation-method-icon apple"> Pay</span>
           <span id="donationAppleMethod">Apple Pay</span>
+          <span class="donation-radio"></span>
         </button>
       </div>
 
-      <div class="donation-meta-row">
-        <div class="donation-meta-item">
-          <strong id="donationMeta1Title">Why donate?</strong>
-          <span id="donationMeta1Text">Helps maintain the domain name and keep the tool online.</span>
-        </div>
-        <div class="donation-meta-item">
-          <strong id="donationMeta2Title">Checkout</strong>
-          <span id="donationMeta2Text">Connect Stripe or another payment provider to go live.</span>
+      <div class="donation-micro-note">
+        <span class="donation-lock">▣</span>
+        <span id="donationMethodNote">Your payment information is secure and private.</span>
+      </div>
+    </div>
+
+    <div class="donation-column donation-summary-column">
+      <div class="donation-step-head">
+        <span class="donation-step-number">3</span>
+        <div>
+          <h3 id="donationSummaryTitle">Your donation</h3>
+          <p id="donationSummarySub">Thank you for your support!</p>
         </div>
       </div>
 
-      <button type="button" class="donation-submit" id="donationSubmit">Donate $5</button>
-      <p class="donation-note" id="donationNote">Secure payment link needs to be connected before donations go live.</p>
+      <div class="donation-summary-box">
+        <div class="donation-summary-row">
+          <span id="donationSummaryAmountLabel">Amount</span>
+          <strong id="donationSummaryAmount">$10.00</strong>
+        </div>
+        <div class="donation-summary-divider"></div>
+        <div class="donation-summary-row total">
+          <span id="donationSummaryTotalLabel">Total</span>
+          <strong id="donationSummaryTotal">$10.00</strong>
+        </div>
+      </div>
+
+      <button type="button" class="donation-submit" id="donationSubmit">♡ Donate $10</button>
+      <p class="donation-note" id="donationNote">One-time donation • No hidden fees</p>
+    </div>
+  </div>
+
+  <div class="donation-trust-row">
+    <div class="donation-trust-item">
+      <span class="donation-trust-icon">▱</span>
+      <div>
+        <strong id="donationTrust1Title">Secure & Encrypted</strong>
+        <span id="donationTrust1Text">Your data is safe with us</span>
+      </div>
+    </div>
+    <div class="donation-trust-item">
+      <span class="donation-trust-icon">✓</span>
+      <div>
+        <strong id="donationTrust2Title">Transparent & Honest</strong>
+        <span id="donationTrust2Text">No fees, no hidden costs</span>
+      </div>
+    </div>
+    <div class="donation-trust-item">
+      <span class="donation-trust-icon">♡</span>
+      <div>
+        <strong id="donationTrust3Title">Community Powered</strong>
+        <span id="donationTrust3Text">Built for you, by your support</span>
+      </div>
     </div>
   </div>
 </section>
+
 
 <footer class="site-footer" id="footer"><div class="container footer-inner"><div class="footer-brand"><a class="logo" href="#"><img class="icon-img" src="assets/icons/icon-10.svg" alt="icon 10" width="26" height="26">Mortgage Planner</a><span>Plan today. Enjoy tomorrow.</span></div><div class="footer-links"><div><h4>Product</h4><a href="#calculator">Calculator</a><a href="#">Strategies</a><a href="#">Saved plans</a></div><div><h4>Resources</h4><a href="#">Guides</a><a href="#">FAQs</a><a href="#">Glossary</a></div><div><h4>Company</h4><a href="#">About us</a><a href="#">Contact</a><a href="#">Privacy</a></div></div></div></footer>
 
