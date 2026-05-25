@@ -1171,7 +1171,6 @@ body{background:linear-gradient(180deg,#f3f5f7 0%,#f7f8fa 46%,#f3f5f7 100%);}
   background: #f4f5f7;
 }
 .hero-bg-scene{
-  content: url("../images/hero-clean-background-soft.png");
   display:block;
   width:100%;
   height:auto;
